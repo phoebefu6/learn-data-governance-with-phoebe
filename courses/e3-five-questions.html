@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exec session 3 · Five questions to ask your data team - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Exec session 3 of 4</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Executive track · Session 3 of 4</div>
+    <h1>Five questions to ask your <span class="accent">data team</span></h1>
+    <p class="sub">You cannot audit the pipelines yourself - and you don't need to. Five questions, asked in the right order, tell you everything about your data risk. This is the interrogation kit.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Exec track</span>
+      <span class="chip audience">C-level &amp; boards</span>
+      <span class="chip audience">No tech required</span>
+      <span class="chip audience">The interrogation kit</span>
+      <span class="chip time">30 min self-read · 45 min live</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-25 · The five questions</span>
+      <span class="a3" style="flex:4">25-42 · The boardroom moment</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>You don't need to see the pipelines</h2>
+    </div>
+    <p class="lede">Executives get talked out of asking data questions because the answers arrive wrapped in architecture diagrams. Ignore the wrapping. Data risk reduces to five questions any leader can ask in thirty minutes, no technical vocabulary required. For each one, this session gives you why it works, what a pass sounds like, and what a shrug is actually telling you. The shrug, it turns out, is the most informative answer in the set.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Ask it in your next meeting</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The five questions in the right order, a pass-versus-red-flag key for each, a scoring system that turns the answers into a funding decision, and the meta-signal that matters more than any single answer: whether your team responds with documents or with vibes.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE FIVE QUESTIONS ============ -->
+  <section class="section" id="five-questions">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · the interrogation kit</span>
+      <h2>The five questions, in order <span class="tag concept">14 min live</span></h2>
+    </div>
+    <p class="lede">Ask them in sequence - each one only makes sense if the one before it has an answer. Together they walk the whole lifecycle of your data: what you hold, whether you may use it, what happens when it leaks, when it dies, and who answers for it.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 448" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The five questions as a ladder: what we hold, who agreed, breach readiness, retention, ownership">
+        <style>
+          .e3qT { font: 700 18px Inter, sans-serif; fill: #FFFFFF; }
+          .e3qNum { font: 800 15px Inter, sans-serif; fill: #0B3B4A; }
+          .e3qSub { font: 400 13px Inter, sans-serif; fill: #5B7078; }
+          .e3qNote { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="16" width="840" height="46" rx="10" fill="#0B3B4A"/>
+        <circle cx="48" cy="39" r="14" fill="#C7EBEF"/>
+        <text class="e3qNum" x="43" y="44">1</text>
+        <text class="e3qT" x="76" y="45">What personal data do we hold, and where?</text>
+        <text class="e3qSub" x="76" y="78">Pass: a living inventory with an owner. Red flag: "it's mostly in the warehouse."</text>
+        <rect x="20" y="96" width="840" height="46" rx="10" fill="#0E7490"/>
+        <circle cx="48" cy="119" r="14" fill="#C7EBEF"/>
+        <text class="e3qNum" x="43" y="124">2</text>
+        <text class="e3qT" x="76" y="125">Who said we could use it this way?</text>
+        <text class="e3qSub" x="76" y="158">Pass: consent and purpose records you can open. Red flag: "users clicked accept at some point."</text>
+        <rect x="20" y="176" width="840" height="46" rx="10" fill="#1E90A8"/>
+        <circle cx="48" cy="199" r="14" fill="#C7EBEF"/>
+        <text class="e3qNum" x="43" y="204">3</text>
+        <text class="e3qT" x="76" y="205">Are we breach-ready?</text>
+        <text class="e3qSub" x="76" y="238">Pass: a drilled playbook, named roles, clocks known cold. Red flag: "IT handles security."</text>
+        <rect x="20" y="256" width="840" height="46" rx="10" fill="#0E7490"/>
+        <circle cx="48" cy="279" r="14" fill="#C7EBEF"/>
+        <text class="e3qNum" x="43" y="284">4</text>
+        <text class="e3qT" x="76" y="285">How long do we keep it - and does data actually die?</text>
+        <text class="e3qSub" x="76" y="318">Pass: a retention schedule with real deletion. Red flag: "storage is cheap."</text>
+        <rect x="20" y="336" width="840" height="46" rx="10" fill="#0B3B4A"/>
+        <circle cx="48" cy="359" r="14" fill="#C7EBEF"/>
+        <text class="e3qNum" x="43" y="364">5</text>
+        <text class="e3qT" x="76" y="365">Who owns each dataset?</text>
+        <text class="e3qSub" x="76" y="398">Pass: named owners plus a steward doing the day-to-day. Red flag: "the data team."</text>
+        <rect x="20" y="418" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="e3qNote" x="44" y="430">One point per confident, documented answer. Bring the score to session 4 - it prices your program.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the five questions and what a pass sounds like</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Q1 · What personal data do we hold, and where?<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Why it works:</strong> every other promise your company makes about data - keeping it safe, deleting it, honouring consent - is impossible without knowing what and where it is. This question tests the foundation everything else stands on.</p>
+        <ul>
+          <li><strong>A pass sounds like:</strong> "Here's the inventory - what we hold, where it lives, why we have it, who owns it. Updated last quarter." The formal version is called a record of processing; your practitioners build one in DPO session 3.</li>
+          <li><strong>The red flag:</strong> "It's mostly in the warehouse." <em>Mostly</em> is doing a lot of work in that sentence, and none of it is reassuring.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>At Himalaya,</strong> from your chair as CEO: personal data on 8 million consumers is scattered across forty-plus warehouse schemas and three SaaS tools, and when you asked this exact question, the room produced a diagram of the pipelines but not a list of the data. A map of the plumbing is not a map of what's in the pipes.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Q2 · Who said we could use it this way?<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Why it works:</strong> holding data legally and using it legally are different things. This question tests the two promises from session 2 that trip companies most - consent and purpose. Data collected to deliver a service does not automatically become fuel for marketing, analytics, or your next AI feature.</p>
+        <ul>
+          <li><strong>A pass sounds like:</strong> "Consent captured at signup, purpose statements on every form, records in the CRM - here's one." Openable records, tied to actual people.</li>
+          <li><strong>The red flag:</strong> "Users clicked accept at some point." At some point. On some version of some form. Covering some uses. That answer has funded a lot of regulatory enforcement.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>At Himalaya,</strong> the 8-million-consumer marketing list runs on exactly this vintage of consent - nobody can say which consumers agreed to what, or when. You met this risk in session 2 as Ilsa's campaign problem; this question is how you would have found it a year earlier.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Q3 · Are we breach-ready?<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Why it works:</strong> breaches are a when, not an if - so this question tests preparation, which is measurable, instead of prevention, which is a wish. Readiness also happens to be what regulators weigh most heavily after an incident.</p>
+        <ul>
+          <li><strong>A pass sounds like:</strong> "There's a playbook, we drilled it in March, these three people run it, and the clocks are on the wall: assess within 30 days, notify the regulator within 3 if it's notifiable." Named roles, real rehearsal, deadlines known cold.</li>
+          <li><strong>The red flag:</strong> "IT handles security." A breach is a whole-company incident with a legal clock - the moment your team frames it as an IT matter, you know nobody has thought past the firewall.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>At Himalaya,</strong> a misconfigured export left consumer records - including health notes - exposed for six days before anyone noticed. Nobody knew whose job it was to notice. That is what an honest "no" to this question looks like in the wild; your practitioners drill the full response in DPO session 5.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Q4 · How long do we keep it - and does data actually die?<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Why it works:</strong> every record you hold is risk on the balance sheet - it can leak, be subpoenaed, or show up in a headline. Data you no longer need is risk with no offsetting return. This question tests whether anyone in your company ever deletes anything on purpose.</p>
+        <ul>
+          <li><strong>A pass sounds like:</strong> "There's a retention schedule - this data type lives this long, then it's deleted, and here's the log showing deletion actually runs." The second half matters: schedules without deletion are decoration.</li>
+          <li><strong>The red flag:</strong> "Storage is cheap." Storage is cheap. Liability is not. That answer confuses the cost of keeping data with the cost of holding it.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>At Himalaya,</strong> consumer data belonging to clients who left the platform years ago still sits in the warehouse - people with no relationship to the company, whose data can now only ever hurt it. Retention policy: "keep everything." Which is to say: none. The fix is built in DPO session 6.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Q5 · Who owns each dataset?<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Why it works:</strong> this is the thirty-second test from session 1, weaponised. Every strong answer to questions 1 through 4 depends on someone being accountable for each dataset. No owner, and every fix you fund this year quietly decays by next year.</p>
+        <ul>
+          <li><strong>A pass sounds like:</strong> "Customer data - owned by the VP of Customer Success, stewarded day-to-day by a named person on her team. Here's the full owner list." Names, not org boxes.</li>
+          <li><strong>The red flag:</strong> "The data team." A team name is where accountability goes to hide. The data team runs the systems; owning what the data <em>means</em> and who may use it is a business job - and if it belongs to everyone, it belongs to no one.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>At Himalaya,</strong> Raj's platform team "owns" all forty-plus schemas - meaning they keep the pipelines running while nobody decides what's allowed. When you asked who approved keeping ex-clients' data forever, the answer was silence. Ownership with names is what DPO session 7 builds.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: READING THE ANSWERS ============ -->
+  <section class="section" id="reading-answers">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · scoring</span>
+      <h2>Reading the answers <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">The questions are half the kit. The other half is knowing what to do with the answers - and noticing the signal underneath them.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scoring the interrogation: five, three to four, or zero to two confident answers, and the documents versus vibes versus shrug signal">
+        <style>
+          .e3sB { font: 800 24px Inter, sans-serif; fill: #FFFFFF; }
+          .e3sT { font: 700 15px Inter, sans-serif; fill: #FFFFFF; }
+          .e3sS { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .e3sBd { font: 800 24px Inter, sans-serif; fill: #12232B; }
+          .e3sTd { font: 700 15px Inter, sans-serif; fill: #12232B; }
+          .e3sSd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .e3sC { font: 700 13px Inter, sans-serif; fill: #12232B; }
+          .e3sCw { font: 700 13px Inter, sans-serif; fill: #3A2400; }
+          .e3sNote { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="24" width="270" height="104" rx="14" fill="#0B3B4A"/>
+        <text class="e3sB" x="42" y="62">5 of 5</text>
+        <text class="e3sT" x="42" y="88">Fund maintenance</text>
+        <text class="e3sS" x="42" y="110">and re-ask next year</text>
+        <rect x="305" y="24" width="270" height="104" rx="14" fill="#1E90A8"/>
+        <text class="e3sB" x="327" y="62">3 - 4</text>
+        <text class="e3sT" x="327" y="88">Fund the fixes</text>
+        <text class="e3sS" x="327" y="110">you now know which ones</text>
+        <rect x="590" y="24" width="270" height="104" rx="14" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="e3sBd" x="612" y="62">0 - 2</text>
+        <text class="e3sTd" x="612" y="88">Fund a program</text>
+        <text class="e3sSd" x="612" y="110">your competitors likely scored the same</text>
+        <rect x="20" y="176" width="270" height="52" rx="12" fill="#C7EBEF"/>
+        <text class="e3sC" x="42" y="207">Answered with documents ✓</text>
+        <rect x="305" y="176" width="270" height="52" rx="12" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="e3sC" x="327" y="207">Answered with vibes ◐</text>
+        <rect x="590" y="176" width="270" height="52" rx="12" fill="#F59E0B"/>
+        <text class="e3sCw" x="612" y="207">Answered with a shrug ✗</text>
+        <rect x="20" y="264" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="e3sNote" x="44" y="276">The meta-signal: HOW your team answers matters more than what they say.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the score bands and the documents-vibes-shrug signal</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The score is a funding decision<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Score one point per question answered confidently, with documents. Then the score tells you what to fund:</p>
+        <ul>
+          <li><strong>5 of 5:</strong> rare and excellent. Fund maintenance - governance decays without care - and re-run the interrogation annually so it stays true.</li>
+          <li><strong>3 to 4:</strong> the healthy-company norm. You now know precisely which gaps to fund, which beats every consultant's assessment you could commission.</li>
+          <li><strong>0 to 2:</strong> you have a program to start, not a crisis to panic over. The genuinely good news: most of your competitors would score the same - which means moving first is available.</li>
+        </ul>
+        <p>And watch the texture of the answers, not just the count. <strong>Documents beat vibes, vibes beat shrugs.</strong> A team that says "here's the schedule, here's the log" has a system. A team that says "we're generally pretty careful" has a culture, which evaporates with its next resignation. A shrug is the most honest answer you'll get all day - it tells you exactly where the risk lives, free of charge.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The maturity idea, in one paragraph<span class="mini">1 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>What you just did informally, the industry does formally: capability maturity scoring. Frameworks exist for it - DCAM from the EDM Council is the best known - where a team self-scores each governance capability and repeats the exercise yearly to show progress. The full framework is member-gated, so we teach the concept honestly rather than inventing its contents; your practitioners get the scoring concept in DPO session 7. The exec version needs one sentence: <strong>ask your team for a one-page scorecard, refreshed annually</strong> - your five-question score is the napkin edition, and it is a perfectly respectable napkin.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BOARDROOM MOMENT ============ -->
+  <section class="section" id="boardroom">
+    <div class="section-kicker">
+      <span class="klabel">The boardroom moment</span>
+      <h2>Run the interrogation <span class="tag demo">★ 15 min · work it live</span></h2>
+    </div>
+    <p class="lede">This one isn't hypothetical. You are Mara, the five questions are printed, and Raj - Head of Data - has thirty minutes on your calendar. Here is exactly how to run it.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Schedule 30 minutes with your data lead.</strong> Frame it honestly: "I want to understand our data risk - five questions, no prep, no slides." No prep is the point; you want the real state, not the rehearsed one.</p></div>
+      <div class="step"><p><strong>Ask the five in order,</strong> and resist the urge to soften them. Silence after a question is data. Let it sit.</p></div>
+      <div class="step"><p><strong>Note each answer as document, vibes, or shrug.</strong> Three columns on one page. Don't argue with any answer, don't fix anything live - you are measuring, not managing.</p></div>
+      <div class="step"><p><strong>Score it: one point per confident, documented answer.</strong> Then place yourself on the band: 5 fund maintenance, 3-4 fund fixes, 0-2 fund a program.</p></div>
+      <div class="step"><p><strong>Pick ONE question to fund fixing first.</strong> Not all five - one. Usually the worst-scoring one, since each question underpins the next. That single choice becomes the memo you'll write in session 4.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Ask it in your next meeting - the answer-reading prompt</span>You are my data protection adviser. I just asked my data team five questions: (1) what personal data do we hold and where, (2) who said we could use it this way, (3) are we breach-ready, (4) how long do we keep it and does data actually die, (5) who owns each dataset.
+
+Here are their raw answers, roughly as spoken: [paste the answers, one per question - include the hedges and the "I think"s, they matter].
+
+Give me:
+1. A pass / vibes / red-flag verdict on each answer, with the one detail that decided it
+2. The two follow-up questions most likely to expose whether the good answers are real
+3. An overall risk read in three sentences of plain business language - no legal citations
+4. Which ONE of the five I should fund fixing first, and why that one unlocks the others
+
+Be blunt. If an answer is confident but content-free, say so.</div>
+
+    <div class="callout tip">
+      <strong>Why no prep beats prepared</strong>
+      A prepared session tests your team's slide-making. An unprepared one tests your company. You are not trying to catch anyone out - you're finding out what would surface in the first hour of a real incident, while it's still cheap to know.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Run it for real <span class="tag exercise">◐ 45 min total</span></h2>
+    </div>
+    <ul>
+      <li><strong>Book the 30 minutes</strong> with your data lead this week - the interrogation only works while your resolve is fresh and their slides are not.</li>
+      <li><strong>Run the five, score the answers</strong> - document, vibes, or shrug for each, one point per documented pass.</li>
+      <li><strong>Bring the score to Exec session 4</strong> along with your pick for the one question to fund first. Session 4 turns that score into a board memo.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">Each question fronts a discipline your practitioners build hands-on in the 8-session DPO track on this site - sessions 3 through 7. You get the interrogation; they get the machinery.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Data inventory / record of processing - Q1</span><span class="note">Exec-level; built for real in DPO session 3</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Consent + purpose records - Q2</span><span class="note">Exec-level; the fix in DPO session 4</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Breach readiness + the PDPA clocks - Q3</span><span class="note">30-day assess / 3-day PDPC; drilled in DPO session 5</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Retention + real deletion - Q4</span><span class="note">Exec-level; schedule built in DPO session 6</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Ownership + stewardship - Q5</span><span class="note">Exec-level; operating model in DPO session 7</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Maturity scoring (DCAM concept)</span><span class="note">Concept only - the framework is member-gated; DPO session 7</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · You've asked the five questions. The strongest signal of your real risk is...</p>
+      <button class="qopt" type="button">A · Whether the team asked for more budget</button>
+      <button class="qopt" type="button">B · The size of your data team</button>
+      <button class="qopt" type="button">C · Whether the answers came with documents or with vibes</button>
+      <p class="qwhy">How people answer beats what they say. Documents mean a system; vibes mean a culture that leaves with its next resignation; a shrug is a free risk report.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · "Storage is cheap - we keep everything." That answer is...</p>
+      <button class="qopt" type="button">A · A retention red flag - data that never dies is liability with no return</button>
+      <button class="qopt" type="button">B · Prudent - more data means better analytics later</button>
+      <button class="qopt" type="button">C · Fine, as long as the data is encrypted</button>
+      <p class="qwhy">Storage is cheap; liability is not. Every record you no longer need can still leak, be subpoenaed, or headline - encryption doesn't change whether you should hold it at all.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · "Who owns the customer dataset?" - "The data team." That answer is...</p>
+      <button class="qopt" type="button">A · A pass - they run the systems, so they own the data</button>
+      <button class="qopt" type="button">B · A red flag - a team name means no named owner, and accountability that belongs to everyone belongs to no one</button>
+      <button class="qopt" type="button">C · Only a problem in regulated industries</button>
+      <p class="qwhy">The data team runs the plumbing. Deciding what the data means and who may use it is a business accountability - it needs a name, not an org box.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Exec session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Q1 · What personal data do we hold, and where?</b><span>Red flag: "it's mostly in the warehouse."</span></div>
+      <div class="cheat-item"><b>Q2 · Who said we could use it this way?</b><span>Red flag: "users clicked accept at some point."</span></div>
+      <div class="cheat-item"><b>Q3 · Are we breach-ready?</b><span>Red flag: "IT handles security."</span></div>
+      <div class="cheat-item"><b>Q4 · How long do we keep it - and does data actually die?</b><span>Red flag: "storage is cheap."</span></div>
+      <div class="cheat-item"><b>Q5 · Who owns each dataset?</b><span>Red flag: "the data team."</span></div>
+      <div class="cheat-item"><b>The scoring</b><span>5 = fund maintenance · 3-4 = fund the fixes · 0-2 = fund a program (so did your competitors).</span></div>
+      <div class="cheat-item"><b>The meta-signal</b><span>Documents beat vibes, vibes beat shrugs. How they answer &gt; what they say.</span></div>
+      <div class="cheat-item"><b>The clocks your team should know cold</b><span>Assess a breach within 30 days; notify the PDPC within 3 days if it's notifiable.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Exec session 3 of 4 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="e2-rules-plain-english.html">← Prev: The rules in plain English</a> &nbsp;·&nbsp; <a href="e4-governance-advantage.html">Next: Governance as advantage →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>

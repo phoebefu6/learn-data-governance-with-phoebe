@@ -129,16 +129,20 @@
     });
   });
 
-  /* Journey strip: you-are-here across the 8 sessions */
+  /* Journey strip: you-are-here across the sessions (DPO track of 8, exec track of 4) */
   var crumb = document.querySelector(".toolbar .crumb");
   var mastheadWrap = document.querySelector(".masthead .wrap");
   if (crumb && mastheadWrap) {
-    var m = crumb.textContent.match(/Session (\d) of 8/);
+    var mx = crumb.textContent.match(/Exec session (\d) of 4/);
+    var m = mx || crumb.textContent.match(/Session (\d) of 8/);
     if (m) {
       var current = parseInt(m[1], 10);
-      var pages = ["01-foundations.html", "02-the-law.html", "03-know-your-data.html",
-                   "04-consent-and-marketing.html", "05-protection-and-breach.html",
-                   "06-data-lifecycle.html", "07-operating-model.html", "08-capstone.html"];
+      var pages = mx
+        ? ["e1-board-issue.html", "e2-rules-plain-english.html",
+           "e3-five-questions.html", "e4-governance-advantage.html"]
+        : ["01-foundations.html", "02-the-law.html", "03-know-your-data.html",
+           "04-consent-and-marketing.html", "05-protection-and-breach.html",
+           "06-data-lifecycle.html", "07-operating-model.html", "08-capstone.html"];
       var journey = document.createElement("div");
       journey.className = "journey";
       var jl = document.createElement("span");

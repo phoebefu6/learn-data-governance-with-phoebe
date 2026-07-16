@@ -1,8 +1,13 @@
 # learn-data-governance-with-phoebe
 
-An 8-session course that turns a data practitioner (DA / DE / DS / AI) into someone who can
-run as a **Data Protection Officer (DPO)** - protect the people in the data, and protect the
-company from the fine.
+A two-track data governance course built on one running company.
+
+- **DPO track (8 sessions)** - turns a data practitioner (DA / DE / DS / AI) into someone who
+  can run as a **Data Protection Officer**: protect the people in the data, and protect the
+  company from the fine.
+- **Executive track (4 sessions)** - gives C-level leaders, boards, and curious LinkedIn
+  readers the working ideas in plain language: what ignoring governance costs, the rules in
+  one page, the five questions that expose real risk, and the investment case.
 
 - **Legal lens:** Singapore **PDPA** as the home law (primary), **GDPR** as the international mirror.
 - **Running case:** everything is taught by governing one company, **Himalaya** - a Singapore-based
@@ -11,7 +16,16 @@ company from the fine.
 - **Format:** eight 45-minute sessions, easy to hard, each ending with a build-along on Himalaya,
   homework, a 3-question quiz, a sources-covered list, and a cheat sheet.
 
-## Sessions
+## Executive track
+
+| # | Session | Focus |
+|---|---------|-------|
+| E1 | Why governance is a board issue | the four bills · the mandatory DPO · the 30-second test |
+| E2 | The rules in plain English | PDPA's 11 promises · DNC · GDPR in 5 minutes |
+| E3 | Five questions to ask your data team | the interrogation kit + how to score the answers |
+| E4 | Governance as advantage | safe AI bets · faster deals · the board memo |
+
+## DPO track
 
 | # | Session | Focus |
 |---|---------|-------|

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exec session 1 · Why data governance is a board issue - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=2">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Exec session 1 of 4</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Executive track · Session 1 of 4</div>
+    <h1>Why data governance is a <span class="accent">board issue</span></h1>
+    <p class="sub">The fine that can reach 10% of turnover, the officer the law says you must appoint, and the one test that tells you in thirty seconds whether your company's data is actually governed.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Exec track</span>
+      <span class="chip audience">C-level &amp; boards</span>
+      <span class="chip audience">No tech required</span>
+      <span class="chip audience">Singapore + EU</span>
+      <span class="chip time">30 min self-read · 45 min live</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-25 · The three ideas</span>
+      <span class="a3" style="flex:4">25-42 · The boardroom moment</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Why this track exists</h2>
+    </div>
+    <p class="lede">Your data team has an 8-session deep track that turns a practitioner into a Data Protection Officer. This track is the other half of the deal: four short sessions that give the people who fund, sponsor, and answer for data - executives, boards, founders - the working ideas in plain language. No tooling, no legal jargon. Just what can go wrong, what the law expects of you personally, and the questions that make you the sharpest person in the room when data comes up.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Ask it in your next meeting</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A clear-eyed read on what ungoverned data actually costs, why Singapore law makes a Data Protection Officer mandatory for your organisation (yes, yours), the thirty-second test for whether your data is governed, and a board-ready way to respond when an incident email lands. We follow one company, Himalaya, whose story you will recognise.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE BILL ============ -->
+  <section class="section" id="the-bill">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · what ungoverned data costs</span>
+      <h2>The bill arrives eventually <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">Data risk feels abstract until it is a number with your company's name on it. There are four ways the bill arrives - only one of them is the regulator.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four ways ungoverned data costs a company: fines, trust, deals, distraction">
+        <style>
+          .ebT { font: 700 17px Inter, sans-serif; fill: #12232B; }
+          .ebW { font: 700 17px Inter, sans-serif; fill: #FFFFFF; }
+          .ebB { font: 800 26px Inter, sans-serif; fill: #FFFFFF; }
+          .ebX { font: 400 13px Inter, sans-serif; fill: #5B7078; }
+          .ebXw { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .ebN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="24" width="410" height="110" rx="14" fill="#0B3B4A"/>
+        <text class="ebW" x="44" y="56">1 · The fine</text>
+        <text class="ebB" x="44" y="92">S$1M or 10%</text>
+        <text class="ebXw" x="44" y="116">of SG turnover, whichever higher. GDPR: EUR 20M or 4% global.</text>
+        <rect x="450" y="24" width="410" height="110" rx="14" fill="#0E7490"/>
+        <text class="ebW" x="474" y="56">2 · The trust hit</text>
+        <text class="ebB" x="474" y="92">Churn + headlines</text>
+        <text class="ebXw" x="474" y="116">Customers leave quietly; the press release writes itself.</text>
+        <rect x="20" y="150" width="410" height="110" rx="14" fill="#1E90A8"/>
+        <text class="ebW" x="44" y="182">3 · The blocked deal</text>
+        <text class="ebB" x="44" y="218">Due diligence</text>
+        <text class="ebXw" x="44" y="242">Enterprise buyers and investors now audit data practices first.</text>
+        <rect x="450" y="150" width="410" height="110" rx="14" fill="#7DD3DC"/>
+        <text class="ebT" x="474" y="182">4 · The distraction</text>
+        <text class="ebT" x="474" y="218" style="font: 800 26px Inter, sans-serif">Months of cleanup</text>
+        <text class="ebX" x="474" y="242">An incident consumes your best people for a quarter.</text>
+        <rect x="20" y="284" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="ebN" x="44" y="296">The fine is the smallest of the four. Trust, deals, and time cost more - and no insurance covers them.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the four ways the bill arrives</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Meet Himalaya - a story you already know<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Himalaya</strong> is a Singapore-based B2B2C SaaS platform: 1,200 business clients, 8 million end consumers, $40M ARR, growing fast. Like most growth companies, it collected data first and asked questions never. Then three things happened in one quarter:</p>
+        <ul>
+          <li>A misconfigured export left <strong>consumer records - including health notes - exposed for six days</strong> before anyone noticed.</li>
+          <li>Marketing kept blasting SMS and voice campaigns to the 8M consumer base with <strong>no do-not-call check</strong> - the exact practice a competitor was just fined for.</li>
+          <li>When the CEO asked "what personal data do we actually hold?", <strong>nobody could answer</strong>. Not the CTO, not the data team. Forty-plus databases, no map.</li>
+        </ul>
+        <p>The board's response was to appoint the company's first Data Protection Officer. This track shows you the story from the CEO's chair - what she should ask, fund, and expect.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The uncomfortable question:</strong> if a journalist called your office today and asked "what personal data do you hold on your customers, and who approved keeping it?" - could anyone in your company give a confident answer within the hour? At Himalaya the honest answer was no. In most companies it still is.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The numbers that concentrate the mind<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two rulebooks matter to a Singapore company with international customers, and both carry real penalties:</p>
+        <table class="clean">
+          <thead><tr><th>Rulebook</th><th>Who it protects</th><th>Maximum penalty</th></tr></thead>
+          <tbody>
+            <tr><td><strong>PDPA</strong> (Singapore)</td><td>Anyone whose personal data you hold in Singapore</td><td><strong>S$1 million or 10% of Singapore turnover</strong>, whichever is higher</td></tr>
+            <tr><td><strong>GDPR</strong> (EU)</td><td>People in the EU - even if your company is not</td><td><strong>EUR 20 million or 4% of global turnover</strong>, whichever is higher</td></tr>
+          </tbody>
+        </table>
+        <p>Note the design: both are <strong>percentage-of-turnover</strong> penalties. They are sized to hurt companies of every size, and "we are small" is not a defence - the PDPA applies to every organisation in Singapore, full stop.</p>
+        <div class="callout tip">
+          <strong>The exec takeaway</strong>
+          You do not need to memorise articles or clauses. You need to know the two rulebooks exist, that both can reach your P&amp;L, and that the EU one follows your EU customers to wherever your servers are.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why this landed on boards now<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three shifts pushed data governance from the IT basement to the board agenda:</p>
+        <ul>
+          <li><strong>The laws grew teeth.</strong> Singapore's PDPA gained its 10%-of-turnover penalty cap and mandatory breach notification. Regulators publish their enforcement decisions - your fine becomes a public case study.</li>
+          <li><strong>AI raised the stakes.</strong> Every AI initiative is a data initiative. Boards approving AI budgets are, whether they know it or not, approving new ways to collect, combine, and expose personal data.</li>
+          <li><strong>Buyers started asking.</strong> Enterprise procurement and investor due diligence now include data-protection questionnaires. A weak answer delays or kills deals - quietly, without ever making the news.</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: THE MANDATE ============ -->
+  <section class="section" id="the-mandate">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · the officer the law requires</span>
+      <h2>You are required to appoint a DPO <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Here is the fact that surprises most executives: under Singapore's PDPA, <strong>every organisation must designate a Data Protection Officer</strong> - no exemption for size, sector, or how little data you think you hold. The DPO's business contact must be publicly available. If you cannot name your DPO right now, that is action item one.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What a DPO does for the executive team: advise, watch, drill, front the regulator">
+        <style>
+          .edT { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .edTd { font: 700 16px Inter, sans-serif; fill: #12232B; }
+          .edX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .edXd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .edN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="30" width="200" height="120" rx="14" fill="#0B3B4A"/>
+        <text class="edT" x="40" y="62">Advises</text>
+        <text class="edX" x="40" y="88">Tells the business what</text>
+        <text class="edX" x="40" y="106">the law expects before</text>
+        <text class="edX" x="40" y="124">you act, not after.</text>
+        <rect x="234" y="30" width="200" height="120" rx="14" fill="#0E7490"/>
+        <text class="edT" x="254" y="62">Watches</text>
+        <text class="edX" x="254" y="88">Monitors compliance,</text>
+        <text class="edX" x="254" y="106">runs training and</text>
+        <text class="edX" x="254" y="124">audits. Your early alarm.</text>
+        <rect x="448" y="30" width="200" height="120" rx="14" fill="#1E90A8"/>
+        <text class="edT" x="468" y="62">Drills</text>
+        <text class="edX" x="468" y="88">Assesses risky projects</text>
+        <text class="edX" x="468" y="106">(incl. AI) and runs the</text>
+        <text class="edX" x="468" y="124">breach playbook.</text>
+        <rect x="662" y="30" width="198" height="120" rx="14" fill="#7DD3DC"/>
+        <text class="edTd" x="682" y="62">Fronts</text>
+        <text class="edXd" x="682" y="88">Is the named contact</text>
+        <text class="edXd" x="682" y="106">for the regulator and</text>
+        <text class="edXd" x="682" y="124">for your customers.</text>
+        <rect x="20" y="196" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="edN" x="44" y="208">A good DPO is not the department of no - it is the person who lets you say yes safely, and prove it.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - what a DPO actually does for the executive team</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What the DPO needs from you<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Appointing a DPO is the easy half. The role only protects you if you set it up to work - and the setup is an executive decision, not an HR formality:</p>
+        <ul>
+          <li><strong>A real reporting line.</strong> The DPO should report to top management - you - not sit three layers down under a manager whose project they might have to flag.</li>
+          <li><strong>Independence.</strong> Nobody instructs the DPO on how to judge a data question, and nobody penalises them for an unwelcome answer. A DPO who cannot safely say "not like that" to the CEO is decorative.</li>
+          <li><strong>No conflict of interest.</strong> The person who owns the marketing database cannot also be the person judging whether the marketing database is lawful.</li>
+          <li><strong>Actual resourcing.</strong> Time, budget, and access - not a title stapled onto someone's existing full-time job. (That last one is the most common failure, and regulators know it.)</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's choice.</strong> The board briefly considered giving the DPO title to the Head of Platform - the person who runs the very databases a DPO must scrutinise. Classic conflict. They appointed an independent DPO reporting to the CEO instead, and the first thing that DPO produced was a list of risks the platform team had normalised for years.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The EU mirror, in one paragraph<span class="mini">1 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The GDPR only <em>requires</em> a DPO in three cases: public bodies, companies doing large-scale systematic monitoring of individuals, and companies processing sensitive data at scale. A consumer platform watching millions of users typically qualifies. The practical read for a Singapore company: <strong>PDPA obliges you to have a DPO anyway</strong>, so the GDPR question is not "do we need one" but "does ours also cover our EU exposure". One good appointment answers both.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: THE TEST ============ -->
+  <section class="section" id="the-test">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · what "governed" actually means</span>
+      <h2>The thirty-second governance test <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Strip away the frameworks and data governance is three questions about any dataset your company holds. If your organisation can answer all three with names and documents - not shrugs - your data is governed. If not, not. It really is that simple, and that hard.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The thirty-second governance test: who decides, what are the rules, who answers">
+        <style>
+          .etQ { font: 800 22px Inter, sans-serif; fill: #FFFFFF; }
+          .etA { font: 400 13px Inter, sans-serif; fill: #5B7078; }
+          .etF { font: 700 14px Inter, sans-serif; fill: #0E7490; }
+          .etN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="28" width="840" height="56" rx="12" fill="#0B3B4A"/>
+        <text class="etQ" x="44" y="63">1 · Who decides what happens to this data?</text>
+        <text class="etA" x="44" y="108">Pass: a named owner. Fail: "the pipeline was built that way."</text>
+        <rect x="20" y="124" width="840" height="56" rx="12" fill="#0E7490"/>
+        <text class="etQ" x="44" y="159">2 · What are the rules, and are they enforced?</text>
+        <text class="etA" x="44" y="204">Pass: a policy people actually follow. Fail: a document nobody has opened since it was written.</text>
+        <rect x="20" y="220" width="840" height="56" rx="12" fill="#1E90A8"/>
+        <text class="etQ" x="44" y="255">3 · Who answers when it goes wrong?</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the thirty-second test: decision rights, enforcement, accountability</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Governance is deciding, not doing<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Executives often hear "we have access controls and a data warehouse" as an answer to the governance question. It is not. That is data <strong>management</strong> - the doing. <strong>Governance</strong> is the deciding: who is allowed to make calls about data, what rules bind those calls, and who is accountable for the outcome.</p>
+        <p>The industry's standard map (DAMA) draws governance as the hub of a wheel with ten capability spokes around it - security, quality, catalogs, and so on. You do not need the spokes. You need the hub insight: <strong>capabilities without decision rights are just expensive tools</strong>.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The shrug test at Himalaya.</strong> The CEO asked "who decided we keep ex-clients' consumer data forever?" The room went quiet. Nobody had decided - it just accumulated. That silence is what ungoverned looks like from the top: not chaos, just an absence of anyone deciding. Every company has these silences; governance replaces them with names.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the deep track builds (so you know what you're funding)<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>When you fund a governance program, here is what your team actually builds - each is a session in the practitioner track:</p>
+        <table class="clean">
+          <thead><tr><th>Artifact</th><th>What it gives you</th></tr></thead>
+          <tbody>
+            <tr><td>Data inventory + record of processing</td><td>The confident answer to "what do we hold and why"</td></tr>
+            <tr><td>Consent + do-not-call fix</td><td>Marketing that cannot trigger a fine</td></tr>
+            <tr><td>Breach playbook</td><td>A drilled response instead of a panic, on a legal clock</td></tr>
+            <tr><td>Retention schedule + transfer register</td><td>Data deleted on purpose, moved across borders lawfully</td></tr>
+            <tr><td>Operating model (owners, stewards, council)</td><td>Governance that survives any one person leaving</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BOARDROOM MOMENT ============ -->
+  <section class="section" id="boardroom">
+    <div class="section-kicker">
+      <span class="klabel">The boardroom moment</span>
+      <h2>The incident email lands. Now what? <span class="tag demo">★ 17 min · work it live</span></h2>
+    </div>
+    <p class="lede">Put yourself in Mara's chair - Himalaya's CEO. It is 8:40am and this email is at the top of your inbox: <em>"Potential data exposure identified - consumer records may have been accessible externally. Investigating. More by noon."</em> What you do in the next hour sets the tone for everything that follows.</p>
+
+    <div class="steps">
+      <div class="step"><p><strong>Do not improvise comms.</strong> Your first instinct - reassure clients fast - is the classic mistake. Facts first: what data, whose, how long, still exposed?</p></div>
+      <div class="step"><p><strong>Put the DPO in the chair.</strong> One person runs the incident and owns the legal clock (in Singapore: assess within 30 days; if notifiable, the regulator hears within 3 days). Everyone else feeds them.</p></div>
+      <div class="step"><p><strong>Ask the notifiability question early.</strong> "Is this likely to cause significant harm, or does it touch 500+ people?" - that single question tells you whether a regulator notification is coming.</p></div>
+      <div class="step"><p><strong>Decide your posture once.</strong> Cooperative, factual, fast. Companies get punished less for breaches than for handling them badly.</p></div>
+      <div class="step"><p><strong>Schedule the postmortem before the incident closes.</strong> The breach is also your once-a-year mandate to fund the fixes nobody wanted to prioritise.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Ask it in your next meeting - the incident rehearsal prompt</span>You are my data protection adviser. Our company: [3-4 lines - what you do, roughly what customer data you hold, Singapore-based, any EU customers].
+
+Walk me through a 45-minute tabletop exercise for this scenario: an internal alert says customer records may have been externally accessible for several days.
+
+Give me:
+1. The first five questions I should ask my team, in order
+2. Who should be in the room, and who runs it
+3. The legal clocks that might start ticking (Singapore PDPA; GDPR if EU customers)
+4. The three decisions that are mine alone as the executive
+5. One paragraph I could honestly say to the board that afternoon
+
+Keep it plain language. Where facts are missing, list what you would need rather than guessing.</div>
+
+    <div class="callout tip">
+      <strong>Why rehearse</strong>
+      Every step above is obvious - after you have done it once. A one-hour tabletop a year buys you composure that cannot be bought during a real incident. Your DPO will happily run it; your job is to show up and take it seriously, because everyone else's seriousness is calibrated to yours.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Three questions to ask this week <span class="tag exercise">◐ 15 min total</span></h2>
+    </div>
+    <ul>
+      <li><strong>"Who is our DPO?"</strong> - and is their business contact publicly available, as the PDPA requires? If the answer takes more than a day to come back, you have learned something important.</li>
+      <li><strong>"When did we last rehearse a data incident?"</strong> - if the answer is never, put the tabletop prompt above in front of your leadership team.</li>
+      <li><strong>Run the thirty-second test</strong> on the one dataset that would embarrass you most in a headline: who decides, what rules, who answers. Bring the shrugs to Exec session 2.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">Executive-level coverage of the frameworks below - the working ideas, honestly flagged where depth lives elsewhere. Your practitioners get the full treatment in the 8-session DPO track on this site.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA - penalties, mandatory DPO, accountability</span><span class="note">Parts 1-2 · exec framing (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GDPR - penalty scale + when a DPO is required</span><span class="note">Parts 1-2 · the mirror (gdpr-info.eu)</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">DAMA-DMBOK2 - governance as the hub</span><span class="note">Part 3 · one insight; the wheel in DPO session 1</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Breach notification mechanics</span><span class="note">Boardroom moment · full clock in DPO session 5</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Which Singapore companies must appoint a Data Protection Officer?</p>
+      <button class="qopt" type="button">A · Only those above a revenue threshold</button>
+      <button class="qopt" type="button">B · Every organisation, regardless of size</button>
+      <button class="qopt" type="button">C · Only those handling health or financial data</button>
+      <p class="qwhy">The PDPA's DPO mandate is universal - no size, sector, or data-volume exemption. The DPO's contact must also be public.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · "We have access controls and a warehouse" answers the governance question. True?</p>
+      <button class="qopt" type="button">A · Yes - controls are governance</button>
+      <button class="qopt" type="button">B · Yes, if the warehouse is well managed</button>
+      <button class="qopt" type="button">C · No - that is management (doing), not governance (deciding)</button>
+      <p class="qwhy">Governance = decision rights, enforced rules, accountability. Tools and controls are the doing that governance directs.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · The largest cost of a data incident is usually...</p>
+      <button class="qopt" type="button">A · Trust, blocked deals, and months of internal distraction</button>
+      <button class="qopt" type="button">B · The regulator's fine</button>
+      <button class="qopt" type="button">C · The cost of new security software</button>
+      <p class="qwhy">The fine is the smallest of the four bills - and the only one with a legal maximum. Trust, deals, and time have no cap.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Exec session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>The four bills</b><span>Fine · trust hit · blocked deals · distraction. The fine is the smallest.</span></div>
+      <div class="cheat-item"><b>The two rulebooks</b><span>PDPA: S$1M or 10% SG turnover. GDPR: EUR 20M or 4% global - and it follows your EU customers.</span></div>
+      <div class="cheat-item"><b>DPO mandate</b><span>Every SG organisation must appoint one, contact public. If you can't name yours, that's action item one.</span></div>
+      <div class="cheat-item"><b>DPO setup</b><span>Reports to the top · independent · no conflicts · actually resourced. Decorative DPOs protect nobody.</span></div>
+      <div class="cheat-item"><b>Thirty-second test</b><span>Who decides? What rules, enforced? Who answers? Names and documents = governed. Shrugs = not.</span></div>
+      <div class="cheat-item"><b>Governance vs management</b><span>Deciding vs doing. Capabilities without decision rights are expensive tools.</span></div>
+      <div class="cheat-item"><b>Incident hour one</b><span>Facts before comms · DPO in the chair · ask the notifiability question · pick a cooperative posture once.</span></div>
+      <div class="cheat-item"><b>The rehearsal rule</b><span>One tabletop a year buys composure no budget can buy mid-incident.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Exec session 1 of 4 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="e2-rules-plain-english.html">Next: The rules in plain English →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=2"></script>
+</body>
+</html>
