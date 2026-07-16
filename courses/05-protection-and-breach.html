@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 5 · Protection &amp; breach response - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 5 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 5 of 8</div>
+    <h1>Protection &amp; <span class="accent">breach response</span></h1>
+    <p class="sub">The near-miss becomes the drill. A misconfigured export left 500+ consumer records, including health notes, exposed for 6 days. Today you learn the Protection Obligation and run a full breach tabletop against the clock.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Getting real</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">PDPA breach + GDPR 72h</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · The alert</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Breach tabletop</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>The near-miss becomes the drill</h2>
+    </div>
+    <p class="lede">Back in Session 1 we noted Himalaya's near-miss: a misconfigured analytics export dropped a table of end-consumer records into a client's staging bucket, where it sat exposed for 6 days before anyone noticed. That table held over 500 consumers - and some of them were wellness-vertical consumers with <strong>health notes</strong>. Today we stop treating it as a scary story and treat it as a live incident. First the Protection Obligation that should have prevented it, then a breach tabletop where you assess notifiability and draft the notifications against the clock.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A practical read on what "reasonable security arrangements" means and the failure modes that break them, the PDPA breach clock (assess within 30 days, notify PDPC within 3 calendar days if notifiable) with GDPR's 72-hour rule laid on the same timeline, the two thresholds that make a breach notifiable, and a standing breach runbook you own as DPO. Cards marked "Live" are what we do together; "Self-study" cards give the full depth at your own pace.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: PROTECTION OBLIGATION ============ -->
+  <section class="section" id="protection">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the PDPA Protection Obligation</span>
+      <h2>The Protection Obligation <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">The PDPA Protection Obligation says an organisation must make <strong>reasonable security arrangements</strong> to protect personal data in its possession or control - against unauthorised access, collection, use, disclosure, copying, modification, or disposal. Note the word: <strong>reasonable</strong>, not perfect. It is a risk-based standard, and it is the obligation Himalaya's near-miss walked straight through.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Layers of reasonable security arrangements from governance to vendor management">
+        <style>
+          .secL { font: 700 15px Inter, sans-serif; fill: #FFFFFF; }
+          .secLd { font: 700 15px Inter, sans-serif; fill: #12232B; }
+          .secX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .secXd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .secN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="60" y="24" width="760" height="40" rx="10" fill="#DCE8EB"/>
+        <text class="secLd" x="80" y="49">Governance &amp; policy - who is accountable, what the rules are</text>
+        <rect x="110" y="72" width="660" height="40" rx="10" fill="#7DD3DC"/>
+        <text class="secLd" x="130" y="97">Access control - least privilege, who can reach which data</text>
+        <rect x="160" y="120" width="560" height="40" rx="10" fill="#1E90A8"/>
+        <text class="secL" x="180" y="145">Encryption - data at rest and in transit</text>
+        <rect x="210" y="168" width="460" height="40" rx="10" fill="#0E7490"/>
+        <text class="secL" x="230" y="193">Monitoring - logging, alerts, misconfig detection</text>
+        <rect x="260" y="216" width="360" height="40" rx="10" fill="#0B3B4A"/>
+        <text class="secL" x="280" y="241">Vendors - processors held to the same bar</text>
+        <rect x="60" y="272" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="secN" x="84" y="284">No single layer is "the answer" - reasonable = the layered set that fits the sensitivity of the data.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the layers that add up to reasonable security arrangements</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What "reasonable security arrangements" means<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PDPA does not hand you a checklist of mandatory controls. It sets a <strong>risk-based standard</strong>: the arrangements must be reasonable given the nature of the data and the harm that would follow from a breach. More sensitive data, higher stakes, more protection expected.</p>
+        <ul>
+          <li><strong>It scales with sensitivity.</strong> A public product FAQ needs little; a table with health notes and payment tokens needs strong access control, encryption, and monitoring.</li>
+          <li><strong>It is layered.</strong> Governance and policy, access control, encryption, monitoring, and vendor management each catch what the others miss. Reasonable means the layered set, not one hero control.</li>
+          <li><strong>It is not perfection.</strong> A breach does not automatically prove you failed the obligation - but the absence of basic, expected controls does.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's missing layers.</strong> The export that leaked ran with a broad service role, wrote to a bucket nobody was monitoring, and moved health notes in clear. Access control was too wide, monitoring was absent, and encryption of the export was not enforced. Three layers missing at once is why a routine export became a 6-day exposure - and why "reasonable" is the standard you will be measured against.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The common failure modes<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Most breaches are not exotic attacks. They are the same handful of preventable mistakes. Learn to spot them because you will meet them everywhere:</p>
+        <ul>
+          <li><strong>Misconfiguration</strong> - a bucket, share, or database left open, or an export pointed at the wrong destination. The most common cause of data leaks.</li>
+          <li><strong>Over-broad access</strong> - service roles and staff with far more reach than the task needs. When something goes wrong, the blast radius is everything they could touch.</li>
+          <li><strong>Unencrypted exports and copies</strong> - data protected in the warehouse, then copied out to a flat file, a laptop, or a vendor with no encryption.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya hit all three.</strong> A misconfigured export (failure 1) ran under an over-broad role (failure 2) and wrote unencrypted consumer records, including health notes, to a client's staging bucket (failure 3). Any one of these alone might have been caught; stacked, they produced the near-miss. Your Protection Obligation fixes map one-to-one onto these three modes.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Vendor and processor security<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The Protection Obligation follows the data even when the data leaves your building. If you hand personal data to a processor, you remain accountable for protecting it, so you must hold that processor to a comparable security bar.</p>
+        <ul>
+          <li><strong>Contract it.</strong> A written agreement should require the processor to protect the data, use it only on your instructions, and notify you of any breach quickly.</li>
+          <li><strong>Verify it.</strong> Do not take a security promise on faith - review certifications, ask for evidence, and reassess periodically.</li>
+          <li><strong>Scope it.</strong> Give the processor only the data it needs, for only as long as it needs it.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's US marketing vendor.</strong> Consumer data is copied to a US-hosted marketing automation tool with no security schedule on file and no breach-notification clause in the contract. If that vendor leaks, Himalaya still answers to the PDPC. Session 6 tackles the cross-border transfer angle; here, the point is simply that the Protection Obligation reaches the vendor, and right now the paperwork does not.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: BREACH CLOCK ============ -->
+  <section class="section" id="breach-clock">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers PDPA breach notification + GDPR Art. 33 (mirror)</span>
+      <h2>Breach notification - the clock <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">When a breach happens, the law starts a clock. Under the PDPA you must <strong>assess</strong> a suspected breach within 30 days of becoming aware, and if it is notifiable you must notify the <strong>PDPC within 3 calendar days</strong> and tell affected individuals as soon as practicable. GDPR runs a tighter, differently-shaped clock: 72 hours to the authority from awareness. Knowing which clock you are on, and when it starts, is the whole game.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Breach timeline comparing the PDPA and GDPR clocks">
+        <style>
+          .tlH { font: 700 14px Inter, sans-serif; fill: #12232B; }
+          .tlB { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .tlX { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .tlLine { stroke: #B4CBD1; stroke-width: 3; fill: none; }
+          .tlN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <text class="tlH" x="20" y="42">PDPA (Singapore) - your home clock</text>
+        <line class="tlLine" x1="40" y1="86" x2="840" y2="86"/>
+        <circle cx="60" cy="86" r="10" fill="#0B3B4A"/>
+        <rect x="30" y="98" width="150" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="tlX" x="46" y="119">Become aware</text>
+        <circle cx="320" cy="86" r="10" fill="#0E7490"/>
+        <rect x="250" y="98" width="180" height="34" rx="8" fill="#0E7490"/>
+        <text class="tlB" x="266" y="119">Assess ≤ 30 days</text>
+        <circle cx="600" cy="86" r="10" fill="#1E90A8"/>
+        <rect x="520" y="98" width="200" height="34" rx="8" fill="#1E90A8"/>
+        <text class="tlB" x="536" y="119">Notify PDPC ≤ 3 days</text>
+        <circle cx="820" cy="86" r="10" fill="#0B3B4A"/>
+        <rect x="700" y="140" width="180" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="tlX" x="716" y="161">Tell individuals ASAP</text>
+        <text class="tlH" x="20" y="212">GDPR (EU) - the mirror</text>
+        <line class="tlLine" x1="40" y1="248" x2="840" y2="248"/>
+        <circle cx="60" cy="248" r="10" fill="#0B3B4A"/>
+        <rect x="30" y="260" width="150" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="tlX" x="46" y="281">Become aware</text>
+        <circle cx="300" cy="248" r="10" fill="#F59E0B"/>
+        <rect x="220" y="260" width="230" height="34" rx="8" fill="#F59E0B"/>
+        <text class="tlB" x="236" y="281" style="fill:#3A2400">Notify authority ≤ 72h from aware</text>
+        <rect x="20" y="8" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="tlN" x="44" y="20">GDPR counts from awareness; PDPA's 3 days count from the end of your assessment.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the PDPA breach clock with GDPR's 72 hours on the same timeline</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Notifiable thresholds - the two limbs<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Not every breach is notifiable. Under the PDPA, a data breach must be notified if it meets <strong>either</strong> of two limbs - it is an OR, not an AND:</p>
+        <ul>
+          <li><strong>Significant harm</strong> - the breach is likely to result in significant harm to affected individuals. This is tied to <strong>prescribed</strong> categories of data: for example NRIC-style national IDs, financial account information, health data, and login credentials. Breach one of these and the harm limb is likely met.</li>
+          <li><strong>Significant scale</strong> - the breach affects <strong>500 or more individuals</strong>, regardless of the data type.</li>
+        </ul>
+        <p>Because it is an OR, a breach of health data for even a small group can be notifiable on the harm limb, and a breach of ordinary contact details can be notifiable on the scale limb once it passes 500.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya trips both limbs.</strong> The exposed table held over 500 consumers - that alone crosses the significant-scale limb. And it included health notes, prescribed data whose exposure is likely to cause significant harm - the harm limb too. Himalaya's breach is notifiable twice over, which removes any argument that it can be quietly logged and forgotten.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>PDPA vs GDPR - the timeline contrast<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Both regimes make you notify, but the clocks are shaped differently. Getting them confused is the most common breach-day mistake.</p>
+        <table class="clean">
+          <thead><tr><th>Step</th><th>PDPA (Singapore)</th><th>GDPR (EU)</th></tr></thead>
+          <tbody>
+            <tr><td>Assess</td><td>Within 30 days of becoming aware</td><td>No fixed assessment window; act without undue delay</td></tr>
+            <tr><td>Notify regulator</td><td>Within 3 calendar days of concluding it is notifiable</td><td>Within 72 hours of becoming aware</td></tr>
+            <tr><td>Clock starts</td><td>The 3 days run from the end of your assessment</td><td>The 72 hours run from awareness</td></tr>
+            <tr><td>Notify individuals</td><td>As soon as practicable, if notifiable</td><td>Without undue delay, if high risk to individuals</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>Say it right</strong>
+          The trap is saying "PDPC within 72 hours." Wrong regime. GDPR is 72 hours from awareness; PDPA is 3 calendar days from the end of your assessment (after up to 30 days to assess). For a breach touching both EU and SG consumers, the GDPR clock is the tighter one - it usually drives your timeline.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What goes in a notification<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A notification is not a confession letter; it is a structured factual account. Both regulators want roughly the same building blocks, so a single template serves both.</p>
+        <ul>
+          <li><strong>What happened</strong> - the nature of the breach, when it occurred, and when you became aware.</li>
+          <li><strong>What data and who</strong> - the categories of personal data involved and the number (or estimate) of individuals affected.</li>
+          <li><strong>Likely consequences</strong> - the harm that could follow for those individuals.</li>
+          <li><strong>What you did</strong> - the containment and remediation steps taken and planned, and how you are supporting affected individuals.</li>
+          <li><strong>Contact</strong> - the DPO's contact point for follow-up.</li>
+        </ul>
+        <p>The individual notification uses the same facts in plain language, plus concrete steps the person can take to protect themselves (for example, resetting a password if credentials were exposed).</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: THE RUNBOOK ============ -->
+  <section class="section" id="runbook">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers incident governance</span>
+      <h2>The breach runbook <span class="tag concept">4 min live</span></h2>
+    </div>
+    <p class="lede">On breach day you do not want to be inventing roles. The DPO owns a standing <strong>runbook</strong>: who does what, in what order, the moment an alert fires. Everyone knows their lane before the pressure hits.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roles and lanes during a breach: DPO, platform, customer success, CEO, legal">
+        <style>
+          .rbH { font: 700 14px Inter, sans-serif; fill: #FFFFFF; }
+          .rbHd { font: 700 14px Inter, sans-serif; fill: #12232B; }
+          .rbX { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .rbXw { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .rbN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="24" width="270" height="82" rx="12" fill="#0B3B4A"/>
+        <text class="rbH" x="38" y="52">DPO (You) - own it</text>
+        <text class="rbXw" x="38" y="74">Assess notifiability, draft</text>
+        <text class="rbXw" x="38" y="92">notifications, run the clock.</text>
+        <rect x="305" y="24" width="270" height="82" rx="12" fill="#0E7490"/>
+        <text class="rbH" x="323" y="52">Platform / Raj - contain</text>
+        <text class="rbXw" x="323" y="74">Stop the exposure, preserve</text>
+        <text class="rbXw" x="323" y="92">logs, scope what leaked.</text>
+        <rect x="590" y="24" width="270" height="82" rx="12" fill="#1E90A8"/>
+        <text class="rbH" x="608" y="52">CS / Tom - people</text>
+        <text class="rbXw" x="608" y="74">Field affected consumers,</text>
+        <text class="rbXw" x="608" y="92">deliver individual notices.</text>
+        <rect x="20" y="118" width="405" height="82" rx="12" fill="#A5DDE4"/>
+        <text class="rbHd" x="38" y="146">CEO / Mara - decide &amp; front</text>
+        <text class="rbX" x="38" y="168">Signs off external comms, holds</text>
+        <text class="rbX" x="38" y="186">the board and press line.</text>
+        <rect x="440" y="118" width="420" height="82" rx="12" fill="#C7EBEF"/>
+        <text class="rbHd" x="458" y="146">Legal - defend</text>
+        <text class="rbX" x="458" y="168">Reviews notification wording, manages</text>
+        <text class="rbX" x="458" y="186">regulator exposure and client contracts.</text>
+        <rect x="20" y="216" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="rbN" x="44" y="228">The DPO coordinates but does not do everyone's job - the runbook names one owner per lane in advance.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the roles and lanes in a breach, DPO at the centre</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The standing runbook the DPO owns<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A breach runbook is a short, rehearsed document, not a novel. It answers the questions nobody should be debating at hour one:</p>
+        <ul>
+          <li><strong>Detect &amp; report</strong> - how any staff member raises a suspected breach, and to whom (the DPO), within hours not days.</li>
+          <li><strong>Contain</strong> - Platform (Raj) stops the exposure and preserves logs so you can scope what actually leaked.</li>
+          <li><strong>Assess</strong> - the DPO (you) runs the two-limb notifiability test and starts the clock.</li>
+          <li><strong>Notify</strong> - the DPO drafts the PDPC and individual notifications; Legal reviews; the CEO signs off external comms; CS delivers the individual notices.</li>
+          <li><strong>Learn</strong> - after the fire, a post-incident review feeds fixes back into the Protection Obligation controls.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya had no runbook.</strong> During the 6-day exposure, the misconfig went unnoticed because no one owned detection, and once it surfaced there was confusion over who should tell whom. Your deliverable this session is the runbook that would have caught it on day one and, if it still leaked, cut the response from chaos to a clean, timed sequence.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO / BUILD-ALONG ============ -->
+  <section class="section" id="demo-5">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · everyone builds</span>
+      <h2>Breach tabletop on Himalaya <span class="tag demo">★ 19 min · breach tabletop</span></h2>
+    </div>
+    <p class="lede">The alert just fired. We run Himalaya's near-miss as a live breach, on the clock. By the end you will have assessed notifiability against both limbs, drafted a PDPC notification and an individual notification, and logged a defensible timeline. Follow along on Himalaya, then run the same drill on a plausible incident in your own organisation for homework.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - the incident: a misconfigured analytics export wrote a table of end-consumer records to a client's staging bucket, exposed for 6 days before detection. The table held <strong>over 500 consumers</strong>, including wellness-vertical consumers with <strong>health notes</strong> and some payment tokens. The export ran under an over-broad service role; the destination bucket was unmonitored; the data was not encrypted in transit to the bucket. You are Himalaya's DPO.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>The alert fires.</strong> Log the moment you became aware - that timestamp starts the assessment window (and, for EU consumers, the 72-hour GDPR clock). Trigger the runbook: Raj contains, you assess.</p></div>
+      <div class="step"><p><strong>Triage.</strong> Establish what data leaked (contact details, health notes, payment tokens), whose (end consumers), and how many (500+). Preserve the logs so the scope is evidenced, not guessed.</p></div>
+      <div class="step"><p><strong>Assess notifiability against both limbs.</strong> Significant scale: 500+ - met. Significant harm: health notes and payment tokens are prescribed data - met. The breach is notifiable on both. Record the reasoning.</p></div>
+      <div class="step"><p><strong>Draft the PDPC notification.</strong> Facts (what, when aware), scope (data categories + number affected), likely consequences, and remediation (role tightened, bucket locked, monitoring added). Keep it factual and complete.</p></div>
+      <div class="step"><p><strong>Draft the individual notification.</strong> Same facts in plain language, plus what each consumer should do (for example, watch for misuse of exposed details, reset credentials). Route delivery through CS.</p></div>
+      <div class="step"><p><strong>Log the timeline.</strong> Aware → assessed → notifiable → PDPC notified (within 3 days of assessment) → individuals notified. This log is your evidence that you ran the clock correctly.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the breach-assessment + notification prompt</span>You are helping me, a Data Protection Officer in Singapore, respond to a personal data breach.
+
+Incident facts: [paste the Himalaya incident summary above, or describe your own incident in 4-5 lines].
+Legal lens: PDPA-primary. Notifiable if significant harm is likely (tied to prescribed data such as NRIC / financial / health / credentials) OR 500+ individuals are affected. If notifiable, notify PDPC within 3 calendar days of assessment; tell individuals as soon as practicable. Mirror the GDPR 72-hour-from-awareness rule for any EU individuals.
+
+Produce:
+1. A notifiability assessment: test each limb (significant harm, 500+ scale) against the facts, with a clear notifiable / not-notifiable verdict and reasoning
+2. A draft PDPC notification: what happened, data + number affected, likely consequences, remediation, DPO contact
+3. A draft individual notification in plain language, with concrete protective steps
+4. A timeline log template: aware → assessed → notified
+
+Flag anything you would need to confirm as an open question rather than assuming it.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Run tabletops on described incidents, never on the real breached records. Feed the assistant the shape of the data ("a table of consumer contact details plus health notes, 500+ rows"), not the data itself. Protecting personal data inside your own drafting tools is the Protection Obligation turned on yourself.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-45 min total</span></h2>
+    </div>
+    <ul>
+      <li>Pick one real dataset your team holds and rate its <strong>reasonable security arrangements</strong> across the five layers: governance, access control, encryption, monitoring, vendor management. Name the weakest layer.</li>
+      <li>Hunt for your own <strong>failure modes</strong>: is there an over-broad service role, an unmonitored export destination, or an unencrypted copy sitting somewhere? Write down the first one you find.</li>
+      <li>Run a 15-minute <strong>tabletop</strong> on a plausible incident: assess it against both PDPA limbs, and check whether GDPR's 72-hour clock would apply to any of your individuals.</li>
+      <li>Draft (or locate) your organisation's <strong>breach runbook</strong>. If there isn't one, sketch the five stages and name one owner per lane. Bring it to Session 6.</li>
+      <li>Optional: confirm your key processors' contracts include a fast breach-notification clause. If not, that is a Protection Obligation gap to log.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This session teaches the working content of the obligations and rules below. Certification exams, member-only frameworks, and legal advice stay with their official sources - this page makes you fluent in the body of knowledge, honestly flagged where depth lives elsewhere.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Protection Obligation - reasonable security arrangements</span><span class="note">Part 1 · risk-based, layered standard (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA breach notification: 30-day assess / 3-day PDPC</span><span class="note">Part 2 · assess within 30 days; notify PDPC within 3 calendar days if notifiable</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Notifiable thresholds: significant harm OR &gt;=500 individuals</span><span class="note">Part 2 · two limbs; prescribed data drives the harm limb</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GDPR breach: 72-hour authority notification</span><span class="note">Part 2 · Art. 33, as mirror (gdpr-info.eu)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Breach tabletop / runbook</span><span class="note">Part 3 + build-along · on Himalaya's near-miss</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Deep security engineering (SOC, IR tooling)</span><span class="note">Governance and notification angle only; SOC build out of scope</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · You have assessed a breach and concluded it is notifiable. How long to notify the PDPC?</p>
+      <button class="qopt" type="button">A · 72 hours from when you became aware</button>
+      <button class="qopt" type="button">B · Within 3 calendar days of concluding it is notifiable</button>
+      <button class="qopt" type="button">C · Within 30 days of the breach</button>
+      <p class="qwhy">PDPA gives you up to 30 days to assess; once you conclude it is notifiable, you notify PDPC within 3 calendar days. The 72-hour clock is GDPR's, from awareness.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · A breach exposes health notes for 40 consumers. Is it notifiable under the PDPA?</p>
+      <button class="qopt" type="button">A · No - it's under 500 individuals</button>
+      <button class="qopt" type="button">B · Only if the consumers complain</button>
+      <button class="qopt" type="button">C · Yes - the significant-harm limb (prescribed data) is met even below 500</button>
+      <p class="qwhy">Notifiability is an OR: significant harm OR 500+. Health data is prescribed data, so the harm limb can be met even with a small number of individuals.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Under the PDPA, how long do you have to assess a suspected breach after becoming aware?</p>
+      <button class="qopt" type="button">A · Within 30 days</button>
+      <button class="qopt" type="button">B · Within 72 hours</button>
+      <button class="qopt" type="button">C · Within 3 calendar days</button>
+      <p class="qwhy">PDPA allows up to 30 days to assess. The 3 calendar days is the separate PDPC-notification step after you conclude it is notifiable; 72 hours is GDPR.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 5 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Protection Obligation</b><span>Reasonable security arrangements - risk-based, not perfect. Scales with data sensitivity.</span></div>
+      <div class="cheat-item"><b>Five layers</b><span>Governance · access control · encryption · monitoring · vendor management. Reasonable = the set.</span></div>
+      <div class="cheat-item"><b>Failure modes</b><span>Misconfiguration, over-broad access, unencrypted exports. Himalaya hit all three at once.</span></div>
+      <div class="cheat-item"><b>Assess window</b><span>PDPA: assess a suspected breach within 30 days of becoming aware.</span></div>
+      <div class="cheat-item"><b>Notify PDPC</b><span>Within 3 calendar days of concluding it is notifiable. Tell individuals as soon as practicable.</span></div>
+      <div class="cheat-item"><b>Two limbs (OR)</b><span>Significant harm (prescribed data: NRIC / financial / health / credentials) OR 500+ individuals.</span></div>
+      <div class="cheat-item"><b>GDPR mirror</b><span>Notify authority within 72 hours of awareness (Art. 33) - tighter, and counted differently.</span></div>
+      <div class="cheat-item"><b>The runbook</b><span>Detect → contain → assess → notify → learn. DPO owns it; one named owner per lane.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 5 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="04-consent-and-marketing.html">← Prev: Consent &amp; marketing</a> &nbsp;·&nbsp; <a href="06-data-lifecycle.html">Next: Data lifecycle →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

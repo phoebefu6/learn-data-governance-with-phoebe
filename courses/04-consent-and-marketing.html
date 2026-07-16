@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 4 · Consent, purpose &amp; marketing (DNC) - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 4 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 4 of 8</div>
+    <h1>Consent, purpose &amp; <span class="accent">marketing (DNC)</span></h1>
+    <p class="sub">The single loudest live risk in the company: an 8M-consumer SMS and voice blast built on murky consent and no Do Not Call check. Today you fix consent, purpose, and the DNC flow before it goes out.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Getting real</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">PDPA consent + DNC</span>
+      <span class="chip time">45 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · The campaign</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Build-along on Himalaya</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Himalaya's biggest live risk</h2>
+    </div>
+    <p class="lede">Ilsa, the CRO, is thrilled: she is about to blast SMS and voice messages to all 8M end consumers to launch a new cross-sell. There are two problems. First, nobody can show how those consumers consented to marketing - the sign-up flow buried it in a checkbox that also gated the service. Second, nobody scrubbed the list against Singapore's Do Not Call registers. A direct competitor was fined weeks ago for exactly this. Today you fix the consent basis, the purpose, and the DNC flow before Ilsa's campaign leaves the building.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A working grasp of the PDPA Consent, Purpose Limitation, and Notification obligations, a clear map of the DNC registry and when you must check it, a one-line read on why the DNC is Singapore-only while GDPR handles marketing through consent plus a right to object, and a go/no-go checklist Ilsa must pass before she sends anything. Cards marked "Live" are what we do together; "Self-study" cards give the full depth at your own pace.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: CONSENT, PURPOSE, NOTIFICATION ============ -->
+  <section class="section" id="consent-purpose">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers PDPA Consent + Purpose Limitation + Notification obligations</span>
+      <h2>Consent, purpose, notification <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">Three PDPA obligations sit under every marketing message. You may only collect, use, or disclose personal data for purposes a person <strong>consented</strong> to; those purposes must be ones a reasonable person would consider <strong>appropriate</strong>; and you must have <strong>notified</strong> the person of them at or before collection. Get one wrong and the whole campaign is unlawful, however good the copy is.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The consent lifecycle: collect with notice, use within purpose, allow withdrawal">
+        <style>
+          .clfL { font: 800 30px Inter, sans-serif; fill: #FFFFFF; }
+          .clfT { font: 700 17px Inter, sans-serif; fill: #12232B; }
+          .clfX { font: 400 13px Inter, sans-serif; fill: #5B7078; }
+          .clfArr { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#clfArrow); }
+          .clfN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="clfArrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6 Z" fill="#B4CBD1"/>
+          </marker>
+        </defs>
+        <rect x="20" y="30" width="240" height="90" rx="14" fill="#0B3B4A"/>
+        <text class="clfL" x="40" y="72">1</text>
+        <text class="clfT" x="40" y="98" style="fill:#FFFFFF">Collect with notice</text>
+        <rect x="320" y="30" width="240" height="90" rx="14" fill="#0E7490"/>
+        <text class="clfL" x="340" y="72">2</text>
+        <text class="clfT" x="340" y="98" style="fill:#FFFFFF">Use within purpose</text>
+        <rect x="620" y="30" width="240" height="90" rx="14" fill="#1E90A8"/>
+        <text class="clfL" x="640" y="72">3</text>
+        <text class="clfT" x="640" y="98" style="fill:#FFFFFF">Allow withdrawal</text>
+        <line class="clfArr" x1="262" y1="75" x2="316" y2="75"/>
+        <line class="clfArr" x1="562" y1="75" x2="616" y2="75"/>
+        <text class="clfX" x="40" y="150">Tell the person the purpose</text>
+        <text class="clfX" x="40" y="168">at or before you collect.</text>
+        <text class="clfX" x="340" y="150">Only for the consented,</text>
+        <text class="clfX" x="340" y="168">appropriate purpose.</text>
+        <text class="clfX" x="640" y="150">Withdrawal easy, with</text>
+        <text class="clfX" x="640" y="168">notice + consequences.</text>
+        <rect x="20" y="214" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="clfN" x="44" y="226">Withdrawal is not a courtesy - it is a legal right that must stay open at every stage of the lifecycle.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the consent lifecycle, from notice to withdrawal</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The Consent Obligation - and the right to withdraw<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The core PDPA rule: an organisation may only <strong>collect, use, or disclose</strong> personal data for purposes the individual has consented to (or where a PDPA exception applies). Consent is the default gate, and it is not a one-time trophy - it must be honoured over the whole life of the data.</p>
+        <p>The flip side is <strong>withdrawal</strong>. An individual can withdraw consent at any time, on reasonable notice. When they do, you must:</p>
+        <ul>
+          <li><strong>Inform them of the likely consequences</strong> of withdrawing - for example, "you will stop receiving offers, but your account still works."</li>
+          <li><strong>Stop the relevant collection, use, or disclosure</strong> within a reasonable time, and cascade the stop to any downstream systems and vendors.</li>
+          <li>Never make withdrawal harder than giving consent was - no burying the unsubscribe, no "call this hotline in office hours only."</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's sign-up trap.</strong> The consumer flow has one checkbox: "I agree to the terms and to receive offers." Ilsa treats every sign-up as marketing consent. But bundling service consent with marketing consent means the marketing consent was never freely, separately given - and there is no clean withdrawal path once an offer lands. Before any 8M blast, that single checkbox has to become a separate, unbundled marketing opt-in with a working "unsubscribe" that actually cascades to the SMS vendor.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Purpose Limitation + Notification<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Consent is only meaningful if the person knew what they were agreeing to, so two more obligations lock it in place.</p>
+        <ul>
+          <li><strong>Purpose Limitation</strong> - you may only collect, use, or disclose personal data for purposes that <strong>a reasonable person would consider appropriate</strong> in the circumstances. "Because it might be useful later" is not a purpose. And you <strong>cannot require consent to more than is reasonably needed</strong> to provide a product or service as a condition of that service.</li>
+          <li><strong>Notification</strong> - you must inform the individual of the purposes <strong>at or before</strong> collection. No secret second uses. If a new purpose appears later, you notify and, usually, seek fresh consent.</li>
+        </ul>
+        <p>Together these kill the two most common marketing sins: over-collecting "just in case," and quietly repurposing service data into a marketing list.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's silent repurpose.</strong> Consumers gave their phone numbers so a booking could send them an SMS reminder - a service purpose. Ilsa now wants to use those same numbers for cross-sell marketing. That is a <strong>new purpose</strong> the reasonable consumer never agreed to, and it was never notified. You cannot fold "delivery reminders" into "marketing blasts" - the purpose does not stretch that far, and forcing it would breach both Purpose Limitation and Notification.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Deemed consent + the PDPA exceptions<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Consent does not always have to be a checkbox. The PDPA recognises <strong>deemed consent</strong> and a set of exceptions - but they are narrower than marketers wish.</p>
+        <ul>
+          <li><strong>Deemed consent by conduct</strong> - if a person voluntarily provides data for an obvious purpose (handing over an address to get a delivery), consent for that purpose is deemed.</li>
+          <li><strong>Deemed consent by notification</strong> - you may notify the individual of a new purpose, give them a reasonable opt-out period, and proceed if they do not object. It requires an assessment that the new use is not likely to cause adverse effect - it is not a shortcut for marketing to a cold list.</li>
+          <li><strong>Legitimate interests</strong> and <strong>business improvement</strong> exceptions - allow certain uses without consent when the benefit outweighs adverse effect (legitimate interests) or for internal improvement of goods, services, and operations (business improvement). Direct marketing to consumers generally does <strong>not</strong> ride on these.</li>
+        </ul>
+        <p>Rule of thumb for a DPO: deemed consent and the exceptions are for reasonable, expected uses - not a back door to skip a real marketing opt-in.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: THE DNC REGISTRY ============ -->
+  <section class="section" id="dnc">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the Do Not Call (DNC) Registry</span>
+      <h2>The DNC registry <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Consent gets you the right to market. The <strong>Do Not Call registry</strong> is a second, separate gate that sits on top: even with consent chains in place, before you send a telemarketing message to a Singapore number you must check whether that number is on the relevant register - unless a clear exemption applies.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The three DNC registers and the pre-send decision flow">
+        <style>
+          .dncH { font: 700 15px Inter, sans-serif; fill: #FFFFFF; }
+          .dncB { font: 700 14px Inter, sans-serif; fill: #12232B; }
+          .dncX { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .dncDia { font: 700 13px Inter, sans-serif; fill: #12232B; }
+          .dncArr { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#dncArrow); }
+          .dncN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="dncArrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+            <path d="M0,0 L7,3 L0,6 Z" fill="#B4CBD1"/>
+          </marker>
+        </defs>
+        <text class="dncB" x="20" y="24">The three registers</text>
+        <rect x="20" y="36" width="270" height="42" rx="10" fill="#0B3B4A"/>
+        <text class="dncH" x="38" y="62">No Voice Call register</text>
+        <rect x="20" y="88" width="270" height="42" rx="10" fill="#0E7490"/>
+        <text class="dncH" x="38" y="114">No Text Message register</text>
+        <rect x="20" y="140" width="270" height="42" rx="10" fill="#1E90A8"/>
+        <text class="dncH" x="38" y="166">No Fax Message register</text>
+        <text class="dncX" x="20" y="206">Check the register that</text>
+        <text class="dncX" x="20" y="222">matches your channel.</text>
+        <text class="dncB" x="360" y="24">Before you send</text>
+        <rect x="360" y="36" width="240" height="46" rx="10" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="dncDia" x="380" y="64">Clear consent on file?</text>
+        <rect x="360" y="118" width="240" height="46" rx="10" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="dncDia" x="380" y="146">Ongoing-relationship exempt?</text>
+        <rect x="360" y="200" width="240" height="46" rx="10" fill="#F59E0B"/>
+        <text class="dncDia" x="380" y="228" style="fill:#3A2400">Check the register</text>
+        <line class="dncArr" x1="480" y1="82" x2="480" y2="116"/>
+        <line class="dncArr" x1="480" y1="164" x2="480" y2="198"/>
+        <rect x="640" y="36" width="220" height="46" rx="10" fill="#C7EBEF"/>
+        <text class="dncDia" x="660" y="64">Yes → send allowed</text>
+        <rect x="640" y="200" width="220" height="46" rx="10" fill="#0B3B4A"/>
+        <text class="dncH" x="660" y="222">On the register?</text>
+        <text class="dncX" x="660" y="240" style="fill:#C7EBEF">Yes = do not send</text>
+        <line class="dncArr" x1="600" y1="59" x2="636" y2="59"/>
+        <line class="dncArr" x1="600" y1="223" x2="636" y2="223"/>
+        <rect x="20" y="278" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="dncN" x="44" y="290">Duty runs per channel: an SMS blast checks No Text Message; a voice campaign checks No Voice Call.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the 3 registers and the pre-send decision flow</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What the DNC is + the three registers<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The Do Not Call (DNC) registry lets any Singapore telephone-number holder opt out of unsolicited telemarketing. It is run by the PDPC and split into <strong>three separate registers</strong>, one per channel:</p>
+        <ul>
+          <li><strong>No Voice Call</strong> register - telemarketing phone calls.</li>
+          <li><strong>No Text Message</strong> register - marketing SMS and MMS.</li>
+          <li><strong>No Fax Message</strong> register - marketing faxes.</li>
+        </ul>
+        <p>Your obligation is a <strong>check-before-you-send</strong> duty: before sending a marketing message to a Singapore number, you must check the register that matches the channel and not send if the number is listed (unless an exemption applies). A confirmation of your check is valid for a set period, so a fresh scrub before each campaign is the safe habit.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya has never scrubbed.</strong> Ilsa's team pulls the full 8M list and hands it to the SMS and voice vendors - no register check at any point. For the Singapore numbers in that list, every message to a listed number is a separate breach. The fix is a mandatory <strong>DNC check step</strong> in the send pipeline: scrub against No Text Message for the SMS half and No Voice Call for the voice half, and drop listed numbers before the vendor ever sees them.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The exemptions - consent and ongoing relationship<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>You do not always have to check the register. Two main exemptions let you send without a scrub - but each is narrower than it looks:</p>
+        <ul>
+          <li><strong>Clear and unambiguous consent</strong> - if the individual has given clear, specific consent to receive your marketing messages on that channel, and has not withdrawn it, the register check is not required for that number. Weak, bundled, or assumed consent does not qualify.</li>
+          <li><strong>Ongoing relationship</strong> - you may send messages related to an existing, ongoing relationship (for example, to an existing subscriber about a similar product), within defined limits and only while that relationship is live. Every such message must still offer an easy opt-out.</li>
+        </ul>
+        <p>For a DPO, the safe reading is: treat the register check as the default, and only skip it where you can <strong>evidence</strong> a qualifying exemption for that specific number and channel.</p>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          "We have consent" is a claim you must be able to prove per number, not a blanket to wave over 8M rows. If you cannot show where and how a number consented, treat it as no consent and scrub it.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Getting it wrong - the competitor's fine<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The DNC rules have teeth. Sending marketing to a listed number without an exemption, or failing to check, exposes the organisation to enforcement action and financial penalties under the PDPA regime.</p>
+        <ul>
+          <li>Under the PDPA, financial penalties can reach <strong>up to S$1M, or 10% of annual Singapore turnover, whichever is higher</strong> - the same ceiling that backs the data-protection obligations.</li>
+          <li>Enforcement is public: the PDPC publishes decisions, so a fine is also a reputational hit and a gift to competitors.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>The reason you have a job this week.</strong> A direct Himalaya competitor was just penalised for blasting marketing SMS without checking the No Text Message register. Mara, the CEO, read the decision and does not want Himalaya's name in the next one. That single enforcement case is exactly why the board created your role - and why Ilsa's campaign cannot ship until the DNC step is real.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: GDPR CONTRAST ============ -->
+  <section class="section" id="gdpr-marketing">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the GDPR consent standard (mirror)</span>
+      <h2>GDPR contrast for marketing <span class="tag concept">3 min live</span></h2>
+    </div>
+    <p class="lede">Himalaya markets to EU consumers too, so hold up the mirror. The DNC registry is a <strong>Singapore-specific</strong> regime with no GDPR equivalent. Under GDPR, marketing is governed by the consent standard plus a right to object - not by a national opt-out list.</p>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>GDPR consent + the absolute right to object<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>GDPR does not run a do-not-call list. Instead it raises the bar on <strong>consent</strong> and hands the individual a powerful <strong>right to object</strong>:</p>
+        <ul>
+          <li>Valid consent must be <strong>freely given, specific, informed, and unambiguous</strong> - a clear affirmative act. Pre-ticked boxes and bundled consent do not count.</li>
+          <li>The <strong>right to object to direct marketing is absolute</strong>. When a person objects, you must stop marketing to them, full stop - there is no balancing test to weigh against it.</li>
+          <li>You must tell people about that right clearly, at the first communication at the latest.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's EU consumers.</strong> There is no register for you to scrub in the EU - but the same bundled checkbox that fails PDPA consent also fails GDPR's "freely given, specific, unambiguous" test. And the moment an EU consumer clicks "stop these messages," their objection is final. Your fix for Singapore consent doubles as your fix for EU consent: one clean, unbundled opt-in that satisfies both rulebooks.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO / BUILD-ALONG ============ -->
+  <section class="section" id="demo-4">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · everyone builds</span>
+      <h2>Fix Himalaya's 8M-consumer campaign <span class="tag demo">★ 19 min · on Himalaya</span></h2>
+    </div>
+    <p class="lede">Ilsa wants to hit send this week. Your job is not to block her - it is to make the campaign lawful. We audit what she has, rebuild the consent and DNC flow, and hand her a checklist she must pass before a single message goes out. Follow along on Himalaya, then run the same steps on a campaign in your own organisation for homework.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - B2B2C SaaS, Singapore-headquartered, 8M end consumers across SG, EU, and SE Asia. Ilsa (CRO) is launching an SMS + voice cross-sell to the entire consumer base. Consent was captured through one bundled sign-up checkbox that also gated the service; phone numbers were originally collected for booking reminders; no DNC register check has ever run; the SMS and voice vendors receive the raw list. A competitor was just fined for unchecked marketing SMS.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>Audit the current flow.</strong> Write down how consent was captured (the bundled checkbox), and whether the purpose actually covers marketing (numbers were collected for booking reminders, not cross-sell). Name every gap you find.</p></div>
+      <div class="step"><p><strong>Design the consent notice.</strong> Draft a separate, unbundled marketing opt-in: plain-language purpose, named channels (SMS, voice), and a note that declining does not affect the service. This is your Purpose Limitation + Notification fix.</p></div>
+      <div class="step"><p><strong>Build the DNC check step.</strong> Insert a mandatory scrub before the vendor handoff: Singapore numbers in the SMS segment go against the <strong>No Text Message</strong> register; the voice segment against <strong>No Voice Call</strong>. Listed numbers are dropped unless a documented exemption applies.</p></div>
+      <div class="step"><p><strong>Write the withdrawal mechanism.</strong> Every message carries an easy opt-out; the opt-out cascades to the vendor and the warehouse within a reasonable time, and the consumer is told the consequence ("you will stop getting offers; your account is unaffected").</p></div>
+      <div class="step"><p><strong>Produce the go/no-go checklist.</strong> One page Ilsa must sign off before sending: consent unbundled and evidenced, purpose covers marketing, DNC scrub done per channel, exemptions documented, withdrawal working, EU segment on the same clean opt-in.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the pre-campaign checklist prompt</span>You are helping me, a Data Protection Officer in Singapore, vet a marketing campaign before it is sent.
+
+Campaign: [paste the Himalaya campaign summary above, or describe your own campaign in 4-5 lines].
+Legal lens: PDPA-primary (Consent, Purpose Limitation, Notification, and the Do Not Call registry), with GDPR as a mirror for EU recipients.
+
+Produce a pre-campaign consent + DNC compliance checklist:
+1. A table: check item | why it is required (obligation or register) | pass / fail / needs evidence | fix if failing
+2. The DNC step spelled out: which register(s) to scrub for each channel, and the exemptions that would let me skip a number
+3. A one-line go / no-go verdict, and the single biggest risk if we send today
+
+Flag anything you would need to confirm as an open question rather than assuming it is fine.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Do not paste the real 8M list into a practice chat. Describe its shape ("a list of consumer phone numbers and SG/EU region flags") and let the assistant reason about the flow. Scrubbing personal data out of your own tools is the Protection Obligation applied to you - Session 5's whole topic.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-45 min total</span></h2>
+    </div>
+    <ul>
+      <li>Take one real marketing message your organisation sends. Trace its <strong>consent basis</strong>: where was consent captured, was it bundled with anything, and can you evidence it per recipient?</li>
+      <li>Check whether a <strong>DNC scrub</strong> happens before that message goes out, and against which register(s). If the answer is "we assume everyone consented," you have found a live risk.</li>
+      <li>Find the <strong>withdrawal path</strong> a recipient would use. Time how many clicks it takes and whether it actually cascades to your vendor. Note anything harder than the opt-in was.</li>
+      <li>For any EU recipients, confirm the same consent would pass GDPR's "freely given, specific, informed, unambiguous" test - and that a right-to-object works.</li>
+      <li>Optional: run the pre-campaign checklist prompt on a real (described, not pasted) campaign and bring the go/no-go verdict to Session 5.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This session teaches the working content of the obligations and rules below. Certification exams, member-only frameworks, and legal advice stay with their official sources - this page makes you fluent in the body of knowledge, honestly flagged where depth lives elsewhere.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Consent Obligation + withdrawal</span><span class="note">Part 1 · consent required; withdrawal on notice with consequences (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Purpose Limitation + Notification</span><span class="note">Part 1 · appropriate purpose; notify at/before collection; no excessive-consent condition</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Deemed consent (incl. by notification)</span><span class="note">Part 1 · deemed consent + legitimate-interests / business-improvement exceptions</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">DNC - 3 registers + when to check</span><span class="note">Part 2 · Voice / Text / Fax registers; check-before-send duty (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">DNC exemptions (ongoing relationship, clear consent)</span><span class="note">Part 2 · the two main exemptions, evidenced per number</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">ePrivacy / EU marketing rules</span><span class="note">Part 3 · GDPR consent + right-to-object contrast only (gdpr-info.eu)</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · You are about to send a marketing SMS to Singapore numbers. When do you check the DNC register?</p>
+      <button class="qopt" type="button">A · After sending, to clean the list for next time</button>
+      <button class="qopt" type="button">B · Only if someone complains</button>
+      <button class="qopt" type="button">C · Before sending - check the No Text Message register unless an exemption applies</button>
+      <p class="qwhy">The DNC duty is a check-before-you-send obligation, per channel. You scrub against the relevant register first, not after.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · A consumer wants to stop your marketing. What must the consent flow allow?</p>
+      <button class="qopt" type="button">A · Nothing - once given, consent is permanent</button>
+      <button class="qopt" type="button">B · Withdrawal at any time, on reasonable notice, with consequences explained</button>
+      <button class="qopt" type="button">C · Withdrawal only at annual renewal</button>
+      <p class="qwhy">Consent must allow withdrawal at any time. You explain the consequences and then stop the use within a reasonable time.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Himalaya markets to EU consumers. Which is true about the DNC registry there?</p>
+      <button class="qopt" type="button">A · There is no DNC registry in the EU - GDPR uses consent + a right to object</button>
+      <button class="qopt" type="button">B · The same 3 registers apply across the EU</button>
+      <button class="qopt" type="button">C · GDPR requires a 72-hour DNC scrub</button>
+      <p class="qwhy">The DNC registry is Singapore-specific. GDPR has no equivalent list - it governs marketing through the consent standard plus an absolute right to object.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 4 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Consent Obligation</b><span>Collect / use / disclose only for consented purposes. Consent must be unbundled and freely given.</span></div>
+      <div class="cheat-item"><b>Withdrawal</b><span>Allowed any time on reasonable notice. Explain consequences, then stop - and cascade to vendors.</span></div>
+      <div class="cheat-item"><b>Purpose Limitation</b><span>Only purposes a reasonable person finds appropriate. No excessive consent as a condition of service.</span></div>
+      <div class="cheat-item"><b>Notification</b><span>Tell people the purpose at or before collection. New purpose = notify (usually re-consent).</span></div>
+      <div class="cheat-item"><b>Deemed consent</b><span>By conduct or by notification (opt-out window). Narrow - not a back door for cold marketing.</span></div>
+      <div class="cheat-item"><b>DNC 3 registers</b><span>No Voice Call · No Text Message · No Fax Message. Check the channel's register before sending.</span></div>
+      <div class="cheat-item"><b>DNC exemptions</b><span>Clear unambiguous consent, or an ongoing relationship. Evidence it per number, or scrub.</span></div>
+      <div class="cheat-item"><b>GDPR mirror</b><span>No DNC list. Consent = freely given / specific / informed / unambiguous; right to object is absolute.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 4 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="03-know-your-data.html">← Prev: Know your data</a> &nbsp;·&nbsp; <a href="05-protection-and-breach.html">Next: Protection &amp; breach →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

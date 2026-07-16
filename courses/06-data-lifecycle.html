@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 6 · Data lifecycle: accuracy, retention, transfer, rights - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 6 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 6 of 8</div>
+    <h1>Data lifecycle: accuracy, retention, transfer, <span class="accent">rights</span></h1>
+    <p class="sub">Govern personal data across its whole life - keep it accurate, dispose of it when it's done, move it across borders safely, and answer the individuals who ask what you hold on them.</p>
+    <div class="chip-row">
+      <span class="chip level">🟠 Getting real</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">Retention + cross-border</span>
+      <span class="chip time">45 min live + self-study depth</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Build-along on Himalaya</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Data has a lifespan - govern all of it</h2>
+    </div>
+    <p class="lede">Himalaya keeps everything forever. Ex-clients churned two years ago and their end-consumer records still sit in the warehouse. Meanwhile EU consumer data flows EU → Singapore warehouse → a US marketing vendor with no safeguards on file. Collecting data lawfully (Sessions 2 and 4) was only the start. Today we govern data across its whole life: keep it <strong>accurate</strong>, <strong>retain</strong> it only as long as needed, <strong>transfer</strong> it across borders with protection, and answer the individuals who exercise their <strong>rights</strong>.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A retention schedule you can defend ("we keep X for Y, then dispose because Z"), a transfer register for Himalaya's EU → SG → US flow with the right safeguard named, and a DSAR procedure that answers an access or correction request on time. Plus the one honesty flag every DPO in Singapore must carry: Data Portability is on the books but not yet in force.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: ACCURACY & RETENTION ============ -->
+  <section class="section" id="accuracy-retention">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers PDPA Accuracy + Retention Limitation</span>
+      <h2>Accuracy and retention <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Two obligations that pull in opposite directions and both get ignored. <strong>Accuracy</strong> says keep data correct while you hold it. <strong>Retention Limitation</strong> says stop holding it once you no longer need it. Between them sits the discipline most data teams skip entirely: a written retention schedule.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The data lifecycle strip: collect, use, retain, dispose, with a retention clock">
+        <style>
+          .lifL { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .lifLd { font: 700 16px Inter, sans-serif; fill: #12232B; }
+          .lifX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .lifXd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .lifArr { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#lifhead); }
+          .lifN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="lifhead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#B4CBD1"/></marker>
+        </defs>
+        <rect x="20" y="60" width="180" height="70" rx="12" fill="#0E7490"/>
+        <text class="lifL" x="110" y="92" text-anchor="middle">Collect</text>
+        <text class="lifX" x="110" y="114" text-anchor="middle">with consent + purpose</text>
+        <line class="lifArr" x1="204" y1="95" x2="238" y2="95"/>
+        <rect x="242" y="60" width="180" height="70" rx="12" fill="#1E90A8"/>
+        <text class="lifL" x="332" y="92" text-anchor="middle">Use</text>
+        <text class="lifX" x="332" y="114" text-anchor="middle">keep it accurate</text>
+        <line class="lifArr" x1="426" y1="95" x2="460" y2="95"/>
+        <rect x="464" y="60" width="180" height="70" rx="12" fill="#0B3B4A"/>
+        <text class="lifL" x="554" y="92" text-anchor="middle">Retain</text>
+        <text class="lifX" x="554" y="114" text-anchor="middle">only while needed</text>
+        <line class="lifArr" x1="648" y1="95" x2="682" y2="95"/>
+        <rect x="686" y="60" width="174" height="70" rx="12" fill="#DCE8EB"/>
+        <text class="lifLd" x="773" y="92" text-anchor="middle">Dispose</text>
+        <text class="lifXd" x="773" y="114" text-anchor="middle">securely, on trigger</text>
+        <circle cx="554" cy="200" r="34" fill="#E6F6F8" stroke="#0B3B4A" stroke-width="2"/>
+        <line x1="554" y1="200" x2="554" y2="180" stroke="#0B3B4A" stroke-width="2"/>
+        <line x1="554" y1="200" x2="570" y2="208" stroke="#F59E0B" stroke-width="3"/>
+        <text class="lifXd" x="554" y="256" text-anchor="middle">the retention clock</text>
+        <rect x="20" y="266" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="lifN" x="44" y="278">"Keep everything" skips the clock - so nothing ever hits Dispose, and the Retention obligation is breached by default.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the data lifecycle, with a retention clock that must eventually reach Dispose</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Accuracy Obligation - correct enough for the decision<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PDPA <strong>Accuracy Obligation</strong> requires you to make a <strong>reasonable effort</strong> to ensure personal data is accurate and complete - especially when it will be <strong>used to make a decision</strong> that affects the individual, or <strong>disclosed</strong> to another organisation. The bar scales with the stakes: a marketing nickname needs less rigour than an address used to send a legal notice.</p>
+        <ul>
+          <li>Accuracy is not "perfect data always." It's reasonable effort proportionate to how the data is used.</li>
+          <li>The riskier the decision or the disclosure, the more effort you owe - verification, refresh cycles, source-of-truth discipline.</li>
+          <li>This is where Session 7's data-quality capability plugs in: quality controls are how you operationalise Accuracy.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Himalaya's warehouse holds three different addresses for the same consumer across three modules, and marketing picks whichever it joins first. When a wellness client uses that address to route a health-related notice, the wrong one goes out. That's an Accuracy failure with real harm - and the fix is a source-of-truth rule, not more data.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Retention Limitation - build a schedule<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The <strong>Retention Limitation</strong> obligation says: <strong>cease to retain</strong> personal data, or remove the means of associating it with an individual, <strong>as soon as it's no longer needed for any business or legal purpose</strong>. Not "when convenient." Not "when storage runs out." When the need ends.</p>
+        <p>The DPO artifact that turns this into practice is a <strong>retention schedule</strong>: for each data category, three things -</p>
+        <ul>
+          <li><strong>Retention period</strong> - how long you keep it (e.g. "7 years after last transaction").</li>
+          <li><strong>Trigger</strong> - the event that starts the clock (contract end, last activity, account closure).</li>
+          <li><strong>Disposal method</strong> - how it's destroyed or de-identified when the period lapses.</li>
+        </ul>
+        <p>Legal purposes can justify longer holds - tax records, statutory limitation periods. "We might want it someday for analytics" is not a legal purpose.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Himalaya has no schedule, so Raj's default is infinite. Ex-clients who churned two years ago still have full end-consumer records in Redshift - data Himalaya has no purpose to hold and no consent to keep. Your schedule sets "client offboarding + 90 days → purge or de-identify," and suddenly there's a trigger and a disposal step where there was only "keep everything."</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Disposal methods and the "keep everything" anti-pattern<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Ceasing retention has to be real, not a hidden copy. Common defensible methods:</p>
+        <table class="clean">
+          <thead><tr><th>Method</th><th>What it means · when to use</th></tr></thead>
+          <tbody>
+            <tr><td>Secure deletion</td><td>Hard-delete from the store and its backups on their cycle. The default for data past its period.</td></tr>
+            <tr><td>De-identification / anonymisation</td><td>Strip and irreversibly break the link to the individual - then it leaves scope and can stay for analytics.</td></tr>
+            <tr><td>Aggregation</td><td>Keep only counts and rollups, not row-level personal data. Useful for long-run metrics.</td></tr>
+            <tr><td>Physical destruction</td><td>For media / paper - shred, wipe, or destroy the device.</td></tr>
+          </tbody>
+        </table>
+        <p>The <strong>"keep everything" anti-pattern</strong> is seductive to data teams: storage is cheap, and you never know what a model might want. But every extra row is extra breach surface, extra DSAR scope, and - past its purpose - a standing Retention breach. Himalaya's warehouse is the textbook case: ex-client consumer data with no purpose, no consent, and no clock. Governance says the cheapest data to protect is the data you no longer hold.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: CROSS-BORDER TRANSFER ============ -->
+  <section class="section" id="transfer">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers PDPA Transfer Limitation + GDPR transfer regime</span>
+      <h2>Cross-border transfer <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Personal data doesn't stop being protected when it crosses a border. Both rulebooks say the same thing in different words: if you send data overseas, the protection has to travel with it. Himalaya's EU → SG → US flow crosses two borders with nothing on file - the transfer problem you flagged on day one is now yours to fix.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EU to Singapore to US data flow with a safeguard gate on each hop">
+        <style>
+          .trfL { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .trfX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .trfG { font: 700 12px Inter, sans-serif; fill: #3A2400; }
+          .trfArr { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#trfhead); }
+          .trfN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="trfhead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#B4CBD1"/></marker>
+        </defs>
+        <rect x="20" y="70" width="180" height="70" rx="12" fill="#0E7490"/>
+        <text class="trfL" x="110" y="100" text-anchor="middle">EU consumer</text>
+        <text class="trfX" x="110" y="122" text-anchor="middle">data subject</text>
+        <rect x="238" y="16" width="150" height="30" rx="8" fill="#F59E0B"/>
+        <text class="trfG" x="313" y="36" text-anchor="middle">🔒 safeguard gate</text>
+        <line class="trfArr" x1="204" y1="105" x2="330" y2="105"/>
+        <line x1="313" y1="48" x2="313" y2="88" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4 3"/>
+        <rect x="334" y="70" width="180" height="70" rx="12" fill="#0B3B4A"/>
+        <text class="trfL" x="424" y="100" text-anchor="middle">SG warehouse</text>
+        <text class="trfX" x="424" y="122" text-anchor="middle">Himalaya Redshift</text>
+        <rect x="552" y="16" width="150" height="30" rx="8" fill="#F59E0B"/>
+        <text class="trfG" x="627" y="36" text-anchor="middle">🔒 safeguard gate</text>
+        <line class="trfArr" x1="518" y1="105" x2="644" y2="105"/>
+        <line x1="627" y1="48" x2="627" y2="88" stroke="#F59E0B" stroke-width="2" stroke-dasharray="4 3"/>
+        <rect x="648" y="70" width="180" height="70" rx="12" fill="#1E90A8"/>
+        <text class="trfL" x="738" y="100" text-anchor="middle">US vendor</text>
+        <text class="trfX" x="738" y="122" text-anchor="middle">marketing SaaS</text>
+        <rect x="20" y="224" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="trfN" x="44" y="236">Every border hop needs its own gate - comparable protection carried by contract. Himalaya has none on either hop.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two border hops, two safeguard gates that must be passed</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>PDPA Transfer Limitation - comparable protection<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PDPA <strong>Transfer Limitation</strong> obligation says you may transfer personal data overseas <strong>only if</strong> the receiving party is bound to a standard of protection <strong>comparable</strong> to the PDPA. You don't get to assume the destination is safe - you have to make it so.</p>
+        <ul>
+          <li>The usual mechanism is <strong>contract</strong> - clauses that bind the overseas recipient to PDPA-comparable protection.</li>
+          <li>Other routes: <strong>binding corporate rules</strong> for intra-group transfers, or the recipient being in a jurisdiction / certification already deemed comparable.</li>
+          <li>The obligation follows the data even when a processor moves it on your behalf - you stay accountable.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Himalaya's SG → US hop to the marketing vendor has no clause on file. Under the Transfer Limitation, that's an unlawful transfer running daily. The fix isn't stopping the vendor - it's a data processing addendum that binds them to comparable protection, plus recording it so you can prove it.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>GDPR mirror - adequacy, SCCs, BCRs, derogations<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Because Himalaya's data starts with <strong>EU consumers</strong>, the GDPR transfer regime (Arts. 44-49) also applies to the EU → SG hop. GDPR is stricter and more codified, but the logic mirrors PDPA - protection must travel. The transfer tools, in rough order of preference:</p>
+        <ul>
+          <li><strong>Adequacy decision</strong> (Art. 45) - the EU has ruled the destination country's protection adequate. Cleanest route where it exists.</li>
+          <li><strong>Standard Contractual Clauses (SCCs)</strong> (Art. 46) - EU-approved model contract clauses. The workhorse for transfers to non-adequate countries.</li>
+          <li><strong>Binding Corporate Rules (BCRs)</strong> (Art. 47) - approved intra-group rules for multinationals.</li>
+          <li><strong>Derogations</strong> (Art. 49) - narrow exceptions (explicit consent, contract necessity) - for occasional, not systematic, transfers.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>Say it right</strong>
+          PDPA and GDPR ask the same question - "does the protection travel with the data?" - and accept similar answers (a binding contract). Learn the GDPR toolkit names (adequacy / SCC / BCR) because your EU-facing clients will expect them, but don't treat the two regimes as one: run each hop against its own rulebook.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Himalaya's US vendor - what safeguard is needed<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Walk the EU → SG → US flow hop by hop and name the safeguard each needs:</p>
+        <table class="clean">
+          <thead><tr><th>Hop</th><th>Rulebook · safeguard to put in place</th></tr></thead>
+          <tbody>
+            <tr><td>EU consumer → SG warehouse</td><td>GDPR (Arts. 44-49). Needs SCCs (or adequacy, if Singapore is deemed adequate for the flow) binding Himalaya SG to EU-level protection.</td></tr>
+            <tr><td>SG warehouse → US vendor</td><td>PDPA Transfer Limitation. Needs a contract binding the US vendor to PDPA-comparable protection. If EU data is included, GDPR SCCs apply to this onward hop too.</td></tr>
+          </tbody>
+        </table>
+        <p>The durable DPO artifact is a <strong>transfer register</strong>: one row per flow recording what data, from where, to whom, in which country, and under which safeguard. When a regulator or a client asks "how is our data protected overseas?", the register is your one-line answer instead of a scramble. We build Himalaya's first row in the build-along.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: INDIVIDUAL RIGHTS ============ -->
+  <section class="section" id="rights">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers Access &amp; Correction + Portability</span>
+      <h2>Individual rights: access, correction, portability <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">Governance isn't only about the company's duties - individuals have rights, and answering them is a core DPO workflow. A person can ask what you hold on them, ask you to fix it, and (in some regimes) ask for a portable copy. Get the request-handling routine right and a DSAR is routine; get it wrong and it becomes a complaint.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The DSAR workflow: receive, verify identity, retrieve, respond within the timeline">
+        <style>
+          .dsrL { font: 700 15px Inter, sans-serif; fill: #FFFFFF; }
+          .dsrX { font: 400 11px Inter, sans-serif; fill: #C7EBEF; }
+          .dsrArr { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#dsrhead); }
+          .dsrN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="dsrhead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#B4CBD1"/></marker>
+        </defs>
+        <rect x="16" y="60" width="180" height="72" rx="12" fill="#0E7490"/>
+        <text class="dsrL" x="106" y="90" text-anchor="middle">1 · Receive</text>
+        <text class="dsrX" x="106" y="112" text-anchor="middle">log request + start clock</text>
+        <line class="dsrArr" x1="200" y1="96" x2="228" y2="96"/>
+        <rect x="232" y="60" width="180" height="72" rx="12" fill="#1E90A8"/>
+        <text class="dsrL" x="322" y="90" text-anchor="middle">2 · Verify identity</text>
+        <text class="dsrX" x="322" y="112" text-anchor="middle">right person asking</text>
+        <line class="dsrArr" x1="416" y1="96" x2="444" y2="96"/>
+        <rect x="448" y="60" width="180" height="72" rx="12" fill="#0B3B4A"/>
+        <text class="dsrL" x="538" y="90" text-anchor="middle">3 · Retrieve</text>
+        <text class="dsrX" x="538" y="112" text-anchor="middle">find data + usage log</text>
+        <line class="dsrArr" x1="632" y1="96" x2="660" y2="96"/>
+        <rect x="664" y="60" width="196" height="72" rx="12" fill="#0E7490"/>
+        <text class="dsrL" x="762" y="90" text-anchor="middle">4 · Respond</text>
+        <text class="dsrX" x="762" y="112" text-anchor="middle">within the timeline</text>
+        <rect x="16" y="186" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="dsrN" x="40" y="198">Verify identity before you disclose - handing data to an imposter is itself a breach.</text>
+        <text class="dsrN" x="40" y="220">The clock runs from receipt, not from verification.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the DSAR (data subject access request) workflow</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Access &amp; Correction Obligation<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PDPA <strong>Access &amp; Correction Obligation</strong> gives an individual two rights, and gives you two duties:</p>
+        <ul>
+          <li><strong>Access</strong> - on request, provide the person the personal data you hold about them <strong>and</strong> information on how it has been used or disclosed in the <strong>year before the request</strong>. That "how it was used" part surprises people - it's not just a data dump.</li>
+          <li><strong>Correction</strong> - on request, correct an error or omission, and (unless it's clearly unnecessary) send the corrected data to other organisations you disclosed it to.</li>
+        </ul>
+        <p>There are limited exceptions (e.g. where access would reveal another person's data), but the default posture is: answer it, within a reasonable time, at a reasonable fee if any.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>A Himalaya end consumer emails "send me everything you have on me and fix my old address." Tom in Customer Success forwards it to you. The Access duty means you retrieve their record across all 40+ schemas <em>and</em> report who you shared it with in the past year - which is exactly why the transfer register and the data map from Session 3 make this answerable instead of terrifying.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Data Portability - enacted, not yet in force<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Honesty flag, teach this carefully.</strong> Singapore's PDPA <strong>Data Portability Obligation</strong> was <strong>enacted in the 2020 amendment</strong> - it is on the statute books - but it is <strong>not yet in force</strong>, pending the supporting regulations. So the correct thing to tell a Himalaya stakeholder today is: it's coming, prepare for it, but you cannot yet be compelled to comply with it in Singapore.</p>
+        <ul>
+          <li>When in force, it will let an individual ask you to transmit their data <strong>to another organisation</strong> in a commonly used machine-readable format.</li>
+          <li>Contrast with <strong>GDPR Article 20</strong>, which is <strong>in force</strong>: EU data subjects already have a portability right today. So for Himalaya's EU consumers, portability is live under GDPR even while it's pending in Singapore.</li>
+          <li>Practical DPO stance: build your data map so a portable export is feasible - you'll need it for GDPR now and PDPA soon.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          Never state PDPA portability as a live obligation - a DPO who over-claims the law loses credibility fast. Say "enacted in 2020, not yet in force, in force under GDPR Art. 20." That precise phrasing is the mark of someone who actually reads the source.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Handling a rights request end to end<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Turn the workflow diagram into a written procedure your whole team can follow:</p>
+        <table class="clean">
+          <thead><tr><th>Step</th><th>What you actually do</th></tr></thead>
+          <tbody>
+            <tr><td>Receive</td><td>Log the request in one place, timestamp it, and start the response clock. Every intake channel (email, support tool, form) routes here.</td></tr>
+            <tr><td>Verify identity</td><td>Confirm the requester is the data subject (or an authorised agent) before disclosing anything - proportionate to the sensitivity.</td></tr>
+            <tr><td>Retrieve</td><td>Pull the personal data across all systems, plus the prior-year usage/disclosure log for an access request. This is where your data map earns its keep.</td></tr>
+            <tr><td>Respond</td><td>Provide access / make the correction / explain any refusal, within the required timeline, and record what you did.</td></tr>
+          </tbody>
+        </table>
+        <p>Watch the clock and the exceptions. A late or ignored request is a common route to a PDPC complaint - and "we couldn't find the data" is not a defence, it's an admission that your data map (Session 3) has a hole.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO / BUILD-ALONG ============ -->
+  <section class="section" id="demo-6">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · everyone builds</span>
+      <h2>Build Himalaya's retention schedule and transfer register <span class="tag demo">★ 19 min · on Himalaya</span></h2>
+    </div>
+    <p class="lede">Three concrete artifacts every DPO carries: a retention schedule, a transfer register, and a DSAR procedure. We draft the first rows for Himalaya together. Follow along; then repeat on your own organisation for homework.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - keeps everything forever (ex-client consumer data still in Redshift), pushes EU consumer data EU → SG warehouse → US marketing vendor with no safeguards on file, and has no written procedure for when a consumer asks what data it holds. Today you give the lifecycle a clock, a gate, and a front door.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>Pick data categories.</strong> List the handful that matter: end-consumer profile, purchase history, health notes (wellness clients), payment tokens, ex-client consumer data, marketing contact list. These are your retention-schedule rows.</p></div>
+      <div class="step"><p><strong>Set period + trigger + disposal for each.</strong> For every category write the retention period, the trigger that starts the clock, and the disposal method. Example: ex-client consumer data → "client offboarding + 90 days" → secure deletion.</p></div>
+      <div class="step"><p><strong>Build a transfer register row.</strong> For the EU → SG → US flow, record: data category, source, destination + country, and the safeguard on each hop (GDPR SCCs on EU → SG; PDPA-comparable contract on SG → US).</p></div>
+      <div class="step"><p><strong>Draft a DSAR response procedure.</strong> Write the four steps - receive, verify identity, retrieve (data + prior-year usage log), respond within timeline - as a checklist Tom and Customer Success can actually run.</p></div>
+      <div class="step"><p><strong>Flag portability honestly.</strong> Note on the procedure: portability is live for EU consumers (GDPR Art. 20) but pending in Singapore (PDPA, enacted 2020, not yet in force). Prepare the export path anyway.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the lifecycle prompt</span>You are helping me, a Data Protection Officer, govern personal data across its lifecycle.
+
+Here is my data situation: [paste the Himalaya summary above, or describe your own org - data categories, where they live, any cross-border flows].
+
+Produce three artifacts, using ONLY what I gave you:
+1. A retention schedule table: data category | retention period | trigger event | disposal method
+2. A transfer register: one row per cross-border flow with data category | source | destination + country | safeguard needed on each hop
+3. A short DSAR response procedure (receive &amp; verify &lt; retrieve &lt; respond) as a checklist
+
+Flag anything you'd need to confirm as an open question. Do not state PDPA Data Portability as an in-force obligation - it is enacted (2020) but not yet in force in Singapore; portability is in force under GDPR Art. 20.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Describe data categories by shape, never paste real records into a practice chat - "a table of consumer emails, addresses, and purchase history," not the rows themselves. Building your retention schedule is also the moment to ask: does this category even need to exist? The best retention rule is often "don't collect it."
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-45 min total</span></h2>
+    </div>
+    <ul>
+      <li>Build a <strong>retention schedule</strong> for your own organisation's top 5 data categories - period, trigger, disposal method for each. Circle any category that's currently "kept forever."</li>
+      <li>Draw your <strong>cross-border flows</strong> and start a transfer register: for each hop, name the destination country and the safeguard (or write "MISSING" - that's a finding).</li>
+      <li>Write your <strong>DSAR procedure</strong> as a one-page checklist and pressure-test it: if an access request landed today, could you retrieve the data and the prior-year usage log?</li>
+      <li>Check the live status of the <strong>PDPA Data Portability Obligation</strong> on pdpc.gov.sg before you next advise on it - it's designed to come into force, so confirm the date each time.</li>
+      <li>Find one dataset your team keeps "just in case" and write the sentence that justifies it - business or legal purpose. If you can't, you've found a Retention gap.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This session teaches the working content of the obligations below. Certification exams and legal advice on specific matters stay with their official sources - this page makes you fluent in the body of knowledge, honestly flagged where a right is pending or depth lives elsewhere.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA Accuracy Obligation</span><span class="note">Part 1 · reasonable effort, heavier for decisions/disclosure (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA Retention Limitation + disposal</span><span class="note">Part 1 · cease retention when no longer needed; retention schedule built</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA Transfer Limitation - comparable protection</span><span class="note">Part 2 · EU→SG→US case; transfer register (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GDPR transfer regime (Arts. 44-49)</span><span class="note">Part 2 · adequacy / SCC / BCR / derogations, as mirror (gdpr-info.eu)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Access &amp; Correction Obligation</span><span class="note">Part 3 · DSAR workflow + prior-year usage log</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">PDPA Data Portability Obligation</span><span class="note">Part 3 · enacted 2020, NOT yet in force - taught as pending; contrast GDPR Art. 20 (in force)</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · A Himalaya consumer asks Himalaya to send their data to a competitor platform. Under PDPA in Singapore today, must Himalaya comply?</p>
+      <button class="qopt" type="button">A · Yes - the Data Portability Obligation requires it now</button>
+      <button class="qopt" type="button">B · Not yet - portability is enacted (2020) but not in force in Singapore</button>
+      <button class="qopt" type="button">C · No - portability will never apply to a B2B2C platform</button>
+      <p class="qwhy">PDPA's Data Portability Obligation is legislated but not yet in force, pending regulations. It's live under GDPR Art. 20 for EU consumers - but the question asked about PDPA in Singapore.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · Ex-clients churned two years ago; their end-consumer records still sit in the warehouse. What does Retention Limitation require?</p>
+      <button class="qopt" type="button">A · Keep it - data might be useful for future analytics</button>
+      <button class="qopt" type="button">B · Keep it as long as storage is cheap</button>
+      <button class="qopt" type="button">C · Dispose of it - there's no business or legal purpose to keep it</button>
+      <p class="qwhy">Retention Limitation says cease to retain once data is no longer needed for any business or legal purpose. "Might be useful" is not a purpose.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Himalaya sends personal data from its SG warehouse to a US vendor. What does the Transfer Limitation require?</p>
+      <button class="qopt" type="button">A · A safeguard binding the vendor to comparable protection (e.g. contract clauses)</button>
+      <button class="qopt" type="button">B · Nothing - once data leaves Singapore the PDPA no longer applies</button>
+      <button class="qopt" type="button">C · Only the consumer's verbal agreement at sign-up</button>
+      <p class="qwhy">Overseas transfer is allowed only if the recipient is bound to PDPA-comparable protection, usually via contract. Accountability travels with the data.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 6 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Accuracy</b><span>Reasonable effort to keep data correct + complete - heavier when used for decisions or disclosed.</span></div>
+      <div class="cheat-item"><b>Retention Limitation</b><span>Cease to retain once no longer needed for any business or legal purpose. "Keep everything" = a standing breach.</span></div>
+      <div class="cheat-item"><b>Retention schedule</b><span>Per category: period + trigger + disposal method. The artifact that turns the obligation into practice.</span></div>
+      <div class="cheat-item"><b>Disposal</b><span>Secure deletion, irreversible de-identification, aggregation, or physical destruction. Real, not a hidden copy.</span></div>
+      <div class="cheat-item"><b>Transfer Limitation</b><span>Overseas only with comparable protection - usually a binding contract. Accountability follows the data.</span></div>
+      <div class="cheat-item"><b>GDPR transfers</b><span>Adequacy → SCCs → BCRs → derogations (Arts. 44-49). Keep a transfer register: what, where, to whom, safeguard.</span></div>
+      <div class="cheat-item"><b>Access &amp; Correction</b><span>Give access + how data was used/disclosed in the prior year; correct errors. Verify identity first.</span></div>
+      <div class="cheat-item"><b>Portability</b><span>PDPA: enacted 2020, NOT yet in force - teach as pending. GDPR Art. 20: in force now for EU consumers.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 6 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="05-protection-and-breach.html">← Prev: Protection &amp; breach</a> &nbsp;·&nbsp; <a href="07-operating-model.html">Next: The operating model →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

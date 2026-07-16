@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 7 · The operating model + maturity - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 7 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 7 of 8</div>
+    <h1>The operating model <span class="accent">+ maturity</span></h1>
+    <p class="sub">Turn one overloaded DPO into a machine: policies, decision rights, and named roles that share the load - plus a maturity score that tells the board exactly where Himalaya stands and what to invest in.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Advanced</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">DAMA + DCAM</span>
+      <span class="chip time">45 min live + self-study depth</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Build-along on Himalaya</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>A DPO who does everything alone is a single point of failure</h2>
+    </div>
+    <p class="lede">You've mapped the data (S3), fixed consent (S4), drilled the breach (S5), and cleaned the lifecycle (S6). But if all of it lives in your head and your inbox, Himalaya's governance dies the day you take leave. Today we build the <strong>machine</strong>: the policies that set the rules, the decision rights that say who decides, the roles that spread the work across the business, and a <strong>maturity score</strong> that tells you - and the board - exactly where Himalaya stands and what to invest in next.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">DAMA operating model · DCAM concept</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A picture of the governance operating model - council, owners, stewards, DPO office - and who does what; the difference between a policy, a standard, and a decision right; a simple maturity scorecard with Himalaya scored honestly (low on most capabilities); and the honesty flag that keeps you credible: DCAM's exact component names are member-gated, so we teach the scoring concept, not invented names.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: OPERATING MODEL ============ -->
+  <section class="section" id="operating-model">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers DAMA governance area</span>
+      <h2>The governance operating model <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Governance is a team sport played by the whole business, not a solo act by the DPO. The operating model answers three questions: what are the rules (policies and standards), who gets to decide (decision rights), and who holds each seat (the roles). Get these named and the DPO stops being the bottleneck.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tiered governance org: council at top, then data owners, data stewards, DPO office, with policies flowing down and issues escalating up">
+        <style>
+          .opmL { font: 700 15px Inter, sans-serif; fill: #FFFFFF; }
+          .opmLd { font: 700 15px Inter, sans-serif; fill: #12232B; }
+          .opmX { font: 400 11px Inter, sans-serif; fill: #C7EBEF; }
+          .opmXd { font: 400 11px Inter, sans-serif; fill: #5B7078; }
+          .opmArr { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#opmhead); }
+          .opmSide { font: 600 12px Inter, sans-serif; fill: #0E7490; }
+          .opmN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="opmhead" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#B4CBD1"/></marker>
+        </defs>
+        <rect x="300" y="20" width="280" height="52" rx="12" fill="#0B3B4A"/>
+        <text class="opmL" x="440" y="44" text-anchor="middle">Governance council</text>
+        <text class="opmX" x="440" y="62" text-anchor="middle">cross-domain decisions + priorities</text>
+        <line class="opmArr" x1="440" y1="74" x2="440" y2="104"/>
+        <rect x="300" y="108" width="280" height="52" rx="12" fill="#0E7490"/>
+        <text class="opmL" x="440" y="132" text-anchor="middle">Data owners</text>
+        <text class="opmX" x="440" y="150" text-anchor="middle">accountable for a domain</text>
+        <line class="opmArr" x1="440" y1="162" x2="440" y2="192"/>
+        <rect x="300" y="196" width="280" height="52" rx="12" fill="#1E90A8"/>
+        <text class="opmL" x="440" y="220" text-anchor="middle">Data stewards</text>
+        <text class="opmX" x="440" y="238" text-anchor="middle">day-to-day quality + curation</text>
+        <rect x="620" y="108" width="230" height="140" rx="12" fill="#E6F6F8" stroke="#0B3B4A" stroke-width="2"/>
+        <text class="opmLd" x="735" y="150" text-anchor="middle">DPO office</text>
+        <text class="opmXd" x="735" y="172" text-anchor="middle">privacy oversight,</text>
+        <text class="opmXd" x="735" y="188" text-anchor="middle">advice + monitoring</text>
+        <text class="opmXd" x="735" y="210" text-anchor="middle">across every tier</text>
+        <text class="opmSide" x="40" y="118" transform="rotate(0)">Policies +</text>
+        <text class="opmSide" x="40" y="136">standards</text>
+        <text class="opmSide" x="40" y="154">flow DOWN ↓</text>
+        <text class="opmSide" x="40" y="212">Issues +</text>
+        <text class="opmSide" x="40" y="230">exceptions</text>
+        <text class="opmSide" x="40" y="248">escalate UP ↑</text>
+        <rect x="40" y="316" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="opmN" x="64" y="328">The DPO office advises and monitors across all tiers - it does not own the data. Ownership sits with the business.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the tiered governance org: authority flows down, issues escalate up, DPO office oversees</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Policies vs standards vs decision rights<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three words people use interchangeably and shouldn't. They stack:</p>
+        <ul>
+          <li><strong>Policy</strong> - the <em>what and why</em>. A short, board-endorsed statement of intent: "we retain personal data only as long as needed." Rarely changes.</li>
+          <li><strong>Standard</strong> - the <em>how</em>. The specific, testable rule that implements a policy: "consumer records are purged 90 days after client offboarding." Changes as systems change.</li>
+          <li><strong>Decision right</strong> - the <em>who decides</em>. The named authority to approve an exception, sign off a new dataset, or resolve a cross-domain dispute. This is the heart of governance.</li>
+        </ul>
+        <p>Tools don't govern; decision rights do. A catalog can flag a policy violation, but only a named person with a decision right can say "approved" or "stop."</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>At Himalaya, "keep data safe" was a vibe, not a policy - so no one could say who approved the US-vendor transfer. You write a one-line transfer <strong>policy</strong>, a <strong>standard</strong> ("no overseas transfer without a signed comparable-protection clause"), and give the <strong>decision right</strong> to approve exceptions to the governance council - not to whoever set up the pipeline.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The roles - owner, steward, council, DPO office<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Four seats, four different jobs. Confusing them is why governance stalls.</p>
+        <table class="clean">
+          <thead><tr><th>Role</th><th>What they're on the hook for</th></tr></thead>
+          <tbody>
+            <tr><td>Data owner</td><td><strong>Accountable</strong> for a data domain - a senior business person who answers for its correct, lawful use. Sets direction, approves access.</td></tr>
+            <tr><td>Data steward</td><td><strong>Day-to-day</strong> quality and curation - definitions, fixing issues, keeping the domain healthy. Hands-on, closest to the data.</td></tr>
+            <tr><td>Governance council</td><td><strong>Cross-domain</strong> decisions and priorities - resolves disputes between domains, sets shared policy, allocates investment.</td></tr>
+            <tr><td>DPO office</td><td><strong>Privacy oversight</strong> - advises, monitors, and is the regulator/data-subject contact across every domain. Independent; does not own the data.</td></tr>
+          </tbody>
+        </table>
+        <p>Key distinction to hold onto: the <strong>owner is accountable</strong> (answers for it); the <strong>steward is responsible</strong> (does the work). The DPO advises them both and judges the privacy risk - but never becomes the owner, or independence collapses (Session 1).</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Who owns Himalaya's consumer database? Not you - the DPO can't own the very data whose lawfulness you judge. It should be <strong>Deven (CPO)</strong>, whose modules collect it: he's the accountable owner. A senior data engineer on Raj's team stewards it day to day. The council settles it when marketing and product disagree on how the consumer list is used.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Stewardship workflows - how issues get routed<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Roles only matter if there's a path an issue actually travels. A stewardship workflow is that path:</p>
+        <ol>
+          <li><strong>Detect</strong> - a quality check, a user report, or an access request surfaces a problem (e.g. duplicate consumer addresses).</li>
+          <li><strong>Route</strong> - it goes to the steward for that domain, not into a shared inbox nobody owns.</li>
+          <li><strong>Resolve or escalate</strong> - the steward fixes routine issues; anything needing a decision (an exception, a cross-domain conflict) escalates to the owner, then the council.</li>
+          <li><strong>Record</strong> - the fix and the decision are logged, so the next occurrence has a precedent and the DPO can evidence it.</li>
+        </ol>
+        <p>Without a workflow, every issue lands on the DPO - the single point of failure we opened with. With one, most issues resolve at the steward tier and only genuine decisions reach the top. That's the machine working as designed.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: MATURITY ============ -->
+  <section class="section" id="maturity">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers DCAM - concept only</span>
+      <h2>Maturity: knowing where you stand <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">You can't ask a board to invest without telling them where you are. A maturity model turns "governance feels weak" into a defensible score per capability, on a ladder everyone can read. Himalaya, honestly scored, sits near the bottom - and that low score is exactly what unlocks the Session 8 roadmap.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A maturity ladder from not initiated up to enhanced, with Himalaya's marker low on the ladder">
+        <style>
+          .matL { font: 700 14px Inter, sans-serif; fill: #12232B; }
+          .matX { font: 400 11px Inter, sans-serif; fill: #5B7078; }
+          .matM { font: 700 12px Inter, sans-serif; fill: #3A2400; }
+          .matN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="200" y="24" width="520" height="40" rx="8" fill="#0B3B4A"/>
+        <text class="matL" x="220" y="49" style="fill:#FFFFFF">6 · Enhanced</text>
+        <text class="matX" x="470" y="49" style="fill:#C7EBEF">optimised, continuously improved</text>
+        <rect x="200" y="70" width="520" height="40" rx="8" fill="#0E7490"/>
+        <text class="matL" x="220" y="95" style="fill:#FFFFFF">5 · Achieved</text>
+        <text class="matX" x="470" y="95" style="fill:#C7EBEF">operating and measured</text>
+        <rect x="200" y="116" width="520" height="40" rx="8" fill="#1E90A8"/>
+        <text class="matL" x="220" y="141" style="fill:#FFFFFF">4 · Defined</text>
+        <text class="matX" x="470" y="141" style="fill:#C7EBEF">documented and rolling out</text>
+        <rect x="200" y="162" width="520" height="40" rx="8" fill="#7DD3DC"/>
+        <text class="matL" x="220" y="187">3 · Developing</text>
+        <text class="matX" x="470" y="187">being built, uneven</text>
+        <rect x="200" y="208" width="520" height="40" rx="8" fill="#A5DDE4"/>
+        <text class="matL" x="220" y="233">2 · Conceptual</text>
+        <text class="matX" x="470" y="233">planned, not yet real</text>
+        <rect x="200" y="254" width="520" height="40" rx="8" fill="#C7EBEF"/>
+        <text class="matL" x="220" y="279">1 · Not initiated</text>
+        <text class="matX" x="470" y="279">nothing in place</text>
+        <rect x="60" y="230" width="120" height="42" rx="10" fill="#F59E0B"/>
+        <text class="matM" x="120" y="248" text-anchor="middle">Himalaya</text>
+        <text class="matM" x="120" y="264" text-anchor="middle">is here</text>
+        <path d="M180,251 L200,251" stroke="#F59E0B" stroke-width="3" marker-end="url(#opmhead2)"/>
+        <defs><marker id="opmhead2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#F59E0B"/></marker></defs>
+        <rect x="60" y="306" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="matN" x="84" y="318">Rung names shown are a generic illustrative ladder - not DCAM's official component names, which are member-gated.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - a generic maturity ladder with Himalaya scored low (conceptual)</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What a capability maturity assessment is<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A maturity assessment scores each governance <strong>capability</strong> (say, data quality, metadata, protection, retention) on a ladder from "nothing in place" up to "optimised." The point isn't the number - it's the shared, evidence-based picture of where you are and where the gaps are.</p>
+        <p>The scoring idea is consistent across models:</p>
+        <ul>
+          <li>Score each capability on <strong>evidence</strong> - is there a documented, operating practice, or just intention? A policy that exists but nobody follows scores low.</li>
+          <li>Score on <strong>engagement</strong> - is the business actually doing it, or is it a shelf document? Adoption matters as much as existence.</li>
+          <li>Compare current score to a <strong>target</strong> - the gap between them is your investment case, capability by capability.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Score Himalaya's retention capability: there's no schedule, ex-client data lingers, "keep everything" is the norm. Evidence = none, engagement = none → it scores at the bottom rung. Do that across six capabilities and you have a one-page picture the board can't argue with - and a ranked list of what to fix first.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Honesty flag - DCAM is the model, but member-gated<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Teach this straight.</strong> The leading data-management maturity model is <strong>DCAM</strong> (the Data Capability Assessment Model, from the <strong>EDM Council</strong>). It's the one large enterprises and regulators most often reference. But its exact component names and the full model are <strong>member-gated</strong> - you need EDM Council membership to use the official framework.</p>
+        <ul>
+          <li>So we teach the <strong>maturity / scoring concept</strong> - ladder, evidence, engagement, gap-to-target - which is public and transferable.</li>
+          <li>We do <strong>not invent</strong> DCAM's official component names or pass off a made-up list as "the DCAM components." A DPO who fakes a framework loses trust the moment they meet someone who has the real one.</li>
+          <li>If Himalaya needs a formal DCAM assessment, that's an EDM Council engagement - name it as such to the board rather than improvising.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>Say it right</strong>
+          "We'll use a DCAM-style maturity assessment - the scoring concept - and if we want the certified version, that's an EDM Council membership engagement." That sentence is honest, useful, and credible. Naming eight official DCAM components you Googled once is none of those.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Using a maturity score to get board investment<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A maturity score is a fundraising tool disguised as an assessment. The move:</p>
+        <ol>
+          <li><strong>Show the picture</strong> - current score per capability, most in the red. Boards respond to a heat map far better than to prose.</li>
+          <li><strong>Anchor to risk</strong> - tie the lowest scores to the concrete exposure: the near-miss breach, the unlawful transfer, the missing DNC check. Low maturity = the fine waiting to happen.</li>
+          <li><strong>Set a target and a cost</strong> - "move retention and transfer from rung 1 to rung 4 in 12 months, here's the headcount and tooling." Specific asks get funded; "we need to do better" doesn't.</li>
+          <li><strong>Re-score to prove ROI</strong> - come back next year with the same ladder and show movement. That's how you keep the budget.</li>
+        </ol>
+        <p>Himalaya scores low/conceptual on most capabilities today. That's not a failure to hide - it's the baseline that makes next year's improvement visible, and it becomes the backbone of the Session 8 first-90-days roadmap and board report.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: DATA QUALITY ============ -->
+  <section class="section" id="quality">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers DAMA Quality</span>
+      <h2>Data quality as a governed capability <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">Quality isn't a nice-to-have that lives on the data-engineering team - it's a governed capability the operating model owns, and it's what makes the Accuracy Obligation (Session 6) real. If users can't trust the data, no amount of policy will save you.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six data quality dimensions: accuracy, completeness, consistency, timeliness, validity, uniqueness">
+        <style>
+          .dqL { font: 700 15px Inter, sans-serif; fill: #FFFFFF; }
+          .dqX { font: 400 11px Inter, sans-serif; fill: #C7EBEF; }
+          .dqN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="30" width="270" height="60" rx="12" fill="#0B3B4A"/>
+        <text class="dqL" x="40" y="56">Accuracy</text>
+        <text class="dqX" x="40" y="76">reflects reality</text>
+        <rect x="305" y="30" width="270" height="60" rx="12" fill="#0E7490"/>
+        <text class="dqL" x="325" y="56">Completeness</text>
+        <text class="dqX" x="325" y="76">nothing missing</text>
+        <rect x="590" y="30" width="270" height="60" rx="12" fill="#1E90A8"/>
+        <text class="dqL" x="610" y="56">Consistency</text>
+        <text class="dqX" x="610" y="76">agrees across systems</text>
+        <rect x="20" y="104" width="270" height="60" rx="12" fill="#1E90A8"/>
+        <text class="dqL" x="40" y="130">Timeliness</text>
+        <text class="dqX" x="40" y="150">current enough to use</text>
+        <rect x="305" y="104" width="270" height="60" rx="12" fill="#0E7490"/>
+        <text class="dqL" x="325" y="130">Validity</text>
+        <text class="dqX" x="325" y="150">conforms to the rules</text>
+        <rect x="590" y="104" width="270" height="60" rx="12" fill="#0B3B4A"/>
+        <text class="dqL" x="610" y="130">Uniqueness</text>
+        <text class="dqX" x="610" y="150">no unwanted duplicates</text>
+        <rect x="20" y="200" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="dqN" x="44" y="212">Quality signals feed the catalog - so users see a trust score and know whether to rely on a dataset.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the six data-quality dimensions a governed program measures</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Quality dimensions feed trust<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>DAMA frames data quality as a set of measurable <strong>dimensions</strong>: accuracy, completeness, consistency, timeliness, validity, and uniqueness. A governed program doesn't just hope for quality - it measures each dimension, sets thresholds, and surfaces the result where users will see it.</p>
+        <ul>
+          <li>Quality signals <strong>feed the catalog</strong> (Session 3): a dataset carries a visible trust indicator, so an analyst knows before they build on it whether it's reliable.</li>
+          <li>Quality ties directly to the <strong>Accuracy Obligation</strong> (Session 6): the controls that keep data accurate <em>are</em> your quality capability, now owned and measured, not left to chance.</li>
+          <li>The steward runs the day-to-day quality checks; the owner is accountable for the domain hitting its thresholds; the DPO cares because inaccurate personal data used for decisions is a legal risk, not just an analytics one.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Himalaya's three-conflicting-addresses problem from Session 6 is a <strong>consistency</strong> and <strong>uniqueness</strong> failure. As a governed capability, the steward sets a source-of-truth rule and a dedupe check, the catalog shows a trust score, and the wellness client stops routing a health notice to the wrong address. Quality control and the Accuracy Obligation are the same fix wearing two hats.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO / BUILD-ALONG ============ -->
+  <section class="section" id="demo-7">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · everyone builds</span>
+      <h2>Design Himalaya's stewardship org and score its maturity <span class="tag demo">★ 19 min · on Himalaya</span></h2>
+    </div>
+    <p class="lede">Two artifacts that turn you from single-point-of-failure into a program: a stewardship org (who owns and stewards what) and a maturity scorecard (where Himalaya stands). We build both for Himalaya together, then you repeat on your own org for homework.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - one overloaded new DPO (you), no named data owners or stewards, no council, "keep data safe" as a vibe not a policy, and governance capabilities that mostly score at the bottom rung. Today you assign the seats and put a number on the gap.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>Assign owners and stewards for the top 3 datasets.</strong> Consumer database (owner: Deven/CPO), warehouse pipelines (owner: Raj), marketing contact list (owner: Ilsa/CRO). Name a steward for each. You (DPO) advise all three, own none.</p></div>
+      <div class="step"><p><strong>Draft one data policy.</strong> Pick retention or access. Write it as three lines: the policy (what/why), one standard (the testable rule), and the decision right (who approves exceptions - the council).</p></div>
+      <div class="step"><p><strong>Build a maturity scorecard.</strong> List ~6 capabilities (consent, retention, transfer, protection, quality, metadata/catalog). Score Himalaya 1-5 on each, with one line of evidence per score. Most will land low - that's honest.</p></div>
+      <div class="step"><p><strong>Identify the biggest gap.</strong> Rank the capabilities by risk-weighted gap. For Himalaya the transfer and retention gaps tie to concrete legal exposure - those lead the Session 8 roadmap.</p></div>
+      <div class="step"><p><strong>Keep the honesty flag.</strong> Label the scorecard "DCAM-style maturity concept" - not "the DCAM assessment." Note that the certified version is an EDM Council membership engagement.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the operating-model prompt</span>You are helping me, a Data Protection Officer, stand up a governance operating model and score maturity.
+
+Here is my situation: [paste the Himalaya summary above, or describe your own org - key datasets, who's around, current state of governance].
+
+Produce two artifacts, using ONLY what I gave you:
+1. A RACI-style stewardship table: dataset | data owner (accountable) | steward (responsible) | council role | DPO office role
+2. A maturity scorecard: list ~6 governance capabilities, score each 1-5 with one line of evidence, and flag the biggest risk-weighted gap
+
+Treat this as a DCAM-STYLE maturity concept, not the official DCAM model &amp; do not invent DCAM's member-gated component names. List anything you'd need to confirm as an open question.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Score maturity on evidence, not optimism - if there's no artifact you can point to, the capability scores at rung 1, however hard the team is trying. Describe your org's state in shapes, not names and real records, when you draft this with an AI assistant. An honest low score today is what makes next year's improvement provable.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-45 min total</span></h2>
+    </div>
+    <ul>
+      <li>Draw your own organisation's <strong>governance operating model</strong> - who's the council, who are the owners and stewards for your top 3 datasets, and where does the DPO office sit? Mark any seat that's currently empty.</li>
+      <li>Write <strong>one real policy</strong> as three lines: policy (what/why), standard (the testable rule), decision right (who approves exceptions). Pick a topic you actually need - retention, access, or transfer.</li>
+      <li>Score your org on a <strong>6-capability maturity scorecard</strong>, 1-5 with evidence. Be honest - most first scorecards are mostly red, and that's the point.</li>
+      <li>Identify the <strong>single biggest risk-weighted gap</strong> and draft the one-sentence investment ask you'd put to a board.</li>
+      <li>Look up the <strong>EDM Council DCAM</strong> page so you know exactly what's member-gated - then you can reference it honestly without over-claiming.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This session teaches the working content of the frameworks below. Member-gated frameworks and certification exams stay with their official sources - this page makes you fluent in the body of knowledge, honestly flagged where the official model is gated.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">DAMA governance - policies, standards, decision rights</span><span class="note">Part 1 · the operating model; full depth in DMBOK2</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Roles - owners, stewards, council, DPO office</span><span class="note">Part 1 · accountable vs responsible; stewardship workflow</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Maturity / scoring concept - ladder, evidence, engagement</span><span class="note">Part 2 · assessment concept + board investment case</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Data quality as a governed capability</span><span class="note">Part 3 · six dimensions, feeds catalog trust + Accuracy</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">DCAM (EDM Council) - official model + component names</span><span class="note">Part 2 · MEMBER-GATED - concept taught, official names not reproduced (edmcouncil.org)</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · Your board asks for "the official DCAM component names and full assessment." What's the honest DPO answer?</p>
+      <button class="qopt" type="button">A · List the eight components from memory - close enough</button>
+      <button class="qopt" type="button">B · Say DCAM doesn't exist and use your own model instead</button>
+      <button class="qopt" type="button">C · DCAM is member-gated (EDM Council) - we teach the scoring concept; the certified version is a membership engagement</button>
+      <p class="qwhy">DCAM's exact component names and full model are member-gated. Teach the maturity/scoring concept honestly; name the official route rather than inventing component names.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">2 · Deven owns the consumer database; a senior engineer curates it day to day. Which is right?</p>
+      <button class="qopt" type="button">A · Deven is the accountable owner; the engineer is the responsible steward</button>
+      <button class="qopt" type="button">B · Both are stewards; ownership belongs to the DPO</button>
+      <button class="qopt" type="button">C · The DPO owns it since the DPO judges its lawfulness</button>
+      <p class="qwhy">The owner is accountable (answers for the domain); the steward is responsible (does the day-to-day work). The DPO advises and oversees but must not own the data - that would break independence.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">3 · Marketing wants a policy exception to reuse the consumer list for a new purpose. What decides whether it's allowed?</p>
+      <button class="qopt" type="button">A · Whether the catalog tool has a feature to flag it</button>
+      <button class="qopt" type="button">B · A named decision right - the person or council authorised to approve exceptions</button>
+      <button class="qopt" type="button">C · Whoever originally built the pipeline</button>
+      <p class="qwhy">Governance is decision rights, not tooling. A tool can flag a violation, but only a named authority (here, the governance council) can approve or refuse an exception.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 7 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Policy vs standard vs decision right</b><span>Policy = what/why. Standard = the testable how. Decision right = who decides. Tools don't govern; decision rights do.</span></div>
+      <div class="cheat-item"><b>Owner vs steward</b><span>Owner is accountable (answers for the domain). Steward is responsible (day-to-day quality + curation).</span></div>
+      <div class="cheat-item"><b>Council + DPO office</b><span>Council settles cross-domain decisions. DPO office advises + monitors across all tiers, owns no data.</span></div>
+      <div class="cheat-item"><b>Stewardship workflow</b><span>Detect → route to steward → resolve or escalate → record. Keeps issues off the DPO's single desk.</span></div>
+      <div class="cheat-item"><b>Maturity assessment</b><span>Score each capability on a ladder by evidence + engagement. Gap to target = the investment case.</span></div>
+      <div class="cheat-item"><b>DCAM honesty flag</b><span>DCAM (EDM Council) is member-gated. Teach the scoring concept; never invent official component names.</span></div>
+      <div class="cheat-item"><b>Data quality dimensions</b><span>Accuracy, completeness, consistency, timeliness, validity, uniqueness. Feeds catalog trust + the Accuracy Obligation.</span></div>
+      <div class="cheat-item"><b>Low score = the roadmap</b><span>Himalaya scores low/conceptual on most capabilities - that honest baseline becomes the Session 8 plan.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 7 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="06-data-lifecycle.html">← Prev: Data lifecycle</a> &nbsp;·&nbsp; <a href="08-capstone.html">Next: Capstone →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

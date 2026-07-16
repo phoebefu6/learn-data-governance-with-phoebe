@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 1 · Data governance and the DPO - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 1 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 1 of 8</div>
+    <h1>Data governance and the <span class="accent">DPO</span></h1>
+    <p class="sub">What data governance actually is, why Singapore law makes the Data Protection Officer role mandatory, and where you sit when you're the first DPO a company ever hired.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Start here</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">Singapore + EU</span>
+      <span class="chip time">45 min live + self-study depth</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Build-along on Himalaya</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Why this course exists</h2>
+    </div>
+    <p class="lede">Your data team can build pipelines, models, and dashboards. What most data teams cannot do yet is answer a regulator's simplest question: "What personal data do you hold, why, and who said you could?" This 8-session course turns a data practitioner into someone who can run as a Data Protection Officer - protect the people in the data, and protect the company from the fine. We learn it by governing one company, Himalaya, from its messy first day to a board-ready program.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A precise definition of data governance you can defend to an engineer and a board member, the DAMA map of everything governance spans, a clear read on why the DPO role is legally mandatory in Singapore (and only sometimes in the EU), and a first draft of Himalaya's data landscape with your seat on it. Cards marked "Live" are what we do together; "Self-study" cards give the full depth at your own pace.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: WHAT GOVERNANCE IS ============ -->
+  <section class="section" id="what-governance-is">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers DAMA-DMBOK2 - the governance function</span>
+      <h2>What data governance actually is <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Governance is not a tool, a team, or a folder of policies nobody reads. It is the exercise of <strong>authority and decision-making</strong> over data: who gets to decide, how decisions are enforced, and who is accountable when it goes wrong. Everything else - quality, security, catalogs - is a capability governance directs.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three pillars of governance: decision rights, enforcement, accountability">
+        <style>
+          .gvL { font: 800 40px Inter, sans-serif; fill: #FFFFFF; }
+          .gvT { font: 700 19px Inter, sans-serif; fill: #12232B; }
+          .gvX { font: 400 13px Inter, sans-serif; fill: #5B7078; }
+          .gvN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="30" width="80" height="80" rx="16" fill="#0B3B4A"/>
+        <text class="gvL" x="42" y="84">1</text>
+        <text class="gvT" x="20" y="150">Decision rights</text>
+        <text class="gvX" x="20" y="173">Who is allowed to decide</text>
+        <text class="gvX" x="20" y="191">what happens to a dataset -</text>
+        <text class="gvX" x="20" y="209">named, not assumed.</text>
+        <rect x="320" y="30" width="80" height="80" rx="16" fill="#0E7490"/>
+        <text class="gvL" x="342" y="84">2</text>
+        <text class="gvT" x="320" y="150">Enforcement</text>
+        <text class="gvX" x="320" y="173">Policies and standards with</text>
+        <text class="gvX" x="320" y="191">teeth - controls, reviews,</text>
+        <text class="gvX" x="320" y="209">escalation when broken.</text>
+        <rect x="620" y="30" width="80" height="80" rx="16" fill="#1E90A8"/>
+        <text class="gvL" x="642" y="84">3</text>
+        <text class="gvT" x="620" y="150">Accountability</text>
+        <text class="gvX" x="620" y="173">Someone answers for the</text>
+        <text class="gvX" x="620" y="191">data - to the business, the</text>
+        <text class="gvX" x="620" y="209">regulator, and the person.</text>
+        <rect x="20" y="255" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="gvN" x="44" y="267">No named decider, no enforcement, no one accountable = no governance, however many tools you bought.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the three things every governance program must establish</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Governance vs management vs "the data team"<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>People blur three different things. <strong>Data management</strong> is the doing - building pipelines, storing, modeling, serving. <strong>Data governance</strong> is the deciding - setting the rules, rights, and accountability the doing must follow. The <strong>data team</strong> is a set of people who mostly do management and, until someone insists otherwise, govern by accident.</p>
+        <p>The tell that a company has no real governance: ask "who decided we could keep this?" and you get a shrug, a Slack thread, or "that's just how the pipeline was built." Governance replaces the shrug with a name, a policy, and a paper trail.</p>
+        <h4>Why this matters to you</h4>
+        <ul>
+          <li>As a DPO you will spend far more time on <strong>decision rights and accountability</strong> than on technology. The hard part is organisational, not technical.</li>
+          <li>Your credibility comes from being able to say <strong>who</strong> is accountable for each dataset and <strong>on what basis</strong> it is held - not from owning a fancy catalog.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya, day one.</strong> Raj (Head of Platform) says "we keep everything in Redshift, it's all governed - we have access controls." That's management, not governance. Nobody has decided what should be kept, for how long, or why. Your first job is to turn that "it's handled" into a real, defensible answer.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The DAMA wheel - governance at the hub<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The industry's standard map of data management is the <strong>DAMA-DMBOK2 wheel</strong>: eleven knowledge areas. Ten are capabilities - the work. The eleventh, <strong>Data Governance</strong>, sits at the centre because it directs and connects all the others. You don't need to master all ten to be a DPO, but you must know they exist and how governance steers each one.</p>
+        <figure class="zoomable">
+          <svg viewBox="0 0 880 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The DAMA wheel: Data Governance at the hub with ten surrounding knowledge areas">
+            <style>
+              .dwHub { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+              .dwHubS { font: 400 11px Inter, sans-serif; fill: #C7EBEF; }
+              .dwS { font: 600 12px Inter, sans-serif; fill: #12232B; }
+              .dwArr { stroke: #B4CBD1; stroke-width: 1.5; fill: none; }
+              .dwN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+            </style>
+            <!-- spokes -->
+            <line class="dwArr" x1="440" y1="195" x2="440" y2="70"/>
+            <line class="dwArr" x1="440" y1="195" x2="590" y2="95"/>
+            <line class="dwArr" x1="440" y1="195" x2="700" y2="150"/>
+            <line class="dwArr" x1="440" y1="195" x2="720" y2="230"/>
+            <line class="dwArr" x1="440" y1="195" x2="660" y2="300"/>
+            <line class="dwArr" x1="440" y1="195" x2="440" y2="330"/>
+            <line class="dwArr" x1="440" y1="195" x2="220" y2="300"/>
+            <line class="dwArr" x1="440" y1="195" x2="160" y2="230"/>
+            <line class="dwArr" x1="440" y1="195" x2="180" y2="150"/>
+            <line class="dwArr" x1="440" y1="195" x2="290" y2="95"/>
+            <!-- hub -->
+            <circle cx="440" cy="195" r="70" fill="#0B3B4A"/>
+            <text class="dwHub" x="440" y="188" text-anchor="middle">Data</text>
+            <text class="dwHub" x="440" y="208" text-anchor="middle">Governance</text>
+            <text class="dwHubS" x="440" y="226" text-anchor="middle">the hub</text>
+            <!-- ten spokes -->
+            <g>
+              <rect x="368" y="34" width="144" height="34" rx="8" fill="#0E7490"/>
+              <text class="dwS" x="440" y="55" text-anchor="middle" style="fill:#FFFFFF">Architecture</text>
+              <rect x="536" y="72" width="150" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+              <text class="dwS" x="611" y="93" text-anchor="middle">Modeling &amp; Design</text>
+              <rect x="640" y="132" width="176" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+              <text class="dwS" x="728" y="153" text-anchor="middle">Storage &amp; Operations</text>
+              <rect x="662" y="212" width="150" height="34" rx="8" fill="#0E7490"/>
+              <text class="dwS" x="737" y="233" text-anchor="middle" style="fill:#FFFFFF">Data Security</text>
+              <rect x="560" y="284" width="196" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+              <text class="dwS" x="658" y="305" text-anchor="middle">Integration &amp; Interop</text>
+              <rect x="356" y="316" width="168" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+              <text class="dwS" x="440" y="337" text-anchor="middle">Document &amp; Content</text>
+              <rect x="128" y="284" width="176" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+              <text class="dwS" x="216" y="305" text-anchor="middle">Reference &amp; Master Data</text>
+              <rect x="70" y="212" width="150" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+              <text class="dwS" x="145" y="233" text-anchor="middle">Warehousing &amp; BI</text>
+              <rect x="120" y="132" width="120" height="34" rx="8" fill="#0E7490"/>
+              <text class="dwS" x="180" y="153" text-anchor="middle" style="fill:#FFFFFF">Metadata</text>
+              <rect x="212" y="72" width="150" height="34" rx="8" fill="#0E7490"/>
+              <text class="dwS" x="287" y="93" text-anchor="middle" style="fill:#FFFFFF">Data Quality</text>
+            </g>
+            <rect x="20" y="388" width="14" height="14" rx="3" fill="#F59E0B"/>
+            <text class="dwN" x="44" y="400">Teal boxes = the four spokes a DPO touches most: Security, Metadata, Quality, and Architecture.</text>
+          </svg>
+          <figcaption>🔍 Click to zoom - the DAMA-DMBOK2 wheel, governance at the centre (source: dama.org)</figcaption>
+        </figure>
+        <div class="callout tip">
+          <strong>Say it right</strong>
+          Governance is not a twelfth capability bolted on. It is the hub that decides how the other ten behave. When someone proposes "a governance tool," ask which spoke it actually serves - the answer is usually Metadata (a catalog) or Quality.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The ten spokes, in one line each<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <table class="clean">
+          <thead><tr><th>Knowledge area</th><th>What it covers · why a DPO cares</th></tr></thead>
+          <tbody>
+            <tr><td>Architecture</td><td>The blueprint of how data flows. Your data maps (Session 3) live here.</td></tr>
+            <tr><td>Modeling &amp; Design</td><td>How data is structured. Where personal fields get defined - or hidden.</td></tr>
+            <tr><td>Storage &amp; Operations</td><td>Databases and their running. Where retention and disposal actually happen.</td></tr>
+            <tr><td>Data Security</td><td>Access, encryption, controls. Your Protection Obligation leans on this (Session 5).</td></tr>
+            <tr><td>Integration &amp; Interoperability</td><td>Moving data between systems - every move is a potential transfer risk.</td></tr>
+            <tr><td>Document &amp; Content</td><td>Unstructured data (PDFs, emails). Personal data hides here too.</td></tr>
+            <tr><td>Reference &amp; Master Data</td><td>The single source of truth for "who is this customer" - key for access requests.</td></tr>
+            <tr><td>Warehousing &amp; BI</td><td>Analytics. Where personal data quietly gets copied for reporting.</td></tr>
+            <tr><td>Metadata</td><td>Data about data - the catalog, glossary, lineage. Your visibility layer (Session 3).</td></tr>
+            <tr><td>Data Quality</td><td>Accuracy, completeness. Backs your Accuracy Obligation (Session 6).</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: THE DPO ROLE ============ -->
+  <section class="section" id="dpo-role">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers PDPA Accountability Obligation + GDPR Arts. 37-39</span>
+      <h2>The DPO role, and why it's the law <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Here is the fact that surprises most data people: in Singapore, appointing a Data Protection Officer is not optional and not size-dependent. <strong>Every organisation must designate at least one DPO.</strong> In the EU it's the opposite - mandatory only in three defined situations. Knowing both, and which applies to your company, is DPO literacy step one.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DPO mandate: PDPA requires it of every organisation; GDPR only in three cases">
+        <style>
+          .dpmH { font: 700 17px Inter, sans-serif; fill: #FFFFFF; }
+          .dpmB { font: 700 15px Inter, sans-serif; fill: #12232B; }
+          .dpmX { font: 400 13px Inter, sans-serif; fill: #5B7078; }
+          .dpmN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="24" width="400" height="40" rx="10" fill="#0B3B4A"/>
+        <text class="dpmH" x="40" y="49">PDPA (Singapore) - your home law</text>
+        <rect x="40" y="82" width="360" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="dpmB" x="58" y="104">Every organisation must appoint a DPO</text>
+        <text class="dpmX" x="40" y="140">No exemption for size, sector, or data volume.</text>
+        <text class="dpmX" x="40" y="160">DPO business contact must be made public.</text>
+        <text class="dpmX" x="40" y="180">Part of the Accountability Obligation.</text>
+        <rect x="460" y="24" width="400" height="40" rx="10" fill="#0E7490"/>
+        <text class="dpmH" x="480" y="49">GDPR (EU) - the mirror</text>
+        <rect x="480" y="82" width="360" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="dpmB" x="498" y="104">Mandatory only in 3 cases (Art. 37)</text>
+        <text class="dpmX" x="480" y="140">1 · Public authority / body</text>
+        <text class="dpmX" x="480" y="160">2 · Large-scale regular &amp; systematic monitoring</text>
+        <text class="dpmX" x="480" y="180">3 · Large-scale special-category / criminal data</text>
+        <rect x="20" y="214" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="dpmN" x="44" y="226">Himalaya is Singapore-based with EU consumers - so it needs a DPO under PDPA AND likely qualifies under GDPR case 2.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - two rulebooks, two different DPO triggers</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What the DPO actually does<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>GDPR Article 39 gives the cleanest task list, and it maps well onto the PDPA role. A DPO's job is five verbs:</p>
+        <ul>
+          <li><strong>Advise</strong> - tell the business and its staff what the law requires, before they act, not after.</li>
+          <li><strong>Monitor</strong> - check compliance with the law and internal policies; run awareness, training, and audits.</li>
+          <li><strong>Assess</strong> - advise on and track data protection impact assessments (DPIAs) for risky processing (Session 8).</li>
+          <li><strong>Cooperate</strong> - be the working contact for the regulator (PDPC in Singapore).</li>
+          <li><strong>Point</strong> - be the named contact both regulators and data subjects can reach.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>When Ilsa (CRO) plans a new 8M-consumer SMS campaign, the DPO doesn't run the campaign or block it on instinct. The DPO <strong>advises</strong> ("here's the consent and DNC check you need first"), <strong>monitors</strong> that it happened, and is the person the PDPC calls if a complaint lands. Advisor and watchdog, not gatekeeper.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Independence - the part companies get wrong<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The DPO role only works if it has teeth, so the law protects its position. Under GDPR Article 38 - and as good practice everywhere - the DPO:</p>
+        <ul>
+          <li><strong>Reports to the highest level of management</strong> - not buried three layers down under a manager whose project you might have to flag.</li>
+          <li><strong>Acts independently</strong> - no one instructs the DPO on how to do the role, and the DPO cannot be dismissed or penalised for doing it.</li>
+          <li><strong>Has no conflict of interest</strong> - you can't be DPO and also the person who owns the marketing database whose lawfulness you're meant to judge.</li>
+          <li><strong>Is properly resourced</strong> - given time, budget, and access to carry the role, not handed it as a title on top of a full-time job.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>The independence test</strong>
+          If the DPO cannot safely say "no, not like that" to the CEO, the role is decorative. When you take a DPO seat, negotiate the reporting line and the "cannot be penalised" protection on day one - that is the job's foundation, not a perk.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The DPO and the certifications<span class="mini">1 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This course teaches the DPO <em>body of knowledge</em>. If you later want the paper credentials, the recognised ones are from the IAPP:</p>
+        <ul>
+          <li><strong>CIPP/E</strong> - knowing the privacy law (GDPR and European data protection).</li>
+          <li><strong>CIPM</strong> - operationalising a privacy programme (the management side of the DPO job).</li>
+          <li><strong>CIPT</strong> - engineering privacy into products and systems (privacy by design).</li>
+        </ul>
+        <p>IAPP positions <strong>CIPP/E + CIPM together</strong> as the standard training combination for the DPO role. In Singapore, the PDPC also runs its own practitioner courses. The exams and certificates stay with those official bodies - this course gets you fluent in what they test.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: THE DATA YOU PROTECT ============ -->
+  <section class="section" id="personal-data">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers PDPA + GDPR - what counts as personal data</span>
+      <h2>Personal data, PII, and the sensitive tier <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">You cannot protect a category you can't define. Data people say "PII" loosely; the law is more precise, and one tier - sensitive or "prescribed" data - carries far heavier duties. Getting this ladder right is what makes your data map (Session 3) actually mean something.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data classification ladder: non-personal, personal data, sensitive or prescribed data">
+        <style>
+          .pclT { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .pclTd { font: 700 16px Inter, sans-serif; fill: #12232B; }
+          .pclX { font: 400 13px Inter, sans-serif; fill: #5B7078; }
+          .pclXw { font: 400 13px Inter, sans-serif; fill: #C7EBEF; }
+          .pclN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="40" y="30" width="500" height="52" rx="10" fill="#DCE8EB"/>
+        <text class="pclTd" x="60" y="53">Non-personal data</text>
+        <text class="pclX" x="60" y="72">Aggregate metrics, anonymised counts - no duties attach.</text>
+        <rect x="40" y="94" width="620" height="52" rx="10" fill="#1E90A8"/>
+        <text class="pclT" x="60" y="117">Personal data</text>
+        <text class="pclXw" x="60" y="136">Any data about an identifiable person: name, email, phone, address, purchase history, an ID.</text>
+        <rect x="40" y="158" width="760" height="52" rx="10" fill="#0B3B4A"/>
+        <text class="pclT" x="60" y="181">Sensitive / prescribed data - highest duty</text>
+        <text class="pclXw" x="60" y="200">NRIC-style national IDs, financial account info, health data, login credentials, biometrics.</text>
+        <text class="pclX" x="40" y="244">← wider category, lighter duties</text>
+        <text class="pclX" x="600" y="244">narrower, heavier duties →</text>
+        <rect x="40" y="266" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="pclN" x="64" y="278">Himalaya's wellness-vertical clients collect health notes - that pushes Himalaya into the top tier.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the classification ladder that drives every duty you owe</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Personal data - broader than you think<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Under both PDPA and GDPR, <strong>personal data is any data about an identifiable individual</strong> - on its own or combined with other data the organisation has or is likely to have. That "combined with" clause is the trap: an anonymous-looking table plus one join key becomes personal data.</p>
+        <ul>
+          <li><strong>PII</strong> (personally identifiable information) is the common US-flavoured term for the obvious identifiers - it is roughly a subset of "personal data," which is the legal term you should use.</li>
+          <li>A device ID, an IP address, or an in-app behaviour trail can be personal data when it can be tied back to a person - which, in a product like Himalaya's, it usually can.</li>
+          <li>Anonymisation (truly irreversible) takes data out of scope; <strong>pseudonymisation</strong> (reversible with a key) does not - it's still personal data.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Raj proudly shows you an "anonymised" analytics table - no names, just a <code>consumer_id</code>. But there's a lookup table one schema over that maps <code>consumer_id</code> to email. Combined, it's fully personal data, and it's been feeding a US analytics vendor for a year. That's not anonymised; that's pseudonymised, and it's in scope.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The sensitive tier - why it changes everything<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A subset of personal data is treated as far riskier because misuse causes real harm. GDPR calls it <strong>special category</strong> data (Art. 9); Singapore's breach rules turn on <strong>prescribed</strong> personal data. Either way, the practical effect is the same: heavier consent, stronger protection, and a lower bar for when a breach becomes notifiable.</p>
+        <ul>
+          <li>Typical members: <strong>health</strong> data, <strong>financial account</strong> details, <strong>national IDs</strong> (NRIC), <strong>login credentials</strong>, biometrics, and - under GDPR - race, religion, sexual orientation, and more.</li>
+          <li>A breach involving this tier is much more likely to cross Singapore's "significant harm" threshold and trigger mandatory notification (Session 5).</li>
+          <li>Consent expectations rise: you generally need clearer, more specific consent to process it.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          The first thing you find in any new company is where the sensitive tier lives - because that's where the biggest fines and the worst headlines come from. Map that before you map anything else.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Data subjects, controllers, and processors<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three roles you'll use in every session. Getting them right decides who owes which duty - critical in a B2B2C platform like Himalaya.</p>
+        <table class="clean">
+          <thead><tr><th>Role</th><th>Meaning · Himalaya example</th></tr></thead>
+          <tbody>
+            <tr><td>Data subject</td><td>The person the data is about. Himalaya's 8M end consumers, and named contacts at the 1,200 business clients.</td></tr>
+            <tr><td>Controller</td><td>Decides why and how data is processed. Often the business client - but Himalaya is a controller for its own platform data.</td></tr>
+            <tr><td>Processor</td><td>Processes on a controller's instructions. Himalaya is frequently a processor for its clients; the US analytics vendor is a processor for Himalaya.</td></tr>
+          </tbody>
+        </table>
+        <p>The controller/processor split matters because <strong>duties and liability follow the role</strong>. Part of your Session 3 mapping work is deciding, dataset by dataset, whether Himalaya is acting as controller or processor - because it's both, in different places.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ DEMO / BUILD-ALONG ============ -->
+  <section class="section" id="demo-1">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · everyone builds</span>
+      <h2>Map Himalaya's data landscape and place your seat <span class="tag demo">★ 19 min · on Himalaya</span></h2>
+    </div>
+    <p class="lede">Your first act as Himalaya's DPO. We don't fix anything yet - we get oriented. By the end you'll have a one-page data landscape, a first-pass sensitivity read, and a defensible answer to "where does the DPO sit?" Follow along on Himalaya; then repeat the exact steps on your own organisation for homework.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - B2B2C SaaS, Singapore-headquartered. 1,200 business clients (the B), 8M end consumers (the C). Runs on AWS Redshift (40+ schemas) plus a CRM, a US-hosted marketing automation tool, and a support tool. Wellness-vertical clients collect health notes. Growth-first, governance-last: a near-miss export exposed consumer records for 6 days, and marketing blasts the 8M base with no DNC check. The board just made you its first DPO.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>List the data stores.</strong> Write every place personal data could live: Redshift schemas, CRM, marketing tool, support tool, product modules. Don't verify yet - capture the landscape.</p></div>
+      <div class="step"><p><strong>Tag the B-side vs C-side.</strong> Mark which stores hold business-client data (the B) and which hold end-consumer data (the C). The C-side is where your 8M data subjects live.</p></div>
+      <div class="step"><p><strong>Flag the sensitive tier.</strong> Circle anything likely to hold health notes, NRIC/national IDs, financial account info, or credentials. For Himalaya, the wellness-client data and payment tokens get circled first.</p></div>
+      <div class="step"><p><strong>Mark the cross-border hop.</strong> Draw the arrow from EU consumer data → Singapore warehouse → US marketing vendor. This one line is your Session 6 transfer problem; today, just make it visible.</p></div>
+      <div class="step"><p><strong>Place the DPO seat.</strong> Decide your reporting line (to the CEO / board, per independence), and write one sentence on the conflict you must avoid (you cannot also own the marketing database). This is your position, on paper, day one.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the landscape prompt</span>You are helping me, the newly appointed Data Protection Officer, get oriented at a company.
+
+Company: [paste the Himalaya summary above, or describe your own org in 4-5 lines].
+
+Produce a one-page data landscape:
+1. A table of data stores: store name | B-side or C-side | example personal data | likely sensitive tier? (Y/N) | controller or processor role
+2. A short list of the 3 highest-risk spots you'd investigate first, and why
+3. One sentence on where the DPO should report, and the main conflict of interest to avoid
+
+Use ONLY what I gave you. Where you'd need to confirm something, list it as an open question instead of guessing.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Never paste real personal data into a practice chat. Describe the shape of your data ("a table of consumer emails and purchase history"), not the data itself. That habit - the Protection Obligation applied to your own tools - is the DPO mindset from minute one.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-45 min total</span></h2>
+    </div>
+    <ul>
+      <li>Run the landscape prompt on <strong>your own organisation</strong> (or a team within it). Produce the one-page data landscape - you'll build directly on it in Session 3.</li>
+      <li>Answer, in writing, the governance question for one real dataset you touch: <strong>who decides</strong> what happens to it, <strong>how</strong> is that enforced, and <strong>who is accountable</strong>? If any answer is "nobody / a shrug," you've found governance gap number one.</li>
+      <li>Find out whether your organisation has appointed a DPO, and whether its business contact is public. Under PDPA, both are required.</li>
+      <li>Locate your sensitive tier: name the one place the most damaging personal data lives. Bring it to Session 2.</li>
+      <li>Optional, for the credential path: skim the IAPP CIPP/E and CIPM outlines to see how this course maps to them.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This session teaches the working content of the frameworks below. Certification exams, member-only frameworks, and legal advice stay with their official sources - this page makes you fluent in the body of knowledge, honestly flagged where depth lives elsewhere.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">DAMA-DMBOK2 - the governance function &amp; the wheel</span><span class="note">Part 1 · governance at the hub + all 10 spokes named; full depth in the book</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA - Accountability &amp; the mandatory DPO</span><span class="note">Part 2 · every SG org must appoint a DPO (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GDPR Arts. 37-39 - DPO role, tasks, independence</span><span class="note">Part 2 · the 3 mandatory cases + Art. 39 task list (gdpr-info.eu)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Personal data, sensitive/prescribed, the three roles</span><span class="note">Part 3 · PDPA + GDPR definitions</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">IAPP CIPP/E · CIPM · CIPT</span><span class="note">Part 2 · named and mapped; exams stay official (iapp.org)</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · A Singapore company has 4 employees and holds a little customer data. Does it need a DPO?</p>
+      <button class="qopt" type="button">A · No - it's too small to matter</button>
+      <button class="qopt" type="button">B · Only if it monitors people at large scale</button>
+      <button class="qopt" type="button">C · Yes - under PDPA every organisation must appoint one</button>
+      <p class="qwhy">PDPA's DPO mandate has no size exemption. The "large-scale monitoring" test is GDPR's - a different rulebook.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · Where does Data Governance sit on the DAMA wheel?</p>
+      <button class="qopt" type="button">A · As one spoke among eleven equal areas</button>
+      <button class="qopt" type="button">B · At the hub - it directs and connects the other ten</button>
+      <button class="qopt" type="button">C · Outside the wheel, as a separate tool</button>
+      <p class="qwhy">Governance is the centre. It's the deciding function that steers the ten management capabilities around it.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · An "anonymised" table uses a consumer_id, and another table maps that id to an email. The table is...</p>
+      <button class="qopt" type="button">A · Still personal data - it's pseudonymised, reversible with the key</button>
+      <button class="qopt" type="button">B · Fully anonymised and out of scope</button>
+      <button class="qopt" type="button">C · Non-personal because there are no names in it</button>
+      <p class="qwhy">Reversible with a key = pseudonymised = still personal data. Only truly irreversible anonymisation leaves scope.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 1 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Governance = deciding, not doing</b><span>Decision rights + enforcement + accountability. Management does; governance decides.</span></div>
+      <div class="cheat-item"><b>DAMA wheel</b><span>Governance at the hub, 10 capability spokes around it. DPO touches Security, Metadata, Quality, Architecture most.</span></div>
+      <div class="cheat-item"><b>DPO mandate</b><span>PDPA: every SG org, no exemption, contact public. GDPR: only 3 cases (Art. 37).</span></div>
+      <div class="cheat-item"><b>DPO's five verbs</b><span>Advise · Monitor · Assess (DPIAs) · Cooperate with the regulator · be the Point of contact.</span></div>
+      <div class="cheat-item"><b>Independence</b><span>Reports to the top, can't be penalised, no conflict of interest, properly resourced.</span></div>
+      <div class="cheat-item"><b>Data ladder</b><span>Non-personal → personal → sensitive/prescribed (health, NRIC, financial, credentials). Heavier duties up top.</span></div>
+      <div class="cheat-item"><b>Pseudonymised ≠ anonymised</b><span>Reversible with a key = still personal data. Only irreversible anonymisation leaves scope.</span></div>
+      <div class="cheat-item"><b>Three roles</b><span>Data subject · controller (decides) · processor (acts on instructions). Duties follow the role.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 1 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="../index.html">← All sessions</a> &nbsp;·&nbsp; <a href="02-the-law.html">Next: The law you enforce →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

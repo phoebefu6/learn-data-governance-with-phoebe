@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 2 · The law you enforce - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 2 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 2 of 8</div>
+    <h1>The law you <span class="accent">enforce</span></h1>
+    <p class="sub">Two rulebooks sit under every decision you'll make as a DPO. PDPA is your home law and your primary reference; GDPR is the international mirror you check yourself against. Today you learn to recite both.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Building up</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">PDPA + GDPR</span>
+      <span class="chip time">45 min live + self-study depth</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Build-along on Himalaya</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>You can't enforce what you can't recite</h2>
+    </div>
+    <p class="lede">Session 1 gave you the seat. Today you get the rulebooks that come with it. A DPO who can't name the obligations they enforce is guessing - and a regulator's first question is never "do you feel compliant?" It's "which obligation applies here, and can you show me?" We learn the two texts a Singapore DPO holds in their head: the <strong>PDPA</strong>, your home law and primary reference, and the <strong>GDPR</strong>, the international mirror you use to sanity-check yourself. Same goal - protect the person, hold the organisation accountable - two different shapes.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      The PDPA's 11 obligations in plain language (and which one is quietly not yet in force), the GDPR mirror - 7 principles, 6 lawful bases, 8 rights - and a clear map of where the two laws diverge in ways that change your day job. Then you'll turn all of it into Himalaya's obligation-to-risk map: the document that tells you what to fix first.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE PDPA ============ -->
+  <section class="section" id="pdpa">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers PDPA - the 11 Data Protection Obligations</span>
+      <h2>The PDPA - 11 obligations <span class="tag concept">8 min live</span></h2>
+    </div>
+    <p class="lede">Singapore's Personal Data Protection Act organises an organisation's duties into <strong>11 Data Protection Obligations</strong>. Learn these as a set - they're the checklist you run every time Himalaya wants to do something with personal data. The PDPA is <strong>consent-centric</strong>: the default is that you need consent to collect, use, or disclose personal data, with a defined set of exceptions. That single design choice is the biggest thing separating it from the GDPR.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The 11 PDPA Data Protection Obligations as a labelled grid">
+        <style>
+          .obG { font: 700 14px Inter, sans-serif; fill: #FFFFFF; }
+          .obGd { font: 700 14px Inter, sans-serif; fill: #12232B; }
+          .obNum { font: 800 13px Inter, sans-serif; fill: #7DD3DC; }
+          .obN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="24" width="200" height="58" rx="10" fill="#0B3B4A"/>
+        <text class="obNum" x="36" y="46">1</text><text class="obG" x="36" y="66">Consent</text>
+        <rect x="232" y="24" width="200" height="58" rx="10" fill="#0E7490"/>
+        <text class="obNum" x="248" y="46">2</text><text class="obG" x="248" y="66">Purpose Limitation</text>
+        <rect x="444" y="24" width="200" height="58" rx="10" fill="#0E7490"/>
+        <text class="obNum" x="460" y="46">3</text><text class="obG" x="460" y="66">Notification</text>
+        <rect x="656" y="24" width="204" height="58" rx="10" fill="#1E90A8"/>
+        <text class="obNum" x="672" y="46">4</text><text class="obG" x="672" y="66">Access &amp; Correction</text>
+        <rect x="20" y="94" width="200" height="58" rx="10" fill="#1E90A8"/>
+        <text class="obNum" x="36" y="116">5</text><text class="obG" x="36" y="136">Accuracy</text>
+        <rect x="232" y="94" width="200" height="58" rx="10" fill="#0B3B4A"/>
+        <text class="obNum" x="248" y="116">6</text><text class="obG" x="248" y="136">Protection</text>
+        <rect x="444" y="94" width="200" height="58" rx="10" fill="#0E7490"/>
+        <text class="obNum" x="460" y="116">7</text><text class="obG" x="460" y="136">Retention Limitation</text>
+        <rect x="656" y="94" width="204" height="58" rx="10" fill="#0E7490"/>
+        <text class="obNum" x="672" y="116">8</text><text class="obG" x="672" y="136">Transfer Limitation</text>
+        <rect x="20" y="164" width="270" height="58" rx="10" fill="#0B3B4A"/>
+        <text class="obNum" x="36" y="186">9</text><text class="obG" x="36" y="206">Data Breach Notification</text>
+        <rect x="302" y="164" width="300" height="58" rx="10" fill="#0B3B4A"/>
+        <text class="obNum" x="318" y="186">10</text><text class="obG" x="318" y="206">Accountability (incl. DPO)</text>
+        <rect x="614" y="164" width="246" height="58" rx="10" fill="#A5DDE4"/>
+        <text class="obNum" x="630" y="186" style="fill:#0B3B4A">11</text><text class="obGd" x="630" y="206">Data Portability</text>
+        <rect x="614" y="228" width="246" height="22" rx="6" fill="#F59E0B"/>
+        <text x="626" y="243" style="font:700 11px Inter,sans-serif;fill:#3A2400;">PENDING - not yet in force</text>
+        <rect x="20" y="296" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="obN" x="44" y="308">Deep-teal boxes = the obligations Himalaya is breaking right now: Consent, Protection, Retention, Transfer.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the PDPA's 11 obligations, your day-to-day checklist</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The consent-first model (and deemed consent)<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PDPA's spine is <strong>consent</strong>. As a default, an organisation may only collect, use, or disclose personal data if the individual has consented, for purposes a reasonable person would consider appropriate, and after being <strong>notified</strong> of those purposes. Everything downstream leans on that consent being real.</p>
+        <p>Because pure opt-in consent isn't always practical, the PDPA also recognises <strong>deemed consent</strong> - consent inferred from the situation. If a consumer voluntarily hands over their phone number to complete a booking, they're deemed to consent to it being used for that booking. There's also deemed consent <em>by notification</em> for certain secondary uses. We work deemed consent hard in Session 4; for now, hold two facts.</p>
+        <ul>
+          <li>Consent is the <strong>default gate</strong>, not one option among several. That is the opposite of the GDPR's design, which you'll see in Part 2.</li>
+          <li>Deemed consent is real but <strong>narrow</strong> - it is not a licence to reuse data for anything. A booking phone number is not a marketing list.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's marketing engine.</strong> Ilsa (CRO) treats every phone number in the warehouse as a marketing list. But most of those numbers arrived through a booking or a purchase - deemed consent for <em>that transaction</em>, not for SMS blasts. Reusing them for marketing needs its own consent basis and a DNC check. That gap is obligation #1 (Consent) failing at scale.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The 11 obligations, in plain language<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Learn them as one list. You'll enforce every one of these on Himalaya across the next six sessions.</p>
+        <table class="clean">
+          <thead><tr><th>Obligation</th><th>In plain language</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Consent</td><td>Get consent (or a valid deemed/exception basis) before you collect, use, or disclose.</td></tr>
+            <tr><td>2 · Purpose Limitation</td><td>Only use data for purposes a reasonable person would find appropriate, and that you notified.</td></tr>
+            <tr><td>3 · Notification</td><td>Tell people why you're collecting their data, on or before collection.</td></tr>
+            <tr><td>4 · Access &amp; Correction</td><td>Let individuals see the data you hold about them and correct it if wrong.</td></tr>
+            <tr><td>5 · Accuracy</td><td>Make a reasonable effort to keep personal data accurate and complete.</td></tr>
+            <tr><td>6 · Protection</td><td>Protect data with reasonable security arrangements. (Session 5.)</td></tr>
+            <tr><td>7 · Retention Limitation</td><td>Stop keeping data once the purpose is done and there's no legal need. (Session 6.)</td></tr>
+            <tr><td>8 · Transfer Limitation</td><td>Only send data abroad to comparable protection. (Session 6, the US vendor.)</td></tr>
+            <tr><td>9 · Data Breach Notification</td><td>Assess and notify breaches within the deadlines. (Session 5.)</td></tr>
+            <tr><td>10 · Accountability</td><td>Have policies, be able to demonstrate compliance, and <strong>appoint a DPO</strong>.</td></tr>
+            <tr><td>11 · Data Portability</td><td>Let individuals move their data to another organisation. <strong>Enacted 2020, not yet in force.</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>Honesty flag</strong>
+          The Data Portability Obligation was legislated in the 2020 PDPA amendment but its commencement regulations are <strong>not yet in force</strong>. Teach it, plan for it, but never tell a client it's a live duty today. Re-check the PDPC site before advising - this is the one obligation most likely to change status.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Penalties and the regulator (PDPC)<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The obligations have teeth. The regulator is the <strong>Personal Data Protection Commission (PDPC)</strong>, which investigates complaints and breaches, issues directions, and imposes financial penalties.</p>
+        <ul>
+          <li><strong>Financial penalty ceiling:</strong> up to <strong>S$1 million, or 10% of the organisation's annual turnover in Singapore, whichever is higher</strong>. The turnover limb is what makes this bite for a company Himalaya's size.</li>
+          <li>The PDPC also issues <strong>directions</strong> - stop processing, fix a control, notify affected individuals - which can be more operationally painful than the fine itself.</li>
+          <li>Enforcement is public. Decisions are published, and the reputational cost of a named breach decision often exceeds the dollar figure.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Ilsa's line is "a fine is just cost of doing business." Do the maths on the turnover limb for a company at Himalaya's revenue and the number stops looking like a rounding error - and that's before the published decision that every prospective client will read. Your job is to make that trade-off visible <em>before</em> the campaign, not after the PDPC calls.</p>
+        </div>
+      </div>
+    </details>
+
+    <div class="callout example">
+      <span class="ex-pill">Real world</span>
+      <p><strong>Which obligations is Himalaya breaking right now?</strong> Before you learn the GDPR, name the home-law failures. <strong>Consent (#1)</strong> - marketing blasts the 8M base with no valid marketing consent and no DNC check. <strong>Protection (#6)</strong> - the near-miss export left consumer records exposed for 6 days. <strong>Retention (#7)</strong> - "keep everything," including ex-clients' consumer data. <strong>Transfer (#8)</strong> - EU consumer data flows to a US analytics vendor with no safeguards on file. Four obligations, four live risks, all under your home law before GDPR even enters the room.</p>
+    </div>
+  </section>
+
+  <!-- ============ PART 2: THE GDPR MIRROR ============ -->
+  <section class="section" id="gdpr">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers GDPR Arts. 5 &amp; 6 + the data subject rights</span>
+      <h2>The GDPR mirror <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">Himalaya has EU consumers, so the GDPR is in play - and even where it isn't, it's the benchmark the whole world checks against. The GDPR expresses its duties as <strong>7 principles</strong> (Article 5), backed by <strong>6 lawful bases</strong> (Article 6) and <strong>8 data subject rights</strong>. The single most important contrast: where the PDPA is consent-centric, the GDPR gives you <strong>six co-equal bases</strong> to process data - consent is only one of them.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The 7 GDPR principles of Article 5 as a row">
+        <style>
+          .prB { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .prBd { font: 700 13px Inter, sans-serif; fill: #12232B; }
+          .prX { font: 400 11px Inter, sans-serif; fill: #5B7078; }
+          .prN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="30" width="118" height="90" rx="10" fill="#0B3B4A"/>
+        <text class="prB" x="30" y="70">Lawful,</text><text class="prB" x="30" y="88">fair,</text><text class="prB" x="30" y="106">transparent</text>
+        <rect x="146" y="30" width="118" height="90" rx="10" fill="#0E7490"/>
+        <text class="prB" x="156" y="79">Purpose</text><text class="prB" x="156" y="97">limitation</text>
+        <rect x="272" y="30" width="118" height="90" rx="10" fill="#1E90A8"/>
+        <text class="prB" x="282" y="79">Data</text><text class="prB" x="282" y="97">minimisation</text>
+        <rect x="398" y="30" width="118" height="90" rx="10" fill="#0E7490"/>
+        <text class="prB" x="408" y="79">Accuracy</text>
+        <rect x="524" y="30" width="118" height="90" rx="10" fill="#1E90A8"/>
+        <text class="prB" x="534" y="79">Storage</text><text class="prB" x="534" y="97">limitation</text>
+        <rect x="650" y="30" width="118" height="90" rx="10" fill="#0B3B4A"/>
+        <text class="prB" x="660" y="70">Integrity &amp;</text><text class="prB" x="660" y="88">confiden-</text><text class="prB" x="660" y="106">tiality</text>
+        <rect x="776" y="30" width="84" height="90" rx="10" fill="#A5DDE4"/>
+        <text class="prBd" x="786" y="70">Account-</text><text class="prBd" x="786" y="88">ability</text>
+        <text class="prX" x="20" y="150">Principles 1-6 are the rules for the data.</text>
+        <text class="prX" x="524" y="150">Principle 7 makes you prove you follow the other six.</text>
+        <rect x="20" y="196" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="prN" x="44" y="208">These 7 principles map cleanly onto the PDPA obligations - accountability is the shared spine of both laws.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - GDPR Article 5, the seven principles</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The 7 principles (Article 5)<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Article 5 is the GDPR in miniature. Everything else is machinery for these seven ideas.</p>
+        <ul>
+          <li><strong>Lawfulness, fairness, transparency</strong> - process on a valid legal basis, don't be deceptive, tell people what you're doing.</li>
+          <li><strong>Purpose limitation</strong> - collect for specified purposes, don't quietly repurpose.</li>
+          <li><strong>Data minimisation</strong> - collect only what you need. (The PDPA has no explicit minimisation obligation - a real gap to note.)</li>
+          <li><strong>Accuracy</strong> - keep it correct and current.</li>
+          <li><strong>Storage limitation</strong> - don't keep it longer than needed (the GDPR's version of Retention Limitation).</li>
+          <li><strong>Integrity &amp; confidentiality</strong> - secure it (the GDPR's version of Protection).</li>
+          <li><strong>Accountability</strong> - the seventh principle wraps the other six: you must be able to <em>demonstrate</em> compliance, not just claim it.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>Say it right</strong>
+          Six of the seven principles have a near-twin in the PDPA. The one without a clean PDPA match is <strong>data minimisation</strong> - the GDPR expects you to justify every field you collect. A DPO applying GDPR-grade discipline in Singapore will minimise anyway; it's just good hygiene.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The 6 lawful bases (Article 6)<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is the biggest structural difference between the two laws. Under the GDPR you need <strong>a</strong> lawful basis to process personal data - and there are <strong>six co-equal ones</strong>. Consent is just one. Picking the wrong basis, or defaulting to consent when another fits better, is a classic mistake.</p>
+        <table class="clean">
+          <thead><tr><th>Lawful basis</th><th>When it applies</th></tr></thead>
+          <tbody>
+            <tr><td>Consent</td><td>The individual gave clear, freely-given, specific agreement.</td></tr>
+            <tr><td>Contract</td><td>Processing is needed to perform a contract with the individual.</td></tr>
+            <tr><td>Legal obligation</td><td>A law requires you to process (e.g. tax, AML records).</td></tr>
+            <tr><td>Vital interests</td><td>Needed to protect someone's life.</td></tr>
+            <tr><td>Public task</td><td>Carrying out an official function in the public interest.</td></tr>
+            <tr><td>Legitimate interests</td><td>Your (or a third party's) genuine interest, balanced against the individual's rights.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>For Himalaya's EU consumers, delivering the booking they paid for runs on <strong>contract</strong>, not consent - so you don't need a consent checkbox to fulfil the order. But Ilsa's marketing to those same EU consumers needs its own basis, usually <strong>consent</strong> or a carefully documented <strong>legitimate interests</strong> assessment. Naming the right basis per activity is exactly what your Session-2 build produces.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The 8 data subject rights<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The GDPR gives individuals eight rights. You don't operate these until Session 6 (lifecycle and requests), but a DPO should be able to list them cold.</p>
+        <table class="clean">
+          <thead><tr><th>Right</th><th>What the individual can do</th></tr></thead>
+          <tbody>
+            <tr><td>Informed</td><td>Be told how their data is used (privacy notice).</td></tr>
+            <tr><td>Access</td><td>Get a copy of their data and details of the processing.</td></tr>
+            <tr><td>Rectification</td><td>Have inaccurate data corrected.</td></tr>
+            <tr><td>Erasure</td><td>Have data deleted in defined circumstances ("right to be forgotten").</td></tr>
+            <tr><td>Restriction</td><td>Freeze processing while a dispute is resolved.</td></tr>
+            <tr><td>Portability</td><td>Receive their data in a portable format and move it elsewhere.</td></tr>
+            <tr><td>Object</td><td>Object to processing, including direct marketing.</td></tr>
+            <tr><td>Automated-decision safeguards</td><td>Not be subject to solely automated decisions with legal or similar effect, without safeguards.</td></tr>
+          </tbody>
+        </table>
+        <p>The PDPA's <strong>Access &amp; Correction</strong> obligation covers the first three ideas; its pending <strong>Portability</strong> obligation mirrors the sixth. The GDPR simply spells out more of them as named individual rights. We exercise these on Himalaya in Session 6.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: PDPA VS GDPR ============ -->
+  <section class="section" id="compare">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the PDPA vs GDPR comparison</span>
+      <h2>PDPA vs GDPR - what a SG DPO holds in their head <span class="tag concept">5 min live</span></h2>
+    </div>
+    <p class="lede">You won't carry the full text of two laws around. You'll carry the <strong>differences</strong> - the handful of places where enforcing PDPA and enforcing GDPR lead you to do genuinely different things. Get these eight contrasts fluent and you can advise Himalaya on either side of the border without reaching for the book.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two-column comparison of PDPA and GDPR on breach timeline and penalties">
+        <style>
+          .cmpH { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .cmpL { font: 600 13px Inter, sans-serif; fill: #12232B; }
+          .cmpBig { font: 800 30px Inter, sans-serif; fill: #0E7490; }
+          .cmpBigW { font: 800 30px Inter, sans-serif; fill: #F59E0B; }
+          .cmpX { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .cmpN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="20" y="24" width="410" height="34" rx="8" fill="#0B3B4A"/>
+        <text class="cmpH" x="40" y="47">PDPA (Singapore) - home</text>
+        <rect x="450" y="24" width="410" height="34" rx="8" fill="#0E7490"/>
+        <text class="cmpH" x="470" y="47">GDPR (EU) - mirror</text>
+        <text class="cmpL" x="40" y="90">Breach to regulator</text>
+        <text class="cmpBig" x="40" y="122">3 days</text>
+        <text class="cmpX" x="40" y="142">after assessing it's notifiable</text>
+        <text class="cmpL" x="470" y="90">Breach to authority</text>
+        <text class="cmpBig" x="470" y="122">72 hours</text>
+        <text class="cmpX" x="470" y="142">of becoming aware (Art. 33)</text>
+        <text class="cmpL" x="40" y="176">Max penalty</text>
+        <text class="cmpBigW" x="40" y="206">S$1M / 10%</text>
+        <text class="cmpX" x="40" y="224">SG turnover, whichever higher</text>
+        <text class="cmpL" x="470" y="176">Max penalty</text>
+        <text class="cmpBigW" x="470" y="206">€20M / 4%</text>
+        <text class="cmpX" x="470" y="224">global turnover, whichever higher</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the two contrasts that trip people up: breach clock and penalty base</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The eight differences that change your day<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>This is the side-by-side to memorise. Each row is a place where "just do what GDPR says" would give you the wrong answer in Singapore, or vice versa.</p>
+        <table class="clean">
+          <thead><tr><th>Dimension</th><th>PDPA (Singapore)</th><th>GDPR (EU)</th></tr></thead>
+          <tbody>
+            <tr><td>Consent model</td><td>Consent-centric, with defined exceptions and deemed consent</td><td>6 co-equal lawful bases; consent is only one</td></tr>
+            <tr><td>Breach timeline</td><td>Notify PDPC within <strong>3 calendar days</strong> after assessing it's notifiable</td><td>Notify authority within <strong>72 hours</strong> of awareness</td></tr>
+            <tr><td>Max penalty</td><td>S$1M or <strong>10% of SG turnover</strong>, whichever higher</td><td>€20M or <strong>4% of global turnover</strong>, whichever higher</td></tr>
+            <tr><td>Extraterritoriality</td><td>Narrower - focused on organisations operating in Singapore</td><td>Broad - reaches offering goods/services to EU residents (Art. 3)</td></tr>
+            <tr><td>DPO mandate</td><td><strong>Every</strong> organisation must appoint one</td><td>Only in 3 defined cases (Art. 37)</td></tr>
+            <tr><td>Portability</td><td>Enacted 2020, <strong>not yet in force</strong></td><td>In force as a data subject right</td></tr>
+            <tr><td>Cross-border transfer</td><td>Transfer to <strong>comparable protection</strong> standard</td><td>Adequacy / SCCs / BCRs regime</td></tr>
+            <tr><td>Do Not Call registry</td><td><strong>Unique to Singapore</strong> - check the DNC register before marketing</td><td>No DNC equivalent; ePrivacy rules instead</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          When someone quotes "the 72-hour rule" at you for a Singapore breach, correct it: PDPA is <strong>3 calendar days after you assess it's notifiable</strong>, not 72 hours from awareness. Confusing the two is the single most common PDPA error a GDPR-trained person makes.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Same person, two laws - which applies?<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Both laws can apply to the <em>same</em> data at once. An EU consumer buying through a Himalaya client triggers the PDPA (data processed in Singapore) <strong>and</strong> the GDPR (an EU resident being offered a service). You don't pick one - you satisfy both, which in practice means holding to the stricter standard on each dimension.</p>
+        <ul>
+          <li>On <strong>breach</strong>, the GDPR's 72-hour clock is tighter than PDPA's - so for EU-consumer data, plan to the 72-hour standard.</li>
+          <li>On the <strong>DPO</strong>, the PDPA already forces one, so that box is ticked regardless.</li>
+          <li>On <strong>transfers</strong>, you'll need to satisfy both the PDPA comparable-protection standard and the GDPR transfer regime for the EU→SG→US flow (Session 6).</li>
+        </ul>
+        <p>The practitioner rule of thumb: <strong>meet PDPA as the floor for everything, and layer GDPR's stricter requirements wherever EU residents are in the data.</strong></p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="build">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · everyone builds</span>
+      <h2>Build Himalaya's obligation-to-risk map <span class="tag demo">★ 19 min · on Himalaya</span></h2>
+    </div>
+    <p class="lede">Knowing the obligations is nothing until you can point them at a real company and rank what to fix first. Today you'll turn the two rulebooks into one working artifact: a map of Himalaya's processing activities, the obligation each one engages, whether the GDPR adds anything, and a risk rating that tells you where to start. This map feeds Sessions 4, 5, and 6 directly.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - B2B2C SaaS, Singapore-headquartered, 8M end consumers and 1,200 business clients, with consumers across SG, EU and SE Asia. Live problems from Session 1: marketing blasts the 8M base with no DNC check or valid marketing consent; a near-miss export exposed consumer records for 6 days; retention is "keep everything," including ex-clients' data; and EU consumer data flows to a US analytics vendor with no safeguards. You're the DPO. Today you name which obligation each of those engages, and rank them.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>List the processing activities.</strong> Write out what Himalaya actually does with personal data: onboard consumers, run bookings/payments, blast marketing, ship analytics to the US vendor, keep everything in Redshift, respond to consumer queries. Aim for 6-8 activities.</p></div>
+      <div class="step"><p><strong>Name the PDPA obligation(s) per activity.</strong> For each activity, write which of the 11 obligations it engages. Marketing → Consent + (DNC check). US analytics feed → Transfer Limitation. Keep-everything → Retention Limitation. The near-miss → Protection + Data Breach Notification.</p></div>
+      <div class="step"><p><strong>Add the GDPR delta.</strong> For activities touching EU consumers, note what the GDPR adds - a stricter breach clock (72h), a lawful-basis question beyond consent, the formal transfer regime, data minimisation. If GDPR adds nothing new, write "PDPA covers."</p></div>
+      <div class="step"><p><strong>Rate current risk H / M / L.</strong> Score each activity on likelihood × harm as it stands today. Marketing with no DNC check and the undocumented US transfer should land High; a well-run booking flow might be Low.</p></div>
+      <div class="step"><p><strong>Pick the top 3 to fix first.</strong> Rank by risk and pick three. For Himalaya these foreshadow the course: <strong>marketing/consent (Session 4)</strong>, <strong>breach readiness (Session 5)</strong>, and <strong>retention + transfer (Session 6)</strong>. Write one line each on why it's top-3.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the obligation-to-risk prompt</span>You are helping me, a Data Protection Officer, build an obligation-to-risk map for a company under Singapore's PDPA, with GDPR as a mirror for EU consumers.
+
+Company: [paste the Himalaya summary above, or describe your own org in 4-5 lines, including where its data subjects are based].
+
+Produce a table with one row per processing activity:
+activity | PDPA obligation(s) engaged | does GDPR add anything for EU consumers? | current risk (H/M/L) | one-line reason
+
+The PDPA obligations to choose from: Consent, Purpose Limitation, Notification, Access &amp; Correction, Accuracy, Protection, Retention Limitation, Transfer Limitation, Data Breach Notification, Accountability, Data Portability (note: portability is enacted but not yet in force).
+
+Then list the top 3 activities to fix first, ranked by risk, with one sentence each on why.
+
+Use ONLY what I gave you. Where you'd need to confirm a fact, list it as an open question instead of guessing.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Describe your activities and the <em>shape</em> of the data ("a table of consumer phone numbers used for booking confirmations"), never real personal data itself. That's the Protection Obligation applied to your own working tools - and it's a habit a DPO models for the whole team.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-45 min total</span></h2>
+    </div>
+    <ul>
+      <li>Run the obligation-to-risk prompt on <strong>your own organisation</strong> (or one team). Produce the table and pick your real top 3 - you'll reuse it as your priority list for the rest of the course.</li>
+      <li>Write the <strong>11 PDPA obligations from memory</strong>, then check yourself against the list. Circle the one that's enacted-but-not-in-force (Portability) so you never quote it as live.</li>
+      <li>For one activity you own, name the <strong>PDPA obligation and the GDPR lawful basis</strong> that would apply if an EU consumer were involved. Notice whether consent is really the best basis, or whether contract or legitimate interests fits better.</li>
+      <li>Find one place in your org where someone assumes the "72-hour rule" applies to a Singapore breach. Note the correction: PDPA is <strong>3 calendar days after assessing notifiability</strong>.</li>
+      <li>Optional: skim the PDPC obligations page and GDPR Articles 5 and 6 to see the primary text behind today's plain-language versions.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This session teaches the working content of the laws below. Full statutory text, case law, and certification exams stay with their official sources - this page makes you fluent in the body of knowledge, honestly flagged where depth lives elsewhere.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA - 11 Data Protection Obligations</span><span class="note">Part 1 · all 11 named in plain language; Portability flagged enacted-not-in-force (pdpc.gov.sg)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA consent model + deemed consent</span><span class="note">Part 1 · consent-first design; worked in depth in Session 4</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">DNC - 3 registers</span><span class="note">Part 3 · named as SG-unique; the check itself is worked in Session 4</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GDPR 7 principles (Art. 5)</span><span class="note">Part 2 · all seven, mapped to PDPA (gdpr-info.eu)</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GDPR 6 lawful bases (Art. 6)</span><span class="note">Part 2 · all six co-equal bases</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">GDPR 8 data subject rights</span><span class="note">Part 2 · all eight named; exercised on Himalaya in Session 6</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">PDPA vs GDPR key differences</span><span class="note">Part 3 · eight-row comparison table</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Full statutory text / case law</span><span class="note">Pointers to PDPC + gdpr-info; not reproduced</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · Himalaya has a notifiable breach. How long does the PDPA give you to notify the PDPC?</p>
+      <button class="qopt" type="button">A · 72 hours from becoming aware of the breach</button>
+      <button class="qopt" type="button">B · 3 calendar days after assessing it's notifiable</button>
+      <button class="qopt" type="button">C · 30 days from the incident</button>
+      <p class="qwhy">72 hours is the GDPR rule. Under the PDPA you assess within 30 days, then if notifiable you have 3 calendar days to tell the PDPC.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · What's the biggest structural difference between the PDPA and the GDPR on lawful processing?</p>
+      <button class="qopt" type="button">A · The GDPR requires consent for everything; the PDPA doesn't</button>
+      <button class="qopt" type="button">B · They're identical in structure, just different penalties</button>
+      <button class="qopt" type="button">C · The PDPA is consent-centric; the GDPR gives 6 co-equal lawful bases</button>
+      <p class="qwhy">The PDPA defaults to consent (with exceptions and deemed consent). The GDPR offers six co-equal bases - consent is only one of them.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · A client asks you to help them honour the PDPA Data Portability Obligation today. What do you say?</p>
+      <button class="qopt" type="button">A · It's enacted but not yet in force - plan for it, don't treat it as a live duty</button>
+      <button class="qopt" type="button">B · It's been fully in force since 2020, so comply now</button>
+      <button class="qopt" type="button">C · Singapore has no portability obligation at all</button>
+      <p class="qwhy">The obligation was legislated in the 2020 amendment but its commencement is not yet in force. Teach and plan for it; never advise it as a live duty. Re-check the PDPC site.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 2 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>PDPA = 11 obligations</b><span>Consent · Purpose · Notification · Access &amp; Correction · Accuracy · Protection · Retention · Transfer · Breach · Accountability · Portability.</span></div>
+      <div class="cheat-item"><b>PDPA is consent-centric</b><span>Default gate is consent, plus deemed consent and defined exceptions. Not one basis among six.</span></div>
+      <div class="cheat-item"><b>Portability is pending</b><span>Enacted 2020, NOT yet in force. Plan for it, never advise it as live. Re-check PDPC.</span></div>
+      <div class="cheat-item"><b>PDPA penalty</b><span>Up to S$1M or 10% of SG turnover, whichever higher. Regulator = PDPC.</span></div>
+      <div class="cheat-item"><b>GDPR = 7 principles</b><span>Lawful/fair/transparent · purpose limit · minimisation · accuracy · storage limit · integrity · accountability (Art. 5).</span></div>
+      <div class="cheat-item"><b>GDPR = 6 lawful bases</b><span>Consent · contract · legal obligation · vital interests · public task · legitimate interests (Art. 6).</span></div>
+      <div class="cheat-item"><b>Breach clocks differ</b><span>PDPA: 3 calendar days after assessing notifiability. GDPR: 72 hours from awareness. Don't mix them.</span></div>
+      <div class="cheat-item"><b>DNC is SG-only</b><span>Check the Do Not Call register before marketing - no GDPR equivalent. Worked in Session 4.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 2 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="01-foundations.html">← Prev: The DPO role</a> &nbsp;·&nbsp; <a href="03-know-your-data.html">Next: Know your data →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 8 · Capstone: stand up the program - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 8 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 8 of 8</div>
+    <h1>Capstone: stand up the <span class="accent">program</span></h1>
+    <p class="sub">Six months in, you assemble everything - landscape, RoPA, the marketing fix, the breach runbook, the lifecycle clean-up, the operating model - into ONE program Mara can take to the board, and govern the last frontier: the AI copilot bet.</p>
+    <div class="chip-row">
+      <span class="chip level">🔴 Advanced</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">DPIA + first 90 days</span>
+      <span class="chip time">45 min live + self-study depth</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Capstone build on Himalaya</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Six months in</h2>
+    </div>
+    <p class="lede">You've mapped the data (Session 3), fixed marketing (Session 4), survived a breach (Session 5), cleaned the lifecycle (Session 6), and built the operating model (Session 7). Every session handed you one output. Today you do the thing that turns a pile of outputs into a <strong>program</strong>: assemble them onto one page Mara can take to the board, run a DPIA on the AI copilot she wants to greenlight, and write the first-90-days plan that says "here's how I keep this alive." This is the finale - the DPO's whole toolkit, standing up as one machine.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A DPIA you can run on any high-risk processing (starting with Himalaya's AI copilot), a clear grasp of what "accountability" actually demands - demonstrate compliance, don't just assert it - and a first-90-days plan plus a one-slide board report built on the canon narrative: stop the bleeding, see the data, build the machine, govern the AI bet. Cards marked "Live" are what we do together; "Self-study" cards give the full depth at your own pace.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: THE DPIA ============ -->
+  <section class="section" id="dpia">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the Data Protection Impact Assessment</span>
+      <h2>The DPIA <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">A DPIA - Data Protection Impact Assessment - is the structured way you look before the business leaps. It's how the DPO turns "advise and monitor" (Session 1, GDPR Art. 39) into a repeatable artefact: describe the processing, test whether it's necessary and proportionate, surface the risks to real people, decide the mitigations, and get it signed off before go-live. When Mara wants an AI copilot that profiles consumer behaviour, the DPIA is your answer to "is this safe to build?"</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The DPIA flow: describe processing, assess necessity, identify risks, mitigations, sign-off">
+        <style>
+          .dpfB { font: 700 15px Inter, sans-serif; fill: #FFFFFF; }
+          .dpfBd { font: 700 15px Inter, sans-serif; fill: #12232B; }
+          .dpfX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .dpfXd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .dpfA { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#dpfArr); }
+          .dpfN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="dpfArr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#B4CBD1"/>
+          </marker>
+        </defs>
+        <rect x="14" y="40" width="150" height="80" rx="12" fill="#0B3B4A"/>
+        <text class="dpfB" x="30" y="72">1 · Describe</text>
+        <text class="dpfX" x="30" y="94">The processing:</text>
+        <text class="dpfX" x="30" y="110">data, purpose, flow.</text>
+        <line class="dpfA" x1="166" y1="80" x2="188" y2="80"/>
+        <rect x="190" y="40" width="150" height="80" rx="12" fill="#0E7490"/>
+        <text class="dpfB" x="206" y="72">2 · Assess</text>
+        <text class="dpfX" x="206" y="94">Necessity &amp;</text>
+        <text class="dpfX" x="206" y="110">proportionality.</text>
+        <line class="dpfA" x1="342" y1="80" x2="364" y2="80"/>
+        <rect x="366" y="40" width="150" height="80" rx="12" fill="#1E90A8"/>
+        <text class="dpfB" x="382" y="72">3 · Identify</text>
+        <text class="dpfX" x="382" y="94">Risks to the</text>
+        <text class="dpfX" x="382" y="110">individuals.</text>
+        <line class="dpfA" x1="518" y1="80" x2="540" y2="80"/>
+        <rect x="542" y="40" width="150" height="80" rx="12" fill="#A5DDE4"/>
+        <text class="dpfBd" x="558" y="72">4 · Mitigate</text>
+        <text class="dpfXd" x="558" y="94">Controls that</text>
+        <text class="dpfXd" x="558" y="110">lower the risk.</text>
+        <line class="dpfA" x1="694" y1="80" x2="716" y2="80"/>
+        <rect x="718" y="40" width="150" height="80" rx="12" fill="#F59E0B"/>
+        <text class="dpfBd" x="734" y="72" style="fill:#3A2400">5 · Sign-off</text>
+        <text class="dpfXd" x="734" y="94" style="fill:#3A2400">Decision on</text>
+        <text class="dpfXd" x="734" y="110" style="fill:#3A2400">record, revisit.</text>
+        <rect x="14" y="204" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="dpfN" x="38" y="216">If the residual risk stays high after mitigations, that's your signal to escalate - not to quietly ship it.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the five moves of a DPIA, in order</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What a DPIA is - and when you must run one<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A DPIA is a written risk assessment you run <strong>before</strong> a new or changed processing activity that is likely to be <strong>high-risk to individuals</strong>. It is not paperwork for its own sake - it's the mechanism that forces necessity and proportionality to be argued out loud, on the record, while the design can still change.</p>
+        <p>The clearest triggers for "high-risk, do a DPIA":</p>
+        <ul>
+          <li><strong>Profiling or automated decisions</strong> that produce significant effects on people - exactly what an AI copilot that scores or predicts consumer behaviour does.</li>
+          <li><strong>Large-scale processing of sensitive / special-category data</strong> - health notes, financial account info, national IDs.</li>
+          <li><strong>Systematic monitoring</strong>, new tech whose effects aren't well understood, or combining datasets in ways people wouldn't expect.</li>
+        </ul>
+        <p>Under GDPR the DPIA is an explicit legal requirement (Art. 35) with the DPO advising on it; the PDPC recommends it as good accountability practice. Either way, it's the DPO's default tool for any risky bet.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya, month six.</strong> Deven (CPO) demos an AI copilot that reads a consumer's in-app behaviour and purchase history to auto-suggest offers - including for wellness-vertical clients whose data includes health notes. Profiling + special-category data + a model whose behaviour nobody fully understands. That's three high-risk triggers at once. You don't say no; you say "this needs a DPIA before it ships," and you own that assessment.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Running the DPIA on Himalaya's AI copilot<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Walk the five moves against the copilot and watch the risks fall out:</p>
+        <table class="clean">
+          <thead><tr><th>Step</th><th>What you write for the copilot</th></tr></thead>
+          <tbody>
+            <tr><td>Describe</td><td>Model profiles 8M consumers on behaviour + purchase history + (for wellness clients) health notes, to auto-suggest offers. Data lands in Redshift, may hit the US vendor.</td></tr>
+            <tr><td>Assess</td><td>Is health data <em>necessary</em> for the suggestion, or can the model run without it? Is profiling proportionate to the benefit? Often the answer trims the scope.</td></tr>
+            <tr><td>Identify risks</td><td>Discriminatory offers, health inference, consent that never covered AI profiling, cross-border exposure of special-category data.</td></tr>
+            <tr><td>Mitigate</td><td>Exclude health notes from the feature; add a lawful basis + fresh consent for profiling; human-review path; keep it in-region.</td></tr>
+            <tr><td>Sign-off</td><td>Residual risk documented, Mara signs, revisit date set. If health data can't be excluded, escalate before launch.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          The DPIA's real power is that it moves the argument to before launch. "We should have thought about that" becomes "we did think about that, here's the record" - which is exactly what accountability (Part 2) asks you to prove.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The DPIA as advise-and-monitor in action<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Trace it back to Session 1. GDPR Art. 39 lists the DPO's tasks, and one of them is to <strong>advise on and monitor the performance of DPIAs</strong>. The DPIA is where the abstract "advise and monitor" duty becomes a concrete, signable artefact.</p>
+        <ul>
+          <li><strong>You advise, you don't decide.</strong> The controller (the business) owns the go/no-go; the DPO advises on risk and mitigations, and that advice goes on the record - including where it wasn't followed.</li>
+          <li><strong>It's a living document.</strong> A DPIA isn't done at launch; it's revisited when the processing changes - a new data source, a new model version, a new vendor.</li>
+          <li><strong>It feeds the evidence stack.</strong> Every completed DPIA is a brick in the accountability wall you'll build in Part 2 - proof that risky processing was assessed, not assumed safe.</li>
+        </ul>
+        <p>Keep DPIAs in a register alongside your RoPA. When a regulator asks "how do you handle high-risk processing?", the register is your answer.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: ACCOUNTABILITY ============ -->
+  <section class="section" id="accountability">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the PDPA Accountability Obligation</span>
+      <h2>Accountability: demonstrate compliance <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">Accountability is the obligation that ties the whole PDPA together, and it's the one most people misread. It doesn't ask you to <em>be</em> compliant and hope someone believes you. It asks you to <strong>demonstrate</strong> compliance - to hold, ready on request, the evidence that proves it. A program that can't show its work isn't accountable, however good its intentions.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The accountability evidence stack: policies, RoPA, DPO appointment, complaints process, training, breach log">
+        <style>
+          .aesB { font: 700 14px Inter, sans-serif; fill: #FFFFFF; }
+          .aesBd { font: 700 14px Inter, sans-serif; fill: #12232B; }
+          .aesX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .aesXd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .aesCap { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .aesN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="60" y="30" width="360" height="34" rx="8" fill="#E6F6F8" stroke="#DCE8EB"/>
+        <text class="aesBd" x="78" y="52">Policies &amp; practices</text>
+        <text class="aesXd" x="270" y="52">written, in force</text>
+        <rect x="60" y="70" width="360" height="34" rx="8" fill="#A5DDE4"/>
+        <text class="aesBd" x="78" y="92">RoPA + data map</text>
+        <text class="aesXd" x="270" y="92">Session 3 output</text>
+        <rect x="60" y="110" width="360" height="34" rx="8" fill="#7DD3DC"/>
+        <text class="aesBd" x="78" y="132">DPO appointment + public contact</text>
+        <rect x="60" y="150" width="360" height="34" rx="8" fill="#1E90A8"/>
+        <text class="aesB" x="78" y="172">Complaints / query process</text>
+        <rect x="60" y="190" width="360" height="34" rx="8" fill="#0E7490"/>
+        <text class="aesB" x="78" y="212">Training + awareness records</text>
+        <rect x="60" y="230" width="360" height="34" rx="8" fill="#0B3B4A"/>
+        <text class="aesB" x="78" y="252">Breach + DPIA log</text>
+        <rect x="470" y="90" width="380" height="120" rx="14" fill="#F59E0B"/>
+        <text class="aesCap" x="500" y="140" style="fill:#3A2400">"We can demonstrate</text>
+        <text class="aesCap" x="500" y="164" style="fill:#3A2400">compliance"</text>
+        <text class="aesXd" x="500" y="190" style="fill:#3A2400">- not just assert it.</text>
+        <rect x="60" y="278" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="aesN" x="84" y="290">Each layer is an artefact you can hand a regulator. Stacked, they are the proof.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the evidence stack that lets you prove, not promise</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What accountability actually requires<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The PDPA Accountability Obligation (and GDPR's accountability principle, Art. 5(2)) asks an organisation to take responsibility for the data in its care and to be <strong>able to show</strong> it. In practice that means having, ready on request:</p>
+        <ul>
+          <li><strong>Data protection policies and practices</strong> - written, in force, and available on request.</li>
+          <li><strong>A DPO who is appointed and whose business contact is public</strong> - the named, reachable point (Session 1).</li>
+          <li><strong>A process to receive and respond to complaints and queries</strong> - a real channel, not a black hole.</li>
+          <li><strong>Staff who know the policies</strong> - communicated internally, with training on record.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>The PDPC calls Himalaya after a consumer complaint about the marketing blasts. The first question isn't "are you compliant?" - it's "show me your policy, your consent records, and your complaints log." Six months ago the honest answer was a shrug. Now you open the evidence stack and walk them through it. That difference - shrug to stack - is the whole job.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Building the evidence trail so you can prove it<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>"Demonstrate, don't assert" changes how you work day to day. Every governance action should leave a durable artefact behind, filed where you can find it under pressure:</p>
+        <ul>
+          <li><strong>Decisions get written down</strong> - the DPIA sign-off, the consent-model change, the retention schedule - with dates and owners.</li>
+          <li><strong>The RoPA is the backbone</strong> - your Session 3 record of processing is the single document that answers "what do you hold and why."</li>
+          <li><strong>Logs accumulate</strong> - the breach register, the DPIA register, the DSAR log, training completions. Boring to keep, priceless when asked.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>Say it right</strong>
+          "Trust me, we're careful" is not accountability - it's the opposite. Accountability is the folder you can open the moment someone doubts you. Build the folder while things are calm, because you won't have time once a complaint or breach lands.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Internal audit and the review cadence<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Evidence goes stale. A policy written last year that nobody follows is worse than no policy - it's documented negligence. Accountability is therefore a <strong>cycle</strong>, not a one-off build:</p>
+        <table class="clean">
+          <thead><tr><th>Cadence</th><th>What you check</th></tr></thead>
+          <tbody>
+            <tr><td>Continuous</td><td>Logs fill themselves - breaches, DSARs, DPIAs, training completions - as events happen.</td></tr>
+            <tr><td>Quarterly</td><td>Spot-check that policies match reality; review open risks and the DPIA register.</td></tr>
+            <tr><td>Annually</td><td>Full internal audit: RoPA still accurate? Retention schedule honoured? Transfers still safeguarded? Re-score maturity (Session 7).</td></tr>
+          </tbody>
+        </table>
+        <p>An internal audit is just the DPO's "monitor" duty done on a schedule. It's also where you catch drift early - a new data source nobody added to the RoPA, a vendor whose contract lapsed - before a regulator or a breach catches it for you.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: FIRST 90 DAYS + BOARD REPORT ============ -->
+  <section class="section" id="first-90-days">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers program leadership</span>
+      <h2>The DPO's first 90 days + board report <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">A DPO who tries to fix everything at once fixes nothing. The job in the first 90 days is a sequence: see the data, stop the bleeding, build the machine - then govern the next bet. And none of it matters unless you can report it to the board in language they act on: business risk and money, not statute numbers. This is where the whole course becomes a plan.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A 90-day roadmap: days 1-30 see the data, 31-60 stop the bleeding, 61-90 build the machine">
+        <style>
+          .rdmB { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .rdmBd { font: 700 16px Inter, sans-serif; fill: #12232B; }
+          .rdmX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .rdmXd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .rdmA { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#rdmArr); }
+          .rdmN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="rdmArr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 z" fill="#B4CBD1"/>
+          </marker>
+        </defs>
+        <rect x="14" y="40" width="256" height="110" rx="14" fill="#0B3B4A"/>
+        <text class="rdmB" x="34" y="72">Days 1-30</text>
+        <text class="rdmB" x="34" y="96">See the data</text>
+        <text class="rdmX" x="34" y="122">Catalog + RoPA + classify.</text>
+        <text class="rdmX" x="34" y="140">You can't govern the unseen.</text>
+        <line class="rdmA" x1="272" y1="95" x2="298" y2="95"/>
+        <rect x="300" y="40" width="256" height="110" rx="14" fill="#0E7490"/>
+        <text class="rdmB" x="320" y="72">Days 31-60</text>
+        <text class="rdmB" x="320" y="96">Stop the bleeding</text>
+        <text class="rdmX" x="320" y="122">Consent + DNC fix, breach</text>
+        <text class="rdmX" x="320" y="140">playbook. Kill the live risks.</text>
+        <line class="rdmA" x1="558" y1="95" x2="584" y2="95"/>
+        <rect x="586" y="40" width="280" height="110" rx="14" fill="#1E90A8"/>
+        <text class="rdmB" x="606" y="72">Days 61-90</text>
+        <text class="rdmB" x="606" y="96">Build the machine</text>
+        <text class="rdmX" x="606" y="122">Operating model, owners,</text>
+        <text class="rdmX" x="606" y="140">council. Then govern the AI bet.</text>
+        <rect x="14" y="182" width="852" height="40" rx="10" fill="#F59E0B"/>
+        <text class="rdmBd" x="34" y="207" style="fill:#3A2400">Govern the AI bet - the DPIA - runs alongside "build the machine", not after it.</text>
+        <rect x="14" y="242" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="rdmN" x="38" y="254">Sequence matters: you can't fix consent well until you can see where consent data lives.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the first-90-days roadmap mapped onto Himalaya</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The first-90-days plan on Himalaya<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The canon narrative <em>is</em> the plan. Each phase maps to sessions you've already done, so the 90 days assemble the course:</p>
+        <ul>
+          <li><strong>See the data (days 1-30)</strong> - build the catalog, RoPA, and classification (Session 3). Until you can name what you hold and why, every other fix is guesswork.</li>
+          <li><strong>Stop the bleeding (days 31-60)</strong> - the live, headline-making risks: fix consent + purpose + the DNC check before Ilsa's next 8M blast (Session 4), and stand up the breach playbook (Session 5). These stop new harm.</li>
+          <li><strong>Build the machine (days 61-90)</strong> - the operating model: policies, decision rights, owners / stewards / council, the DPO office (Session 7), plus the lifecycle clean-up (Session 6).</li>
+          <li><strong>Govern the AI bet</strong> - run the DPIA on the copilot (Part 1), which happens alongside the build, not after it.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Mara's instinct on day one was "fix the marketing thing, it's the loud one." You pushed back, gently: you can't fix consent well until the catalog tells you where consent data actually lives. So days 1-30 went to seeing the data - and by day 45, the marketing fix landed faster because you weren't fixing blind. Sequence bought speed.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Reporting to the board - risk in business terms<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A board doesn't want to hear "we breached Section 24 of the PDPA." It wants to hear "here's the exposure in dollars, here's what we've closed, here's what's left, here's what I need." Translate every legal fact into business language:</p>
+        <ul>
+          <li><strong>Lead with exposure, not statute.</strong> "An un-notified breach can cost up to S$1M or 10% of SG turnover, plus the customers we'd lose" beats quoting the section number.</li>
+          <li><strong>Show the trend, not the detail.</strong> Where were we six months ago, where are we now, on the maturity score (Session 7). Boards move on direction of travel.</li>
+          <li><strong>Make the ask concrete.</strong> Headcount, budget, or a decision - one slide, three bullets. Never leave the board wondering what you needed from them.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          The board report is your independence made visible. Reporting to the top (Session 1) only protects you if you actually use the channel - and use it in their language, so the risk you see becomes a risk they own.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Keeping the program alive - metrics and cadence<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Day 91 is where most programs quietly die - the crisis passed, attention moved on. A live program runs on a small set of metrics reported on a fixed cadence:</p>
+        <table class="clean">
+          <thead><tr><th>Metric</th><th>What it tells the board</th></tr></thead>
+          <tbody>
+            <tr><td>% datasets in the RoPA with an owner</td><td>Coverage - how much of the estate is actually governed.</td></tr>
+            <tr><td>DSARs handled within the deadline</td><td>The program works for real people, not just on paper.</td></tr>
+            <tr><td>Open high risks / overdue DPIAs</td><td>Where the next headline could come from.</td></tr>
+            <tr><td>Maturity score, trended</td><td>Are we climbing off "conceptual" (Session 7) or stalling?</td></tr>
+          </tbody>
+        </table>
+        <p>Pair the metrics with a cadence: a monthly DPO update, a quarterly risk review with the council, an annual board report and audit. The cadence is what turns a heroic first 90 days into a program that outlives the DPO who started it.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ CAPSTONE BUILD-ALONG ============ -->
+  <section class="section" id="build">
+    <div class="section-kicker">
+      <span class="klabel">Capstone build-along · assemble Himalaya's program</span>
+      <h2>Assemble the program-on-a-page <span class="tag demo">★ 19 min · on Himalaya</span></h2>
+    </div>
+    <p class="lede">The finale. Everything you built across seven sessions comes onto one page, the AI copilot gets its DPIA, and you write the one slide Mara takes to the board. This is the artefact a real DPO produces at the end of a first program cycle - and the thing you'll reproduce for your own org as your final homework.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - six months on. The catalog + RoPA exist (S3), marketing runs consent + DNC checks (S4), a breach runbook is drilled (S5), retention + transfer registers are live (S6), and the operating model - owners, stewards, council, DPO office - is stood up with a maturity score that started low (S7). Now Mara wants an AI copilot that profiles consumers to auto-suggest offers, and she wants the whole picture on one slide for next week's board. That's your build.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>Pull the S1-7 outputs into a program-on-a-page.</strong> One page, seven blocks: data landscape + RoPA · consent/DNC fix · breach runbook · retention/transfer · operating model · maturity score · (this session) the DPIA. Each block: what it is, its status, its owner.</p></div>
+      <div class="step"><p><strong>Run a lightweight DPIA on the AI copilot.</strong> Five moves from Part 1: describe (profiling 8M consumers incl. health notes) → assess necessity → identify risks → mitigations (exclude health data, fresh consent, keep in-region) → sign-off with residual risk noted.</p></div>
+      <div class="step"><p><strong>Write the one-slide board summary.</strong> Use the canon narrative as the spine: "Stop the bleeding, see the data, build the machine, govern the AI bet." Six months of work, four phrases the board remembers.</p></div>
+      <div class="step"><p><strong>List the top 3 residual risks.</strong> The honest ones still open - e.g. cross-border transfer of health data to the US vendor, consent that predates AI profiling, ex-clients' data not yet purged. Name them; don't bury them.</p></div>
+      <div class="step"><p><strong>State the ask.</strong> One line: the headcount, budget, or decision you need from the board to close the top risk. A program-on-a-page with no ask is a status update, not leadership.</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the program assembly prompt</span>You are helping me, the Data Protection Officer, assemble a one-page governance program and board talking points at the end of my first cycle.
+
+Here are the components I built, session by session:
+- Data landscape + Record of Processing (RoPA), datasets classified
+- Consent + purpose fix + Do Not Call register check for marketing
+- Breach response runbook (assess, notify PDPC, notify individuals)
+- Retention schedule + cross-border transfer register (EU -&gt; SG -&gt; US)
+- Operating model: data owners, stewards, governance council, DPO office
+- Maturity score (started low / "conceptual")
+- A DPIA on a proposed AI copilot that profiles consumers (incl. some health data)
+
+Produce:
+1. A one-page DPO program summary: a table of the components above with columns status | owner | one-line what-it-does
+2. Board talking points organised under the narrative "Stop the bleeding, see the data, build the machine, govern the AI bet" - each in business-risk terms, not legalese
+3. The top 3 residual risks, each with one mitigation
+4. One concrete ask for the board (headcount, budget, or a decision)
+
+Use ONLY what I gave you. Flag anything you'd need to confirm as an open question rather than inventing it.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Describe the shape of the AI copilot's data to your practice chat - "profiles behaviour and purchase history, some health notes" - never a real consumer record. The DPIA you're modelling is exactly a test of whether that health data should be in the model at all; don't leak it into your tooling while assessing it.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Final homework</span>
+      <h2>Try it yourself - your own program <span class="tag exercise">◐ 45-60 min total</span></h2>
+    </div>
+    <ul>
+      <li>Produce <strong>your own org's program-on-a-page</strong>: the seven blocks (landscape/RoPA, consent, breach, lifecycle, operating model, maturity, DPIA) with a status and owner for each. Blank blocks are findings - they tell you where the program isn't built yet.</li>
+      <li>Draft your <strong>first-90-days plan</strong> for one real team you touch, using see-the-data / stop-the-bleeding / build-the-machine. Be honest about what you'd sequence first and why.</li>
+      <li>Pick one high-risk activity in your org (an AI feature, a new data-sharing deal) and sketch a <strong>one-page DPIA</strong> on it using the five moves.</li>
+      <li>Write the <strong>one-slide board summary</strong> for your program in business-risk terms, ending with a single concrete ask.</li>
+      <li>Optional, for the credential path: pursue <strong>IAPP CIPP/E + CIPM</strong> - the recognised DPO training combination this course maps to.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This capstone assembles the working content taught across the whole course. Certification exams and legal advice on specific matters stay with their official sources - this page makes you fluent in the body of knowledge and honest about where deeper depth lives.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">DPIA - data protection impact assessment</span><span class="note">Part 1 · run on the AI copilot bet; GDPR Art. 35 + PDPC good practice</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Accountability - demonstrate compliance</span><span class="note">Part 2 · policies / complaints process / public DPO contact (pdpc.gov.sg; GDPR Art. 5(2))</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">DPO first-90-days plan</span><span class="note">Part 3 · see-the-data / stop-the-bleeding / build-the-machine</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Board-level reporting</span><span class="note">Part 3 · risk in business terms, not legalese</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Assemble S1-7 outputs into one program</span><span class="note">Build-along · program-on-a-page + board summary</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">1 · When is a DPIA the right tool to reach for?</p>
+      <button class="qopt" type="button">A · For every processing activity, no matter how routine</button>
+      <button class="qopt" type="button">B · Only after a breach has already happened</button>
+      <button class="qopt" type="button">C · Before high-risk processing - like an AI copilot that profiles consumers</button>
+      <p class="qwhy">A DPIA runs before high-risk processing (profiling, large-scale sensitive data, new tech) - not for every activity, and not as an after-the-fact clean-up.</p>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">2 · What does the Accountability Obligation actually demand?</p>
+      <button class="qopt" type="button">A · A sincere assertion that the company takes privacy seriously</button>
+      <button class="qopt" type="button">B · The ability to demonstrate compliance with evidence, on request</button>
+      <button class="qopt" type="button">C · A one-time policy document filed at incorporation</button>
+      <p class="qwhy">Accountability = demonstrate, don't assert. You hold the evidence stack - policies, RoPA, DPO contact, complaints process, logs - ready to prove it.</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · How should a DPO frame the program for the board?</p>
+      <button class="qopt" type="button">A · As business risk and money, with a concrete ask</button>
+      <button class="qopt" type="button">B · By quoting the relevant PDPA section numbers in full</button>
+      <button class="qopt" type="button">C · As a technical audit of the Redshift access controls</button>
+      <p class="qwhy">Boards act on exposure, trend, and a clear ask - not statute numbers or engineering detail. Translate the legal fact into business language.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>The DPO's toolkit - all 8 sessions <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>Governance + the DPO (S1)</b><span>Deciding, not doing. PDPA makes a DPO mandatory for every SG org; the role advises and monitors, independently.</span></div>
+      <div class="cheat-item"><b>The two rulebooks (S2)</b><span>PDPA's 11 obligations (home law) + GDPR's 7 principles, 6 bases, 8 rights (the mirror). Know which applies where.</span></div>
+      <div class="cheat-item"><b>See the data (S3)</b><span>RoPA + data map + classification (PII / sensitive / prescribed). You can't govern what you can't see.</span></div>
+      <div class="cheat-item"><b>Consent, purpose &amp; DNC (S4)</b><span>Real consent + purpose limitation + the Do Not Call register check before any marketing blast.</span></div>
+      <div class="cheat-item"><b>Protection &amp; breach (S5)</b><span>Reasonable security; assess in 30 days, notify PDPC in 3 (GDPR: 72h). Notifiable if significant harm OR &gt;=500 people.</span></div>
+      <div class="cheat-item"><b>Lifecycle (S6)</b><span>Accuracy, retention + disposal, cross-border transfer safeguards, and handling access / correction requests.</span></div>
+      <div class="cheat-item"><b>Operating model + maturity (S7)</b><span>Policies, decision rights, owners / stewards / council, DPO office - scored on a maturity model and trended.</span></div>
+      <div class="cheat-item"><b>Stand up the program (S8)</b><span>DPIA for high-risk bets, accountability = demonstrate not assert, first-90-days plan, board report in business terms.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 8 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="07-operating-model.html">← Prev: The operating model</a> &nbsp;·&nbsp; <a href="../index.html">Back to all sessions →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 3 · Know your data: inventory, mapping, classification - learn data governance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-data-governance-with-phoebe</a> / Session 3 of 8</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Data Governance with Phoebe · Session 3 of 8</div>
+    <h1>Know your <span class="accent">data</span></h1>
+    <p class="sub">Inventory, mapping, classification. You cannot govern what you cannot see - so today you make Himalaya's invisible personal data visible, with a Record of Processing, a data-flow map, and a classification scheme.</p>
+    <div class="chip-row">
+      <span class="chip level">🟡 Building up</span>
+      <span class="chip audience">DA · DE · DS · AI</span>
+      <span class="chip audience">DPO track</span>
+      <span class="chip audience">Catalog + RoPA</span>
+      <span class="chip time">45 min live + self-study depth</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-3 · Welcome</span>
+      <span class="a2" style="flex:4">3-23 · Concepts (live cards)</span>
+      <span class="a3" style="flex:4">23-42 · Build-along on Himalaya</span>
+      <span class="a4" style="flex:1">42-45 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>You cannot govern what you cannot see</h2>
+    </div>
+    <p class="lede">Session 2 gave you the obligations. But an obligation you can't locate in your own systems is a promise you can't keep. Right now Himalaya cannot answer the regulator's simplest question - "what personal data do you hold, where, and why?" - because its PII is scattered across <strong>40+ Redshift schemas and 3 SaaS tools with no catalog</strong>. Today is the visibility session. We build the three artifacts that turn "it's all in the warehouse somewhere" into a defensible, searchable, current picture: a <strong>Record of Processing (RoPA)</strong>, a <strong>data-flow map</strong> with classification, and the <strong>metadata layer</strong> (catalog, glossary, lineage) that keeps it all findable.</p>
+    <div class="legend">
+      <span class="pill solid">Live - presented in session</span>
+      <span class="pill light">Self-study - read after class</span>
+      <span class="pill peach">★ Do it now on Himalaya</span>
+      <span class="pill inkpill">PDPA-primary · GDPR mirror</span>
+    </div>
+    <div class="callout win">
+      <strong>★ What you walk out with today</strong>
+      A clear picture of what a RoPA is and how to build one row by row, a classification scheme that sorts every dataset into a sensitivity tier, a data-flow map that traces personal data across systems, and the three metadata capabilities - catalog, glossary, lineage - that make you able to answer questions in minutes instead of weeks. Then a starter RoPA for Himalaya's five biggest data stores.
+    </div>
+  </section>
+
+  <!-- ============ PART 1: RoPA ============ -->
+  <section class="section" id="ropa">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers PDPA + GDPR record-keeping (RoPA)</span>
+      <h2>The Record of Processing (RoPA) <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">The <strong>Record of Processing Activities</strong> is the DPO's foundational artifact. It's the master inventory of everything your organisation does with personal data - one row per processing activity, capturing the facts a regulator (and you) will ask for. Under the GDPR (Article 30) it's an explicit obligation for many organisations; under the PDPA the Accountability Obligation drives the same practice. Either way: no RoPA, no real visibility.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomy of a RoPA row showing its eight fields">
+        <style>
+          .rpF { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .rpFd { font: 700 13px Inter, sans-serif; fill: #12232B; }
+          .rpX { font: 400 11px Inter, sans-serif; fill: #5B7078; }
+          .rpH { font: 700 15px Inter, sans-serif; fill: #12232B; }
+          .rpN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <text class="rpH" x="20" y="26">One RoPA row = one processing activity, described by eight fields</text>
+        <rect x="20" y="42" width="200" height="52" rx="9" fill="#0B3B4A"/>
+        <text class="rpF" x="34" y="66">Activity</text><text x="34" y="84" style="font:400 10px Inter,sans-serif;fill:#C7EBEF;">what you do</text>
+        <rect x="228" y="42" width="200" height="52" rx="9" fill="#0E7490"/>
+        <text class="rpF" x="242" y="66">Data categories</text><text x="242" y="84" style="font:400 10px Inter,sans-serif;fill:#C7EBEF;">which fields</text>
+        <rect x="436" y="42" width="200" height="52" rx="9" fill="#0E7490"/>
+        <text class="rpF" x="450" y="66">Data subjects</text><text x="450" y="84" style="font:400 10px Inter,sans-serif;fill:#C7EBEF;">whose data</text>
+        <rect x="644" y="42" width="216" height="52" rx="9" fill="#1E90A8"/>
+        <text class="rpF" x="658" y="66">Purpose</text><text x="658" y="84" style="font:400 10px Inter,sans-serif;fill:#C7EBEF;">why you hold it</text>
+        <rect x="20" y="104" width="200" height="52" rx="9" fill="#1E90A8"/>
+        <text class="rpF" x="34" y="128">Lawful basis</text><text x="34" y="146" style="font:400 10px Inter,sans-serif;fill:#C7EBEF;">consent/contract</text>
+        <rect x="228" y="104" width="200" height="52" rx="9" fill="#A5DDE4"/>
+        <text class="rpFd" x="242" y="128">Recipients</text><text x="242" y="146" style="font:400 10px Inter,sans-serif;fill:#12232B;">who else sees it</text>
+        <rect x="436" y="104" width="200" height="52" rx="9" fill="#A5DDE4"/>
+        <text class="rpFd" x="450" y="128">Retention</text><text x="450" y="146" style="font:400 10px Inter,sans-serif;fill:#12232B;">how long kept</text>
+        <rect x="644" y="104" width="216" height="52" rx="9" fill="#C7EBEF"/>
+        <text class="rpFd" x="658" y="128">Transfers</text><text x="658" y="146" style="font:400 10px Inter,sans-serif;fill:#12232B;">cross-border hops</text>
+        <text class="rpX" x="20" y="196">Fill these eight for every activity and you can answer any regulator question by reading down a column.</text>
+        <rect x="20" y="256" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="rpN" x="44" y="268">The RoPA is a living record - it changes every time Himalaya adds a data source, vendor, or purpose.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the eight fields that make up a single RoPA row</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What a RoPA is and why it's foundational<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A RoPA is a structured inventory: <strong>one row per processing activity</strong>, each row answering the same eight questions. It is the artifact every other governance activity depends on - you can't build a retention schedule, a transfer register, or a breach assessment without first knowing what activities exist and what data they touch.</p>
+        <ul>
+          <li>It's the DPO's <strong>single source of truth</strong> for "what do we do with personal data." When Mara (CEO) or the PDPC asks, you read from the RoPA, not from memory.</li>
+          <li>It's <strong>activity-centric, not system-centric</strong>. One system (Redshift) hosts many activities; one activity (marketing) can span several systems. You inventory the <em>activities</em>.</li>
+          <li>It directly satisfies part of the <strong>Accountability Obligation</strong> - being able to demonstrate, on paper, what you're doing and why.</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p><strong>Himalaya's first RoPA row.</strong> Activity: "send booking confirmations." Data categories: consumer name, phone, booking details. Subjects: end consumers. Purpose: fulfil the booking. Lawful basis: contract (deemed consent under PDPA). Recipients: the SMS gateway. Retention: 12 months. Transfers: none. One row, eight facts - and suddenly a fuzzy "we text people stuff" becomes something you can defend or fix.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Build it incrementally, not perfectly<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>New DPOs freeze trying to build the perfect complete RoPA on day one. Don't. A RoPA is a <strong>living record</strong> you grow and correct over time - a wrong-but-written row beats a perfect-but-imagined one.</p>
+        <ul>
+          <li>Start with the <strong>highest-risk activities</strong> - the ones from your Session 2 top-3 (marketing, the US analytics feed, keep-everything retention).</li>
+          <li>Interview the <strong>activity owners</strong>: Deven (CPO) for product data, Ilsa (CRO) for marketing, Raj (Head of Data) for the warehouse and pipelines.</li>
+          <li>Mark unknowns as <strong>open questions</strong> in the row rather than leaving it blank - a documented gap is itself governance progress.</li>
+          <li>Set a <strong>review cadence</strong>. The RoPA drifts the moment engineering ships a new source; a quarterly refresh keeps it honest.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          The RoPA is never "done." Treat it like a codebase, not a report: version it, review it, and expect every new feature or vendor to require a new or edited row. A stale RoPA is worse than none, because it gives false confidence.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Controller vs processor entries - Himalaya is both<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The controller/processor roles from Session 1 shape your RoPA. The duties and the record differ depending on which hat Himalaya wears for a given activity - and in a B2B2C platform, it wears both.</p>
+        <table class="clean">
+          <thead><tr><th>Role for the activity</th><th>What the RoPA row captures · Himalaya example</th></tr></thead>
+          <tbody>
+            <tr><td>Himalaya as controller</td><td>Full detail: purposes, lawful basis, retention it decides. Its own platform analytics and marketing to consumers.</td></tr>
+            <tr><td>Himalaya as processor</td><td>Whose instructions it acts on, and the controller it serves. Hosting a wellness client's consumer health notes on that client's behalf.</td></tr>
+          </tbody>
+        </table>
+        <p>Keep <strong>separate RoPA entries</strong> for controller activities and processor activities. When the PDPC or a client asks "on what basis do you hold this?", the answer for processor data is "on our client's instructions, under our contract" - a very different answer from your controller data, and one you must be able to point to.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2: MAPPING & CLASSIFICATION ============ -->
+  <section class="section" id="classify">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers data mapping + classification</span>
+      <h2>Data mapping &amp; classification <span class="tag concept">7 min live</span></h2>
+    </div>
+    <p class="lede">A RoPA tells you what activities exist. <strong>Classification</strong> tells you how much each dataset matters, and <strong>data-flow mapping</strong> shows you where it goes. Together they turn a flat inventory into a risk-ranked map - the thing that tells you which controls to put where.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Data-flow map: source systems to warehouse to downstream vendors">
+        <style>
+          .flH { font: 700 13px Inter, sans-serif; fill: #FFFFFF; }
+          .flHd { font: 700 13px Inter, sans-serif; fill: #12232B; }
+          .flL { font: 700 12px Inter, sans-serif; fill: #12232B; }
+          .flX { font: 400 10px Inter, sans-serif; fill: #5B7078; }
+          .flA { stroke: #B4CBD1; stroke-width: 2; fill: none; marker-end: url(#flArrow); }
+          .flN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <defs>
+          <marker id="flArrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#B4CBD1"/></marker>
+        </defs>
+        <text class="flL" x="20" y="26">Source systems</text>
+        <rect x="20" y="38" width="160" height="34" rx="8" fill="#7DD3DC"/><text class="flHd" x="34" y="60">Product modules</text>
+        <rect x="20" y="80" width="160" height="34" rx="8" fill="#7DD3DC"/><text class="flHd" x="34" y="102">CRM SaaS</text>
+        <rect x="20" y="122" width="160" height="34" rx="8" fill="#7DD3DC"/><text class="flHd" x="34" y="144">Support tool</text>
+        <text class="flL" x="360" y="26">Warehouse</text>
+        <rect x="360" y="70" width="170" height="52" rx="10" fill="#0B3B4A"/><text class="flH" x="374" y="94">Redshift</text><text x="374" y="112" style="font:400 10px Inter,sans-serif;fill:#C7EBEF;">40+ schemas</text>
+        <text class="flL" x="690" y="26">Downstream</text>
+        <rect x="690" y="46" width="170" height="34" rx="8" fill="#0E7490"/><text class="flH" x="704" y="68">BI / dashboards</text>
+        <rect x="690" y="88" width="170" height="34" rx="8" fill="#F59E0B"/><text x="704" y="110" style="font:700 13px Inter,sans-serif;fill:#3A2400;">US analytics vendor</text>
+        <rect x="690" y="130" width="170" height="34" rx="8" fill="#0E7490"/><text class="flH" x="704" y="152">Marketing SaaS (US)</text>
+        <line class="flA" x1="180" y1="55" x2="356" y2="88"/>
+        <line class="flA" x1="180" y1="97" x2="356" y2="96"/>
+        <line class="flA" x1="180" y1="139" x2="356" y2="104"/>
+        <line class="flA" x1="530" y1="88" x2="686" y2="63"/>
+        <line class="flA" x1="530" y1="96" x2="686" y2="105"/>
+        <line class="flA" x1="530" y1="104" x2="686" y2="147"/>
+        <rect x="20" y="204" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="flN" x="44" y="216">The warm box is the cross-border risk: EU consumer data lands in SG Redshift, then flows to a US vendor.</text>
+        <text class="flX" x="20" y="248">Map the flow before you classify - you can't protect a hop you haven't drawn.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - Himalaya's personal-data flow, source to warehouse to downstream</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Classify by sensitivity tier<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Reuse the ladder from Session 1, now as an operational label you stamp on every dataset. Classification is what lets you apply <em>proportionate</em> controls - you don't guard a public metrics table the way you guard health notes.</p>
+        <table class="clean">
+          <thead><tr><th>Tier</th><th>What lands here · Himalaya example</th></tr></thead>
+          <tbody>
+            <tr><td>Public</td><td>Freely shareable. Aggregate platform stats, marketing content.</td></tr>
+            <tr><td>Internal</td><td>Business data, not personal. Contract terms, client billing config.</td></tr>
+            <tr><td>Personal</td><td>Data about an identifiable person. Consumer name, email, phone, purchase history.</td></tr>
+            <tr><td>Sensitive / prescribed</td><td>Highest duty. Wellness health notes, payment tokens, NRIC-style national IDs, credentials.</td></tr>
+          </tbody>
+        </table>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Raj's team labels a schema "analytics" and treats it as low-stakes. But it carries a <code>consumer_id</code> joinable to email one schema over, plus a copy of wellness-client health notes for a churn model. That's not internal data - it's <strong>sensitive/prescribed</strong>, and mislabelling it is why the near-miss export was so damaging. Classification catches this before a breach does.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Data-flow mapping - trace it across systems<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A data-flow map follows a category of personal data from where it enters to everywhere it ends up. It's the map that makes transfer and retention risks visible - a field you never drew is a field you can't govern.</p>
+        <ul>
+          <li>Pick a data category (say, consumer contact details) and <strong>trace it end to end</strong>: collected in the product module → landed in Redshift → copied to the marketing SaaS → sent to the US analytics vendor.</li>
+          <li>Mark every <strong>cross-border hop</strong> and every <strong>third-party recipient</strong> - these are your Transfer Limitation and disclosure points.</li>
+          <li>Note where data <strong>duplicates</strong>. Copies multiply risk: each place the data rests is another place it can leak or must be deleted.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>Say it right</strong>
+          The flow map and the RoPA are two views of the same truth. The RoPA is the list; the flow map is the picture. Build them together - drawing the flow almost always surfaces a recipient or a hop the RoPA row forgot.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>How classification drives controls<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Classification is not paperwork for its own sake - the tier a dataset carries decides the controls it earns. This is the bridge between today's mapping and the protection work in Sessions 5 and 6.</p>
+        <table class="clean">
+          <thead><tr><th>If the tier is...</th><th>The controls that should follow</th></tr></thead>
+          <tbody>
+            <tr><td>Personal</td><td>Access on need-to-know, retention limit, logged access, standard encryption.</td></tr>
+            <tr><td>Sensitive / prescribed</td><td>All of the above, plus masking/tokenisation, tighter access, shorter retention, and a lower breach-notification threshold.</td></tr>
+            <tr><td>Any tier crossing a border</td><td>Transfer safeguards (comparable protection / SCCs) before the data moves.</td></tr>
+          </tbody>
+        </table>
+        <p>So classification isn't an academic label - it's the input that tells your engineers <em>which</em> masking, <em>which</em> access rule, and <em>how long</em> to retain. A dataset with no tier is a dataset with no defined controls, which is exactly how the near-miss happened.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3: METADATA LAYER ============ -->
+  <section class="section" id="metadata">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers catalog / glossary / lineage (tool-agnostic)</span>
+      <h2>The metadata layer: catalog, glossary, lineage <span class="tag concept">6 min live</span></h2>
+    </div>
+    <p class="lede">The RoPA and the flow map are only as current as the last person who updated them by hand. The <strong>metadata layer</strong> is how you scale visibility past a spreadsheet: three connected capabilities - <strong>catalog</strong>, <strong>glossary</strong>, and <strong>lineage</strong> - that make your data self-documenting. These are the DPO's power tools. We teach the capabilities, not any one vendor's screens - the tool academies (Collibra, Alation) stay official.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three connected metadata capabilities: catalog, glossary, lineage">
+        <style>
+          .mtH { font: 700 16px Inter, sans-serif; fill: #FFFFFF; }
+          .mtX { font: 400 12px Inter, sans-serif; fill: #C7EBEF; }
+          .mtXd { font: 400 12px Inter, sans-serif; fill: #5B7078; }
+          .mtA { stroke: #B4CBD1; stroke-width: 2; fill: none; }
+          .mtN { font: 600 14px Inter, sans-serif; fill: #3A2400; }
+        </style>
+        <rect x="40" y="40" width="230" height="110" rx="14" fill="#0B3B4A"/>
+        <text class="mtH" x="60" y="78">Catalog</text>
+        <text class="mtX" x="60" y="102">Searchable inventory</text>
+        <text class="mtX" x="60" y="122">of every data asset -</text>
+        <text class="mtX" x="60" y="142">"where does X live?"</text>
+        <rect x="325" y="40" width="230" height="110" rx="14" fill="#0E7490"/>
+        <text class="mtH" x="345" y="78">Glossary</text>
+        <text class="mtX" x="345" y="102">Agreed business terms</text>
+        <text class="mtX" x="345" y="122">linked to the physical</text>
+        <text class="mtX" x="345" y="142">data - "what does X mean?"</text>
+        <rect x="610" y="40" width="230" height="110" rx="14" fill="#1E90A8"/>
+        <text class="mtH" x="630" y="78">Lineage</text>
+        <text class="mtX" x="630" y="102">Column/table flow for</text>
+        <text class="mtX" x="630" y="122">impact + audit -</text>
+        <text class="mtX" x="630" y="142">"where does X go?"</text>
+        <line class="mtA" x1="270" y1="95" x2="323" y2="95"/>
+        <line class="mtA" x1="555" y1="95" x2="608" y2="95"/>
+        <text class="mtXd" x="40" y="196">Together they answer: where is it, what is it, and what breaks if it changes.</text>
+        <rect x="40" y="240" width="14" height="14" rx="3" fill="#F59E0B"/>
+        <text class="mtN" x="64" y="252">These three are the DPO's visibility tools - the automation that keeps the RoPA and flow map from going stale.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - catalog, glossary, and lineage as one connected capability</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Data catalog - the searchable inventory<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A <strong>data catalog</strong> is a searchable index of your data assets - tables, columns, dashboards, files - with descriptions, owners, and classification tags attached. Think of it as a library catalogue for the warehouse: it answers "where does consumer email live?" in seconds, across all 40+ schemas.</p>
+        <ul>
+          <li>It <strong>discovers and indexes</strong> assets automatically, so it stays closer to current than a hand-kept spreadsheet.</li>
+          <li>It's where your <strong>classification tags</strong> from Part 2 live at scale - tag once, and every downstream copy inherits the sensitivity label.</li>
+          <li>It carries <strong>ownership</strong> - the named data owner/steward for each asset (formalised in Session 7).</li>
+        </ul>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>When Tom (VP Customer Success) fields an angry consumer asking "what do you have on me?", today it's a week of Raj grepping schemas. With a catalog, you search the consumer's data category, see every asset tagged with it, and answer the access request in an afternoon. The catalog turns a fire drill into a lookup.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Business glossary - shared meaning<span class="mini">2 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A <strong>business glossary</strong> is the agreed definition of the terms your organisation uses, linked to the physical data that implements them. It closes the gap between what the business says and what the columns actually hold.</p>
+        <ul>
+          <li>It defines terms like "active consumer," "wellness client," or "prescribed data" <strong>once</strong>, so everyone means the same thing.</li>
+          <li>Each glossary term <strong>links to the physical assets</strong> in the catalog - so "health note" as a concept points to the exact columns that store one.</li>
+          <li>For a DPO it's how you make "sensitive/prescribed data" a <strong>precise, enforceable label</strong> rather than a fuzzy idea people interpret differently.</li>
+        </ul>
+        <div class="callout tip">
+          <strong>DPO instinct</strong>
+          Disagreements about compliance are often really disagreements about definitions. When Ilsa says "those consumers consented," a glossary that pins down what "consented" means for each activity ends the argument with a fact instead of a debate.
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Data lineage - flow for impact and audit<span class="mini">2 min read</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Data lineage</strong> traces data at the column and table level - where each field came from, what transformed it, and everywhere it flows downstream. It's the machine-generated version of the flow map you drew by hand in Part 2.</p>
+        <ul>
+          <li><strong>Impact analysis:</strong> before you delete or change a field, lineage shows every downstream table, dashboard, and export that depends on it - so a retention deletion doesn't silently break a report.</li>
+          <li><strong>Audit trail:</strong> when the PDPC asks "how did this consumer's data reach the US vendor?", lineage is the documented answer, hop by hop.</li>
+          <li><strong>Breach scoping:</strong> lineage lets you trace exactly which downstream copies of an exposed table exist - the difference between "we think" and "we know" during a breach (Session 5).</li>
+        </ul>
+        <p>Note the honesty rail: <strong>Collibra and Alation</strong> are the well-known platforms that provide catalog, glossary, and lineage together, but their hands-on configuration and vendor academies <strong>stay official</strong>. This course teaches the tool-agnostic capabilities so you can evaluate and direct any of them as the DPO - not operate one specific product.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ BUILD-ALONG ============ -->
+  <section class="section" id="build">
+    <div class="section-kicker">
+      <span class="klabel">Build-along · everyone builds</span>
+      <h2>Build Himalaya's RoPA + classify its datasets <span class="tag demo">★ 19 min · on Himalaya</span></h2>
+    </div>
+    <p class="lede">Time to make the invisible visible. You'll pick five of Himalaya's data stores, write a RoPA row for each, classify every dataset by tier, and decide which one you'd catalog first. This is the artifact that feeds every remaining session - the marketing fix (S4), the breach tabletop (S5), and the retention and transfer clean-up (S6) all read off this.</p>
+
+    <div class="callout example">
+      <span class="ex-pill">Your company</span>
+      <p><strong>Himalaya</strong> - B2B2C SaaS, Singapore-headquartered, 8M end consumers, 1,200 business clients. Data lives in a Redshift warehouse (40+ schemas), the product modules, a CRM SaaS, a US-hosted marketing automation SaaS, and a support tool. C-side data includes name, email, phone, address, purchase history, in-app behaviour, <strong>payment tokens</strong>, and - for wellness-vertical clients - <strong>health notes</strong>. SG clients collect NRIC-style national IDs. No catalog exists. You're the DPO, building visibility from zero.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><p><strong>Pick 5 data stores.</strong> Choose the five that matter most: the Redshift consumer schema, the marketing SaaS, the wellness-client health-notes store, the CRM, and the payment-token store. Write them down as your five RoPA rows-to-be.</p></div>
+      <div class="step"><p><strong>Write a RoPA row for each.</strong> Fill the eight fields per store: activity, data categories, data subjects, purpose, lawful basis, recipients, retention, transfers. Where you don't know, write "open question" - a documented gap counts.</p></div>
+      <div class="step"><p><strong>Classify each dataset by tier.</strong> Stamp each store: public / internal / personal / sensitive-prescribed. Most C-side stores are personal; be honest about which cross into sensitive.</p></div>
+      <div class="step"><p><strong>Flag the sensitive tier.</strong> Circle the stores holding <strong>wellness health notes</strong>, <strong>payment tokens</strong>, and <strong>NRIC-style IDs</strong>. These get the tightest controls and the lowest breach threshold - they're your protection priority.</p></div>
+      <div class="step"><p><strong>Mark controller vs processor, and pick your first catalog target.</strong> For each row note whether Himalaya is controller or processor. Then choose the <strong>one</strong> store you'd catalog first - almost always the highest-sensitivity, highest-exposure one (the health notes feeding a US-bound analytics copy).</p></div>
+    </div>
+
+    <div class="prompt-box good"><span class="label">★ Do it now - the starter RoPA prompt</span>You are helping me, a Data Protection Officer, build a starter Record of Processing Activities (RoPA) and classify datasets, under Singapore's PDPA with GDPR as a mirror.
+
+Data stores: [list 5 stores from the Himalaya summary above, or describe your own, saying what personal data each holds and roughly who the data subjects are].
+
+Produce two things:
+1. A RoPA table, one row per store, with columns: activity | data categories | data subjects | purpose | lawful basis | recipients | retention | cross-border transfers | Himalaya as controller or processor
+2. A classification column adding a sensitivity tier to each: public / internal / personal / sensitive-prescribed
+
+Then name the ONE store I should catalog first and why (hint: highest sensitivity plus widest exposure).
+
+Use ONLY what I gave you. Where a field needs confirming, write "open question" rather than inventing a value.</div>
+
+    <div class="callout tip">
+      <strong>Data tip</strong>
+      Describe the <em>shape</em> of each store ("a table of consumer emails and purchase history"), never paste real records into the chat. Classifying the shape is exactly the exercise - and modelling the Protection Obligation on your own tools is part of the DPO's job from day one.
+    </div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="exercise">
+    <div class="section-kicker">
+      <span class="klabel">Homework</span>
+      <h2>Try it yourself - this week <span class="tag exercise">◐ 30-45 min total</span></h2>
+    </div>
+    <ul>
+      <li>Build a <strong>starter RoPA for your own organisation</strong> - five stores, eight fields each. Mark the open questions honestly; you'll fill them in over the coming weeks.</li>
+      <li>Classify each of those five datasets into a <strong>sensitivity tier</strong>, and circle anything that reaches sensitive/prescribed. That's your protection priority list.</li>
+      <li>Draw a <strong>one-page data-flow map</strong> for one personal-data category you touch - collection point to every downstream copy and recipient. Mark each cross-border hop.</li>
+      <li>For one dataset, mark whether your organisation is acting as <strong>controller or processor</strong>, and write the one sentence you'd give a regulator about the basis on which you hold it.</li>
+      <li>Optional: look at how a data catalog describes assets (browse the concept, not a specific vendor's setup) and note which of your stores would benefit from being cataloged first.</li>
+    </ul>
+  </section>
+
+  <!-- ============ SOURCES COVERED ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Source material</span>
+      <h2>What this session covers</h2>
+    </div>
+    <p class="lede">This session teaches the working practice of the artifacts and capabilities below. Vendor tool configuration and certification exams stay with their official academies - this page makes you fluent in the body of knowledge, honestly flagged where depth lives elsewhere.</p>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Record of Processing (RoPA) - build one</span><span class="note">Part 1 · eight-field template + controller/processor entries</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Data mapping / data flow</span><span class="note">Part 2 · trace personal data source-to-downstream, mark every hop</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Data classification (PII / sensitive / prescribed)</span><span class="note">Part 2 · four-tier scheme driving proportionate controls</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Data catalog + business glossary (concept)</span><span class="note">Part 3 · Collibra/Alation capabilities, tool-agnostic</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Data lineage (concept)</span><span class="note">Part 3 · column/table-level impact analysis + audit</span></div>
+      <div class="covered-row"><span class="status pill light">◐</span><span class="name">Hands-on config of a specific catalog tool</span><span class="note">Part 3 · vendor academies (Collibra/Alation) stay official</span></div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions before you go 🎯 <span class="tag exercise">◐ 90 seconds</span></h2>
+    </div>
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">1 · You've written Himalaya's RoPA. When is it "done"?</p>
+      <button class="qopt" type="button">A · Once every current activity has a row - then you file it</button>
+      <button class="qopt" type="button">B · Never - it's a living record you update as sources, vendors, and purposes change</button>
+      <button class="qopt" type="button">C · When the PDPC signs off on it</button>
+      <p class="qwhy">A RoPA is a living record. Every new data source, vendor, or purpose means a new or edited row. A stale RoPA gives false confidence.</p>
+    </div>
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">2 · A table has no names, only a consumer_id, but the id maps to email one schema over. How do you classify it?</p>
+      <button class="qopt" type="button">A · Public - there are no names in the table</button>
+      <button class="qopt" type="button">B · Internal - it's just analytics</button>
+      <button class="qopt" type="button">C · Personal (at least) - pseudonymised data is still in scope</button>
+      <p class="qwhy">Pseudonymised data (reversible with a key) is still personal data. If it also carries health notes, it's sensitive/prescribed - never "internal."</p>
+    </div>
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">3 · Before deleting a field for retention, what does data lineage give you?</p>
+      <button class="qopt" type="button">A · Impact analysis - every downstream table, dashboard, and export that depends on it</button>
+      <button class="qopt" type="button">B · The individual's consent record</button>
+      <button class="qopt" type="button">C · The financial penalty for keeping it too long</button>
+      <p class="qwhy">Lineage traces column/table flow, so it shows the downstream impact of a change - so a retention deletion doesn't silently break a report or export.</p>
+    </div>
+    <p class="quiz-score"></p>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="cheat" id="cheatsheet">
+    <h3>Session 3 cheat sheet <span>· pin this</span></h3>
+    <div class="grid-2">
+      <div class="cheat-item"><b>RoPA = foundational artifact</b><span>One row per processing activity, eight fields: activity, categories, subjects, purpose, basis, recipients, retention, transfers.</span></div>
+      <div class="cheat-item"><b>Build it incrementally</b><span>Living record, not a one-time report. Start with highest-risk activities; mark unknowns as open questions.</span></div>
+      <div class="cheat-item"><b>Controller vs processor rows</b><span>Himalaya is both. Keep separate entries; the basis you cite differs per role.</span></div>
+      <div class="cheat-item"><b>Four sensitivity tiers</b><span>Public → internal → personal → sensitive/prescribed. The tier decides the controls.</span></div>
+      <div class="cheat-item"><b>Pseudonymised = in scope</b><span>No names but a join key to identity = still personal data. Never label it "internal."</span></div>
+      <div class="cheat-item"><b>Flow map + RoPA together</b><span>The RoPA is the list; the flow map is the picture. Drawing the flow surfaces forgotten hops.</span></div>
+      <div class="cheat-item"><b>Catalog · glossary · lineage</b><span>Where is it · what does it mean · where does it go. The DPO's visibility tools at scale.</span></div>
+      <div class="cheat-item"><b>Lineage = impact analysis</b><span>Shows downstream dependencies before you change/delete, and traces breach scope. Tool academies stay official.</span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span>Session 3 of 8 · learn-data-governance-with-phoebe · by Phoebe Fu</span>
+    <span><a href="02-the-law.html">← Prev: The law you enforce</a> &nbsp;·&nbsp; <a href="04-consent-and-marketing.html">Next: Consent &amp; marketing →</a></span>
+  </footer>
+
+</main>
+
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>
