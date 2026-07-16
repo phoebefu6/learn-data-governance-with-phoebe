@@ -45,6 +45,17 @@
   .path .pstep:hover { background: var(--indigo); color: #fff; }
   .path .parr { color: var(--faint); font-weight: 700; }
 
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff, #F6FAFD); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-link:hover .mm-node rect { filter: brightness(1.06); }
+  .mm-edge { transition: opacity .15s ease; }
+
   .noteband { margin-top: 2.4rem; background: var(--indigo-50); border: 1px solid var(--hairline); border-radius: var(--radius); padding: 1rem 1.2rem; font-size: .9rem; color: var(--ink); }
   .noteband b { color: var(--indigo); }
 </style>
@@ -66,6 +77,12 @@
 </header>
 
 <main class="wrap">
+  <section class="section mm-section">
+    <h2>The knowledge map 🧠</h2>
+    <p class="mm-lede">The whole course at a glance - hover a session to spotlight its concepts, click any node to jump in.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+
   <section class="section">
     <div class="course-grid">
       <a class="course-card" href="courses/01-foundations.html" style="--diff:#34D399">
@@ -174,6 +191,55 @@
   </footer>
 </main>
 
+<script>
+window.MINDMAP_DATA = {
+  title: "Data\nGovernance",
+  centerColor: "#0B3B4A",
+  sessions: [
+    { label: "Governance\n& the DPO", href: "courses/01-foundations.html", color: "#34D399",
+      concepts: [
+        { label: "DAMA wheel", href: "courses/01-foundations.html" },
+        { label: "The DPO role", href: "courses/01-foundations.html" },
+        { label: "Personal data", href: "courses/01-foundations.html" } ] },
+    { label: "The law you\nenforce", href: "courses/02-the-law.html", color: "#FBBF24",
+      concepts: [
+        { label: "11 PDPA duties", href: "courses/02-the-law.html" },
+        { label: "GDPR mirror", href: "courses/02-the-law.html" },
+        { label: "Lawful bases", href: "courses/02-the-law.html" } ] },
+    { label: "Know your\ndata", href: "courses/03-know-your-data.html", color: "#FBBF24",
+      concepts: [
+        { label: "RoPA record", href: "courses/03-know-your-data.html" },
+        { label: "Classification", href: "courses/03-know-your-data.html" },
+        { label: "Catalog & lineage", href: "courses/03-know-your-data.html" } ] },
+    { label: "Consent &\nmarketing", href: "courses/04-consent-and-marketing.html", color: "#FB923C",
+      concepts: [
+        { label: "Consent", href: "courses/04-consent-and-marketing.html" },
+        { label: "Purpose limit", href: "courses/04-consent-and-marketing.html" },
+        { label: "DNC registry", href: "courses/04-consent-and-marketing.html" } ] },
+    { label: "Protection\n& breach", href: "courses/05-protection-and-breach.html", color: "#FB923C",
+      concepts: [
+        { label: "Security", href: "courses/05-protection-and-breach.html" },
+        { label: "Breach clock", href: "courses/05-protection-and-breach.html" },
+        { label: "Notify & fix", href: "courses/05-protection-and-breach.html" } ] },
+    { label: "Data\nlifecycle", href: "courses/06-data-lifecycle.html", color: "#FB923C",
+      concepts: [
+        { label: "Retention", href: "courses/06-data-lifecycle.html" },
+        { label: "Transfer rules", href: "courses/06-data-lifecycle.html" },
+        { label: "Access rights", href: "courses/06-data-lifecycle.html" } ] },
+    { label: "Operating\nmodel", href: "courses/07-operating-model.html", color: "#F87171",
+      concepts: [
+        { label: "Stewardship", href: "courses/07-operating-model.html" },
+        { label: "DCAM maturity", href: "courses/07-operating-model.html" },
+        { label: "Data quality", href: "courses/07-operating-model.html" } ] },
+    { label: "Capstone:\nthe program", href: "courses/08-capstone.html", color: "#F87171",
+      concepts: [
+        { label: "DPIA", href: "courses/08-capstone.html" },
+        { label: "Accountability", href: "courses/08-capstone.html" },
+        { label: "First 90 days", href: "courses/08-capstone.html" } ] }
+  ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
 <script src="assets/app.js?v=1"></script>
 </body>
 </html>
